@@ -1,0 +1,6 @@
+copyright	zengfr	site:http://github.com/zengfr/romhack
+
+003234	move.w  ($6,A6), D0		
+00325E	move    #$1, CCR		[1p+ 1, boss+1, container+ 1, enemy+ 1, weapon+ 1]
+copyright	zengfr	site:http://github.com/zengfr/romhack
+

@@ -1,0 +1,118 @@
+copyright	zengfr	site:http://github.com/zengfr/romhack
+
+00042C	dbra    D0, $42a		
+004D3A	move.l  D0, (A4)+		
+004D3C	move.l  D0, (A4)+		
+004D3E	move.l  D0, (A4)+		
+0065C6	move.w  ($8,A6), ($8,A0)		[item+26]
+0065CC	move.w  ($c,A6), ($c,A0)		[item+ 8]
+0065D2	move.w  ($10,A6), ($10,A0)		[item+ C]
+0065D8	move.w  A6, ($70,A0)		[item+10]
+0065DC	move.w  A0, ($b4,A6)		[item+70]
+0065E0	move.w  A6, -(A7)		[123p+ B4]
+009F86	lea     ($22,PC) ; ($9faa), A0		[item+70]
+009F90	bne     $9f98		[123p+  3]
+011116	beq     $11124		[item+A0]
+011120	bne     $1112c		[item+A0]
+011128	move.b  D0, ($59,A6)		[item+70]
+01112C	move.b  (A4)+, D0		[123p+ 59]
+011252	bra     $1128e		[enemy+24]
+011266	move.b  ($80,A6), D0		[item+70]
+01126A	cmpi.b  #$f, D0		[123p+ 80]
+016940	tst.b   ($82,A0)		[item+70]
+016944	bne     $16b34		
+016A5E	tst.b   ($82,A0)		[item+70]
+016A62	bne     $16b34		
+019862	move.b  #$4, ($5,A0)		[item+ 2]
+019868	clr.w   ($6,A0)		[item+ 5]
+01986C	clr.b   ($23,A0)		
+019870	move.w  A6, ($70,A0)		
+019874	cmpi.b  #$2, ($ba,A6)		[item+70]
+01987A	bne     $198b4		[123p+ BA]
+024772	jsr     $120e.l		[item+B2]
+02477E	rts		[item+B4]
+024784	tst.b   ($0,A0)		[item+70]
+024788	beq     $247ea		[123p+  0]
+024824	move.b  D0, ($af,A6)		
+024828	moveq   #$10, D0		
+024834	move.b  ($c5,A0), ($ae,A6)		[item+70]
+02483A	move.b  #$1, ($51,A6)		[item+AE]
+024840	move.b  #$2, ($6,A6)		[item+51]
+02495E	bne     $2496c		[item+ 6]
+02496C	movea.w ($70,A6), A0		[item+ 6]
+024970	tst.b   ($0,A0)		[item+70]
+024974	beq     $249a4		[123p+  0]
+024A2E	tst.b   ($0,A0)		[item+70]
+024A32	beq     $24a62		[123p+  0]
+025146	movea.l ($4,PC,D0.w), A0		[item+ 5]
+02517C	tst.b   ($0,A0)		[item+70]
+025180	beq     $251a0		[123p+  0]
+0252D8	beq     $2535c		[item+A0]
+0252E0	tst.b   ($c4,A0)		[item+70]
+02596C	move.b  ($c4,A0), D0		[item+70]
+025970	beq     $259b2		[123p+ C4]
+025BBC	addq.b  #1, ($67be,A5)		[item+5E]
+025BC6	jmp     $49ca.l		[item+B0]
+025BD0	move.b  ($c4,A0), D0		[item+70]
+025BD4	beq     $25c54		[123p+ C4]
+025C50	addq.b  #1, ($67be,A5)		[item+5E]
+025C5A	jmp     $49ca.l		[item+B0]
+025CC0	move.b  ($c4,A0), D0		[item+70]
+025CC4	bne     $25cce		[123p+ C4]
+025D3C	move.b  #$8, ($b2,A6)		[item+25]
+025D42	move.b  D0, ($50,A6)		[item+B2]
+025D46	movea.w ($70,A6), A0		
+025D4A	move.w  D0, ($b6,A0)		[item+70]
+025D4E	moveq   #$8, D0		
+02628E	move.w  ($10,A6), ($10,A0)		[item+ C]
+026294	move.w  ($14,A6), ($14,A0)		[item+10]
+02629A	move.b  ($51,A6), ($51,A0)		[item+14]
+0262A0	move.w  ($70,A6), ($70,A0)		[item+51]
+0262A6	move.b  ($58,A6), ($58,A0)		[item+70]
+0262AC	moveq   #$0, D0		[item+58]
+026438	move.w  D2, ($10,A0)		[item+ C]
+02643C	move.w  D3, ($26,A0)		[item+10]
+026440	move.b  ($24,A6), ($24,A0)		[item+26]
+026446	move.w  ($70,A6), ($70,A0)		[item+24]
+02644C	move.b  ($a9,A6), ($a9,A0)		[item+70]
+026452	rts		[item+A9]
+026474	move.w  D1, ($c,A0)		[item+ 8]
+026478	move.w  D2, ($10,A0)		[item+ C]
+02647C	move.b  ($24,A6), ($24,A0)		[item+10]
+026482	move.w  ($70,A6), ($70,A0)		[item+24]
+026488	rts		[item+70]
+0264B0	move.w  D2, ($10,A0)		[item+ C]
+0264B4	move.w  D3, ($26,A0)		[item+10]
+0264B8	move.b  ($24,A6), ($24,A0)		[item+26]
+0264BE	move.w  ($70,A6), ($70,A0)		[item+24]
+0264C4	move.b  ($a9,A6), ($a9,A0)		[item+70]
+0264CA	dbra    D3, $2648c		[item+A9]
+027E00	move.w  ($10,A6), ($10,A0)		[item+ C]
+027E06	move.w  D0, ($26,A0)		[item+10]
+027E0A	move.b  ($51,A6), ($51,A0)		[item+26]
+027E10	move.w  A6, ($70,A0)		
+027E14	rts		[item+70]
+027E1A	beq     $27e34		
+028AB8	cmpi.w  #$64, ($6c,A0)		[item+70]
+028ABE	beq     $28af2		[123p+ 6C]
+029E90	move.w  ($14,A6), ($14,A0)		[item+10]
+029E96	clr.w   ($16,A0)		[item+14]
+029E9A	move.b  ($51,A6), ($51,A0)		
+029EA0	move.w  ($70,A6), ($70,A0)		[item+51]
+029EA6	move.b  ($58,A6), ($58,A0)		[item+70]
+029EAC	move.w  #$1, ($26,A0)		[item+58]
+029EB2	rts		[item+26]
+02A51E	move.w  ($c,A6), ($c,A0)		[item+ 8]
+02A524	move.w  ($10,A6), ($10,A0)		[item+ C]
+02A52A	move.w  D0, ($26,A0)		[item+10]
+02A52E	move.w  A6, ($70,A0)		[item+26]
+02A532	rts		[item+70]
+0AAACC	move.w  D0, (A0)		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+7E, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
+0AAACE	move.w  D0, ($2,A0)		
+0AAAD2	cmp.l   (A0), D0		
+0AAAD4	bne     $aaafc		
+0AAADA	cmpa.l  A0, A1		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+7E, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
+0AAAE8	move.w  D0, (A0)		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+7E, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
+0AAAF6	cmpa.l  A0, A1		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+7E, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
+copyright	zengfr	site:http://github.com/zengfr/romhack
+
