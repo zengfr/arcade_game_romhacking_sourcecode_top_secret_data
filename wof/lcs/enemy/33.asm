@@ -1,0 +1,28 @@
+copyright	zengfr	site:http://github.com/zengfr/romhack
+
+0252F8	ble     $25312		[enemy+33]
+0252FE	jsr     $1426.w		[enemy+33]
+0255F4	move.b  ($33,A0), D0		[enemy+32]
+0255F8	beq     $25606		[enemy+33]
+026AE4	move.b  ($33,A0), D0		[enemy+32]
+026AE8	beq     $26af6		[enemy+33]
+02940A	move.b  ($33,A0), D0		[enemy+32]
+02940E	beq     $2941c		[enemy+33]
+02A7D8	move.b  ($33,A0), D0		[enemy+32]
+02A7DC	beq     $2a7ea		[enemy+33]
+02B9F8	move.b  ($33,A0), D0		[enemy+32]
+02B9FC	beq     $2ba0a		[enemy+33]
+032BA6	move.b  ($33,A0), D0		[enemy+7A]
+032BAA	beq     $32bb8		[enemy+33]
+033140	beq     $33152		[enemy+33]
+0369B0	beq     $369be		[enemy+33]
+036C32	beq     $36c68		[enemy+33]
+036C4E	bra     $36c68		[enemy+33]
+036C68	tst.w   ($68,A0)		[enemy+33]
+036E12	beq     $36e22		[enemy+33]
+036F28	beq     $36f5e		[enemy+33]
+046B24	move.b  ($33,A0), D0		[enemy+7A]
+046B28	beq     $46b42		[enemy+33]
+04D3E2	beq     $4d420		[enemy+33]
+copyright	zengfr	site:http://github.com/zengfr/romhack
+

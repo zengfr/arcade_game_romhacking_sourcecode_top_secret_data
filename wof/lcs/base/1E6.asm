@@ -1,0 +1,32 @@
+copyright	zengfr	site:http://github.com/zengfr/romhack
+
+01A610	dbra    D1, $1a60e		
+02537E	move.l  A7, ($1e4,A5)		[enemy+86]
+025382	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+025400	movea.l ($1e4,A5), A7		[enemy+2A]
+025404	bra     $2538c		[base+1E4, base+1E6]
+02674A	move.l  A7, ($1e4,A5)		[enemy+86]
+02674E	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+0267D0	bra     $26758		[base+1E4, base+1E6]
+029172	move.l  A7, ($1e4,A5)		[enemy+86]
+029176	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+0291F4	movea.l ($1e4,A5), A7		[enemy+2A]
+0291F8	bra     $29180		[base+1E4, base+1E6]
+02A534	move.l  A7, ($1e4,A5)		[enemy+86]
+02A538	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+02A5B6	movea.l ($1e4,A5), A7		[enemy+2A]
+02A5BA	bra     $2a542		[base+1E4, base+1E6]
+02B760	move.l  A7, ($1e4,A5)		[enemy+86]
+02B764	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+02B7E6	bra     $2b76e		[base+1E4, base+1E6]
+0328C8	move.l  A7, ($1e4,A5)		[enemy+86]
+0328CC	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+03294E	bra     $328d6		[base+1E4, base+1E6]
+0366FC	move.l  A7, ($1e4,A5)		[enemy+86]
+036700	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+03677E	movea.l ($1e4,A5), A7		[enemy+2A]
+036782	bra     $3670a		[base+1E4, base+1E6]
+046842	tst.b   ($a4,A0)		[base+1E4, base+1E6]
+0468C4	bra     $4684c		[base+1E4, base+1E6]
+copyright	zengfr	site:http://github.com/zengfr/romhack
+

@@ -1,9 +1,6 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
-00A2B8	rts		[1p+5C, 1p+5E]
 00A2C6	dbra    D0, $a2c0		
-00A370	clr.b   ($94,A4)		
-00A374	lea     ($c0,A4), A4		
 00A382	dbra    D0, $a37c		
 00C112	move.l  ($46,PC,D0.w), ($bc,A6)		[1p+B8, 1p+BA]
 00C118	rts		[1p+BC, 1p+BE]

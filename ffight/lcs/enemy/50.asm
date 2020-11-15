@@ -1,138 +1,74 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
 003138	ext.l   D0		[1p+50, boss+50, container+50, enemy+50]
-0039F6	movem.l D0-D3, -(A6)		
 0039FA	movem.l D0-D3, -(A6)		
 0039FE	movem.l D0-D3, -(A6)		
-003A02	movem.l D0-D3, -(A6)		
-003A06	movem.l D0-D3, -(A6)		
 009ACA	dbra    D5, $9ac8		
-009AD2	movea.l A0, A1		[container+12, enemy+12, weapon+12]
 0270FC	move.w  (A0), ($50,A6)		[enemy+54]
 027100	move.w  #$48, ($56,A6)		[enemy+50]
-027106	tst.b   ($36,A6)		[enemy+56]
 0271E0	move.w  (A0), ($50,A6)		[enemy+54]
 0271E4	move.w  #$48, ($56,A6)		[enemy+50]
-0271EA	tst.b   ($36,A6)		[enemy+56]
 027240	move.w  (A0), ($52,A6)		[enemy+50]
-027244	tst.b   ($36,A6)		[enemy+52]
 027498	move.w  (A0), ($50,A6)		[enemy+54]
 02749C	move.w  #$48, ($56,A6)		[enemy+50]
-0274A2	tst.b   ($36,A6)		[enemy+56]
 0274AC	rts		[enemy+50]
 0274DC	move.b  #$5, ($1e,A6)		
-0274E2	tst.w   ($54,A6)		[enemy+1E]
 02751E	move.w  (A0), ($50,A6)		[enemy+54]
 027522	move.w  #$48, ($56,A6)		[enemy+50]
-027528	tst.b   ($36,A6)		[enemy+56]
 027532	jmp     $4496.w		[enemy+50]
 027556	clr.w   ($52,A6)		
-02755A	move.w  ($a,A6), D0		
 027580	move.w  ($18,PC,D0.w), ($52,A6)		[enemy+50]
-027586	tst.b   ($36,A6)		[enemy+52]
 027590	neg.w   ($52,A6)		[enemy+50]
-027594	jmp     $3b02.w		[enemy+52]
 027844	move.w  (A0), ($50,A6)		[enemy+54]
 027848	move.w  #$48, ($56,A6)		[enemy+50]
-02784E	tst.b   ($36,A6)		[enemy+56]
 027858	rts		[enemy+50]
 027888	move.b  #$a, ($1e,A6)		
-02788E	tst.w   ($54,A6)		[enemy+1E]
 0278CA	move.w  (A0), ($50,A6)		[enemy+54]
 0278CE	move.w  #$48, ($56,A6)		[enemy+50]
-0278D4	tst.b   ($36,A6)		[enemy+56]
 0278DE	jmp     $4496.w		[enemy+50]
 027902	move.w  ($a,A6), D0		
 027928	move.w  ($18,PC,D0.w), ($52,A6)		[enemy+50]
-02792E	tst.b   ($36,A6)		[enemy+52]
 027938	neg.w   ($52,A6)		[enemy+50]
-02793C	jmp     $3b02.w		[enemy+52]
-035C86	bne     $35cb6		[enemy+17]
-035C8C	clr.b   ($1e,A6)		[enemy+ 5]
 035C90	move.w  #$200, ($50,A6)		
 035C96	move.w  #$380, ($54,A6)		[enemy+50]
-035C9C	move.w  #$48, ($56,A6)		[enemy+54]
-035CA2	tst.b   ($2e,A6)		[enemy+56]
 035CAC	addi.w  #$10, ($a,A6)		[enemy+50]
-035CB2	bra     $36ec8		[enemy+ A]
 035CD8	clr.w   ($50,A6)		[enemy+1E]
 035CDC	tst.w   ($54,A6)		
-035D00	move.l  ($e,A6), ($a,A6)		[enemy+ 5]
 035D06	move.w  #$280, ($50,A6)		[enemy+ A, enemy+ C]
 035D0C	move.w  #$280, ($54,A6)		[enemy+50]
-035D12	move.w  #$48, ($56,A6)		[enemy+54]
-035D18	tst.b   ($2e,A6)		[enemy+56]
 035D22	jsr     $4496.w		[enemy+50]
 035D3E	move.b  ($a7,A5), D0		
-035D5E	move.l  ($e,A6), ($a,A6)		[enemy+ 5]
 035D64	move.w  #$100, ($50,A6)		[enemy+ A, enemy+ C]
 035D6A	move.w  #$14, ($52,A6)		[enemy+50]
-035D70	tst.b   ($2e,A6)		[enemy+52]
 035D7A	neg.w   ($52,A6)		[enemy+50]
-035D7E	jmp     $3b02.w		[enemy+52]
-0360F4	clr.b   ($1e,A6)		[enemy+ 4]
-0360F8	clr.b   ($a2,A6)		
 0360FC	move.w  #$400, ($50,A6)		
 036102	move.w  #$400, ($54,A6)		[enemy+50]
-036108	move.w  #$48, ($56,A6)		[enemy+54]
-03610E	tst.b   ($2e,A6)		[enemy+56]
-036188	move.l  ($e,A6), ($a,A6)		[enemy+ 4]
 03618E	move.w  #$100, ($50,A6)		[enemy+ A, enemy+ C]
 036194	move.w  #$400, ($54,A6)		[enemy+50]
-03619A	move.w  #$48, ($56,A6)		[enemy+54]
-0361A0	tst.b   ($2e,A6)		[enemy+56]
-0361DC	rts		[enemy+9D]
 0361EC	move.w  ($a,A6), D0		
-0361FC	addq.b  #2, ($4,A6)		[enemy+ A, enemy+ C]
 036200	move.w  #$100, ($50,A6)		[enemy+ 4]
 036206	move.w  #$10, ($52,A6)		[enemy+50]
-03620C	tst.b   ($2e,A6)		[enemy+52]
-0392AA	move.w  #$780, ($54,A6)		[enemy+ E, enemy+10]
-0392B0	move.w  #$66, ($56,A6)		[enemy+54]
-0392B6	move.w  #$5, ($52,A6)		[enemy+56]
 0392BC	move.w  #$280, ($50,A6)		[enemy+52]
 0392C2	cmpi.b  #$7, ($95,A6)		[enemy+50]
 0392DA	neg.w   ($52,A6)		[enemy+50]
-0392DE	bra     $3ae42		[enemy+52]
-039866	bne     $39896		[enemy+17]
-03986C	clr.b   ($1e,A6)		[enemy+ 5]
 039870	move.w  #$200, ($50,A6)		
 039876	move.w  #$380, ($54,A6)		[enemy+50]
-03987C	move.w  #$48, ($56,A6)		[enemy+54]
-039882	tst.b   ($2e,A6)		[enemy+56]
-0398DC	move.l  ($e,A6), ($a,A6)		[enemy+ 5]
 0398E2	move.w  #$280, ($50,A6)		[enemy+ A, enemy+ C]
 0398E8	move.w  #$280, ($54,A6)		[enemy+50]
-0398EE	move.w  #$48, ($56,A6)		[enemy+54]
-0398F4	tst.b   ($2e,A6)		[enemy+56]
 039916	move.w  ($a,A6), D0		
-039924	move.l  ($e,A6), ($a,A6)		[enemy+ 5]
 03992A	move.w  #$100, ($50,A6)		[enemy+ A, enemy+ C]
 039930	move.w  #$14, ($52,A6)		[enemy+50]
-039936	tst.b   ($2e,A6)		[enemy+52]
-039CF8	move.w  #$780, ($54,A6)		[enemy+ 4]
 039CFE	move.w  #$fe00, ($50,A6)		[enemy+54]
 039D04	move.w  #$58, ($56,A6)		[enemy+50]
-039D0A	tst.b   ($2e,A6)		[enemy+56]
 039D14	move.b  #$5, ($1e,A6)		[enemy+50]
-039D1A	rts		[enemy+1E]
-03A20C	bne     $3a23c		[enemy+17]
-03A212	clr.b   ($1e,A6)		[enemy+ 4]
 03A216	move.w  #$400, ($50,A6)		
 03A21C	move.w  #$300, ($54,A6)		[enemy+50]
-03A222	move.w  #$48, ($56,A6)		[enemy+54]
-03A228	tst.b   ($2e,A6)		[enemy+56]
 03A262	clr.w   ($50,A6)		[enemy+1E]
 03A266	tst.w   ($54,A6)		
-03A282	move.l  ($e,A6), ($a,A6)		[enemy+ 4]
 03A288	move.w  #$100, ($50,A6)		[enemy+ A, enemy+ C]
 03A28E	move.w  #$400, ($54,A6)		[enemy+50]
-03A294	move.w  #$48, ($56,A6)		[enemy+54]
-03A29A	tst.b   ($2e,A6)		[enemy+56]
 03A2BC	move.w  ($a,A6), D0		
-03A2CA	move.l  ($e,A6), ($a,A6)		[enemy+ 4]
 03A2D0	move.w  #$100, ($50,A6)		[enemy+ A, enemy+ C]
 03A2D6	move.w  #$10, ($52,A6)		[enemy+50]
-03A2DC	tst.b   ($2e,A6)		[enemy+52]
 copyright	zengfr	site:http://github.com/zengfr/romhack
 

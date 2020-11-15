@@ -1,0 +1,59 @@
+20-4-5-26->40
+20-4-5-26-6->28
+-----------------------
+ROM:0000120E                     ; =============== S U B R O U T I N E =======================================
+ROM:0000120E
+ROM:0000120E
+ROM:0000120E                     sub_120E:                               ; CODE XREF: ROM:000338A0↓p
+ROM:0000120E                                                             ; ROM:000338D4↓p ...
+ROM:0000120E 206E 0040                           movea.l $40(a6),a0      ; Move Address
+ROM:00001212 D040                                add.w   d0,d0           ; Add
+ROM:00001214 3030 0000                           move.w  (a0,d0.w),d0    ; Move Data from Source to Destination
+ROM:00001218 D0C0                                adda.w  d0,a0           ; Add Address
+ROM:0000121A 6000 001A                           bra.w   loc_1236        ; Branch Always
+ROM:0000121A                     ; End of function sub_120E
+ROM:0000121A
+ROM:0000121E
+ROM:0000121E                     ; =============== S U B R O U T I N E =======================================
+ROM:0000121E
+ROM:0000121E
+ROM:0000121E                     sub_121E:                               ; CODE XREF: ROM:000324E2↓j
+ROM:0000121E                                                             ; ROM:00033A22↓j ...
+ROM:0000121E 532E 002F                           subq.b  #1,$2F(a6)      ; Subtract Quick ;zfr
+ROM:00001222 6600 0054                           bne.w   loc_1278        ; Branch if Not Equal
+ROM:00001226 206E 0028                           movea.l $28(a6),a0      ; Move Address
+ROM:0000122A 41E8 000A                           lea     $A(a0),a0       ; Load Effective Address
+ROM:0000122E 4A28 FFFD                           tst.b   -3(a0)          ; Test an Operand ;zfr
+ROM:00001232 6B00 0048                           bmi.w   loc_127C        ; Branch if Minus
+ROM:00001236
+ROM:00001236                     loc_1236:                               ; CODE XREF: sub_120E+C↑j
+ROM:00001236                                                             ; ROM:00001396↓j ...
+ROM:00001236 2D48 0028                           move.l  a0,$28(a6)      ; Move Data from Source to Destination
+ROM:0000123A 3018                                move.w  (a0)+,d0        ; Move Data from Source to Destination
+ROM:0000123C 3218                                move.w  (a0)+,d1        ; Move Data from Source to Destination
+ROM:0000123E 2418                                move.l  (a0)+,d2        ; Move Data from Source to Destination
+ROM:00001240 3D58 0048                           move.w  (a0)+,$48(a6)   ; Move Data from Source to Destination
+ROM:00001244 0202 007F                           andi.b  #$7F,d2         ; AND Immediate
+ROM:00001248 2D42 002C                           move.l  d2,$2C(a6)      ; Move Data from Source to Destination ;zfr
+ROM:0000124C 4A40                                tst.w   d0              ; Test an Operand
+ROM:0000124E 6A00 000A                           bpl.w   loc_125A        ; Branch if Plus
+ROM:00001252 0240 7FFF                           andi.w  #$7FFF,d0       ; AND Immediate
+ROM:00001256 6000 000A                           bra.w   loc_1262        ; Branch Always
+ROM:0000125A                     ; ---------------------------------------------------------------------------
+ROM:0000125A
+ROM:0000125A                     loc_125A:                               ; CODE XREF: sub_121E+30↑j
+ROM:0000125A 4A41                                tst.w   d1              ; Test an Operand
+ROM:0000125C 6B00 0004                           bmi.w   loc_1262        ; Branch if Minus
+ROM:00001260 3001                                move.w  d1,d0           ; Move Data from Source to Destination
+ROM:00001262
+ROM:00001262                     loc_1262:                               ; CODE XREF: sub_121E+38↑j
+ROM:00001262                                                             ; sub_121E+3E↑j
+ROM:00001262 082E 0000 0025                      btst    #0,$25(a6)      ; Test a Bit
+ROM:00001268 6600 000E                           bne.w   loc_1278        ; Branch if Not Equal
+ROM:0000126C 227C 0011 D220                      movea.l #unk_11D220,a1  ; Move Address
+ROM:00001272 2D71 0000 004C                      move.l  (a1,d0.w),$4C(a6) ; Move Data from Source to Destination
+ROM:00001278
+ROM:00001278                     loc_1278:                               ; CODE XREF: sub_121E+4↑j
+ROM:00001278                                                             ; sub_121E+4A↑j ...
+ROM:00001278 8040                                or.w    d0,d0           ; Inclusive-OR Logical
+ROM:0000127A 4E75                                rts                     ; Return from Subroutine

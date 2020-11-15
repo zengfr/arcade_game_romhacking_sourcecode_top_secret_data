@@ -1,0 +1,109 @@
+ROM:00023420                     sub_23420:                              ; CODE XREF: sub_E90E+66↑p
+ROM:00023420                                                             ; sub_1516C:loc_1519C↑p ...
+ROM:00023420 4DED 48F4                           lea     $48F4(a5),a6    ; Load Effective Address
+ROM:00023424 3E3C 0017                           move.w  #$17,d7         ; Move Data from Source to Destination
+ROM:00023428
+ROM:00023428                     loc_23428:                              ; CODE XREF: sub_23420+1A↓j
+ROM:00023428 4A2E 0000                           tst.b   0(a6)           ; Test an Operand
+ROM:0002342C 6708                                beq.s   loc_23436       ; Branch if Equal
+ROM:0002342E 6100 0010                           bsr.w   nullsub_1       ; Branch to Subroutine
+ROM:00023432 6100 002A                           bsr.w   sub_2345E       ; Branch to Subroutine
+ROM:00023436
+ROM:00023436                     loc_23436:                              ; CODE XREF: sub_23420+C↑j
+ROM:00023436 4DEE 00E0                           lea     $E0(a6),a6      ; Load Effective Address
+ROM:0002343A 51CF FFEC                           dbf     d7,loc_23428    ; If False Decrement and Branch
+ROM:0002343E 4E75                                rts                     ; Return from Subroutine
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ROM:0002345E
+ROM:0002345E                     sub_2345E:                              ; CODE XREF: sub_23420+12↑p
+ROM:0002345E 7000                                moveq   #0,d0           ; Move Quick
+ROM:00023460 302E 0020                           move.w  $20(a6),d0      ; Move Data from Source to Destination
+ROM:00023464 227B 0806                           movea.l off_2346C(pc,d0.l),a1 ; Move Address
+ROM:00023468 7000                                moveq   #0,d0           ; Move Quick
+ROM:0002346A 4ED1                                jmp     (a1)            ; Jump
+ROM:0002346A                     ; End of function sub_2345E
+ROM:0002346A
+ROM:0002346A                     ; ---------------------------------------------------------------------------
+ROM:0002346C 0003 3334           off_2346C:      dc.l loc_33334          ; DATA XREF: sub_2345E+6↑r
+ROM:00023470 0000 0000                           dc.l 0
+ROM:00023474 0003 383A                           dc.l loc_3383A
+ROM:00023478 0003 58B2                           dc.l unk_358B2
+ROM:0002347C 0003 6A64                           dc.l unk_36A64
+ROM:00023480 0003 8DDE                           dc.l unk_38DDE
+ROM:00023484 0003 9272                           dc.l unk_39272
+ROM:00023488 0003 B104                           dc.l unk_3B104
+ROM:0002348C 0003 B28A                           dc.l unk_3B28A
+ROM:00023490 0003 B7D6                           dc.l unk_3B7D6
+ROM:00023494 0003 B828                           dc.l unk_3B828
+ROM:00023498 0003 D960                           dc.l unk_3D960
+ROM:0002349C 0003 DC5C                           dc.l unk_3DC5C
+ROM:000234A0 0003 DDEA                           dc.l unk_3DDEA
+----------------------------------------------------------------------------------------------------------------------------------------------------
+ROM:0003383A                     ; ---------------------------------------------------------------------------
+ROM:0003383A
+ROM:0003383A                     loc_3383A:                              ; DATA XREF: ROM:00023474↑o
+ROM:0003383A 102E 0004                           move.b  4(a6),d0        ; Move Data from Source to Destination
+ROM:0003383E 323B 0006                           move.w  word_33846(pc,d0.w),d1 ; Move Data from Source to Destination
+ROM:00033842 4EFB 1002                           jmp     word_33846(pc,d1.w) ; Jump
+ROM:00033842                     ; ---------------------------------------------------------------------------
+ROM:00033846 0008                word_33846:     dc.w 8                  ; CODE XREF: ROM:00033842↑j
+ROM:00033846                                                             ; DATA XREF: ROM:0003383E↑r
+ROM:00033848 0630                                dc.w $630
+ROM:0003384A 1008                                dc.w $1008
+ROM:0003384C 1046                                dc.w $1046
+ROM:0003384E                     ; ---------------------------------------------------------------------------
+ROM:0003384E 7000                                moveq   #0,d0           ; Move Quick
+ROM:00033850 102E 0005                           move.b  5(a6),d0        ; Move Data from Source to Destination
+ROM:00033854 303B 0006                           move.w  word_3385C(pc,d0.w),d0 ; Move Data from Source to Destination
+ROM:00033858 4EFB 0002                           jmp     word_3385C(pc,d0.w) ; Jump
+ROM:00033858                     ; ---------------------------------------------------------------------------
+ROM:0003385C 0006                word_3385C:     dc.w 6                  ; CODE XREF: ROM:00033858↑j
+ROM:0003385C                                                             ; DATA XREF: ROM:00033854↑r
+ROM:0003385E 012E                                dc.w $12E               ;3398a ;zfr
+ROM:00033860 060A                                dc.w $60A          
+ROM:00033862                     ; ---------------------------------------------------------------------------
+ROM:00033862 542E 0005                           addq.b  #2,5(a6)        ; Add Quick
+ROM:00033866 4EB9 0009 39B6                      jsr     sub_939B6       ; Jump to Subroutine
+ROM:0003386C 7000                                moveq   #0,d0           ; Move Quick
+ROM:0003386E 102E 0026                           move.b  $26(a6),d0      ; Move Data from Source to Destination
+ROM:00033872 D040                                add.w   d0,d0           ; Add
+ROM:00033874 207B 0008                           movea.l off_3387E(pc,d0.w),a0 ; Move Address
+ROM:00033878 4E90                                jsr     (a0)            ; Jump to Subroutine
+ROM:0003387A 6000 00AA                           bra.w   loc_33926       ; Branch Always
+ROM:0003387A                     ; ---------------------------------------------------------------------------
+ROM:0003387E 0003 388A           off_3387E:      dc.l loc_3388A          ; DATA XREF: ROM:00033874↑r
+ROM:00033882 0003 38BE                           dc.l loc_338BE
+ROM:00033886 0003 38F2                           dc.l loc_338F2
+----------------------------------------------------------------------------------------------------------------------------------------------------
+ROM:0003388A                     ; ---------------------------------------------------------------------------
+ROM:0003388A
+ROM:0003388A                     loc_3388A:                              ; DATA XREF: ROM:off_3387E↑o
+ROM:0003388A 1D7C 0000 0003                      move.b  #0,3(a6)        ; Move Data from Source to Destination
+ROM:00033890 3D7C 0000 0084                      move.w  #0,$84(a6)      ; Move Data from Source to Destination
+ROM:00033896 2D7C 0003 4892 0040                 move.l  #unk_34892,$40(a6) ; Move Data from Source to Destination
+ROM:0003389E 7000                                moveq   #0,d0           ; Move Quick
+ROM:000338A0 4EB9 0000 120E                      jsr     (sub_120E).l    ; Jump to Subroutine
+ROM:000338A6 2D7C 0010 3000 0044                 move.l  #unk_103000,$44(a6) ; Move Data from Source to Destination
+ROM:000338AE 422E 004A                           clr.b   $4A(a6)         ; Clear an Operand
+ROM:000338B2 6100 1F5E                           bsr.w   sub_35812       ; Branch to Subroutine
+ROM:000338B6 7000                                moveq   #0,d0           ; Move Quick
+ROM:000338B8 4EF9 0003 1424                      jmp     loc_31424       ; Jump
+ROM:000338BE                     ; ---------------------------------------------------------------------------
+ROM:000338BE
+ROM:000338BE                     loc_338BE:                              ; DATA XREF: ROM:00033882↑o
+ROM:000338BE 1D7C 0001 0003                      move.b  #1,3(a6)        ; Move Data from Source to Destination
+ROM:000338C4 3D7C 0004 0084                      move.w  #4,$84(a6)      ; Move Data from Source to Destination
+ROM:000338CA 2D7C 0003 4B90 0040                 move.l  #unk_34B90,$40(a6) ; Move Data from Source to Destination
+ROM:000338D2 7000                                moveq   #0,d0           ; Move Quick
+ROM:000338D4 4EB9 0000 120E                      jsr     (sub_120E).l    ; Jump to Subroutine
+ROM:000338DA 2D7C 0010 3000 0044                 move.l  #unk_103000,$44(a6) ; Move Data from Source to Destination
+ROM:000338E2 422E 004A                           clr.b   $4A(a6)         ; Clear an Operand
+ROM:000338E6 6100 1F2A                           bsr.w   sub_35812       ; Branch to Subroutine
+ROM:000338EA 7000                                moveq   #0,d0           ; Move Quick
+ROM:000338EC 4EF9 0003 1424                      jmp     loc_31424       ; Jump
+----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------

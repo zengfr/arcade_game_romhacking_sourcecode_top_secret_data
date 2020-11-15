@@ -1,0 +1,144 @@
+copyright	zengfr	site:http://github.com/zengfr/romhack
+
+0009E460  80 00 00 00 00 78 1A 00  00 00;00 00 80 00 00 00
+0009E470  00 78 1A 00 00 00;00 00  80 00 00 00 00 78 1A 00
+0009E480  00 00;00 08 80 00 00 00  00 0A 1A 00 00 00;00 0C
+0009E490  80 00 00 00 00 0A 1A 00  00 00;00 08 80 00 00 00
+0009E4A0  00 0A 1A 00 00 00;00 0C  80 00 00 00 00 0A 1A 00
+0009E4B0  00 00;00 08 80 00 00 00  00 0A 1A 00 00 00;00 0C
+0009E4C0  80 00 00 00 00 0A 1A 00  00 00;00 08 80 00 00 00
+
+00 00 80 00 00 00 00 78 1A 00 00 00
+00 00 80 00 00 00 00 78 1A 00 00 00
+00 08 80 00 00 00 00 0A 1A 00 00 00
+00 0C 80 00 00 00 00 0A 1A 00 00 00
+00 08 80 00 00 00 00 0A 1A 00 00 00
+00 0C 80 00 00 00 00 0A 1A 00 00 00
+00 08 80 00 00 00 00 0A 1A 00 00 00
+00 0C 80 00 00 00 00 0A 1A 00 00 00
+
+move.l  a0,$28(a6)      ; a6=obj
+move.w  (a0)+,d0
+move.w  (a0)+,d1
+move.l  (a0)+,d2
+move.w  (a0)+,$48(a6)
+move.w  (a0)+,$60(a6)
+
+andi.b  #$7F,d2        
+move.l  d2,$2C(a6)
+
+movea.l #dword_11D220,a1 ;
+move.l  (a1,d0.w),$4C(a6)
+------------------------------------------------------------------
+000D6B28  00 0F 00 03 80 00 00 00
+000D6B30  08 10 22 00 08 40 02 00  08 50 02 00 00 0B 00 02
+000D6B40  80 00 00 00 0B C0 22 00  0B F0 01 00 00 11 00 05
+000D6B50  80 00 00 01 09 C7 00 00  09 B7 00 00 09 B8 22 00
+000D6B60  09 E4 02 00 09 F4 02 00  00 11 00 08 80 00 00 02
+
+1450a 
+d2 = 08 10  // tile
+d3 = 22 00  // size and palette
+
+index array  sprites          0D0CF4 - 0D43D7
+index array  sprites position 0D43D8 - 0D6B27
+sprites                       0D6B28 - 0F0028 
+sprites position              0F0028 - 0FFFD0
+
+sprites:
+xx xx yy yy nn nn aa aa
+  where xxxx = x position
+        yyyy = y position
+        nnnn = tile number
+        aaaa = attribute word
+
+ROM:000FFFF4 000D 0CF4           off_FFFF4:      dc.l off_D0CF4          ; DATA XREF: sub_14230-82↑r
+ROM:000FFFF4                                                             ; sub_14230+14↑r ...
+ROM:000FFFF8 000D                                dc.b  $D
+ROM:000FFFF9 00B9                                dc.b $B9
+ROM:000FFFFA 000D 43D8           off_FFFFA:      dc.l off_D43D8          ; DATA XREF: sub_142BE:loc_142D8↑r
+ROM:000FFFFA                                                             ; sub_142BE+112↑r ...
+ROM:000FFFFE 0009                                dc.b   9
+ROM:000FFFFF 00D4                                dc.b $D4
+ROM:00100000 0000                unk_100000:     dc.b   0                ; DATA XREF: ROM:off_18CC4↑o
+		
+ROM:00014244 2279 000F FFF4                      movea.l (off_FFFF4).l,a1 ; 
+ROM:000144AE 2479 000F FFFA                      movea.l (off_FFFFA).l,a2 ;
+------------------------------------------------------------------------------------------------------------------------
+ROM:00014230 2668 0028                           movea.l $28(a0),a3      ;9e46a
+
+ROM:0001423E 301B                                move.w  (a3)+,d0        ;0000
+ROM:00014244 2279 000F FFF4                      movea.l (off_FFFF4).l,a1 
+ROM:0001424A 2271 0000                           movea.l (a1,d0.w),a1    ;d6b28
+
+ROM:0001424E 3B53 8ED8                           move.w  (a3),-$7128(a5) ; Move Data from Source to Destination
+ROM:00014252 3019                                move.w  (a1)+,d0        ; Move Data from Source to Destination;000f
+ROM:00014254 D16D 69B2                           add.w   d0,$69B2(a5)    ; Add
+
+ROM:0001427A 3C19                                move.w  (a1)+,d6        ; Move Data from Source to Destination;0003
+ROM:0001427C 5346                                subq.w  #1,d6           ; Subtract Quick
+ROM:0001427E 3619                                move.w  (a1)+,d3        ; Move Data from Source to Destination;8000
+
+ROM:000144B4 3419                                move.w  (a1)+,d2        ; Move Data from Source to Destination ;d6b2e
+
+----------------------------------------------------------------------------------------------------------------------
+
+ROM:00014230 2668 0028                           movea.l $28(a0),a3      ; Move Address
+ROM:00014234
+ROM:00014234                     loc_14234:                              ; CODE XREF: sub_141F8-7C↑j
+ROM:00014234 0828 0006 0025                      btst    #6,$25(a0)      ; Test a Bit
+ROM:0001423A 6600 05C2                           bne.w   loc_147FE       ; Branch if Not Equal
+ROM:0001423E 301B                                move.w  (a3)+,d0        ; Move Data from Source to Destination
+ROM:00014240 6B00 FF3E                           bmi.w   loc_14180       ; Branch if Minus
+ROM:00014244 2279 000F FFF4                      movea.l (off_FFFF4).l,a1 ; Move Address
+ROM:0001424A 2271 0000                           movea.l (a1,d0.w),a1    ; Move Address
+ROM:0001424E 3B53 8ED8                           move.w  (a3),-$7128(a5) ; Move Data from Source to Destination
+ROM:00014252 3019                                move.w  (a1)+,d0        ; Move Data from Source to Destination
+ROM:00014254 D16D 69B2                           add.w   d0,$69B2(a5)    ; Add
+ROM:00014258 3828 0008                           move.w  8(a0),d4        ; Move Data from Source to Destination
+ROM:0001425C 3A28 000C                           move.w  $C(a0),d5       ; Move Data from Source to Destination
+ROM:00014260 DA68 0010                           add.w   $10(a0),d5      ; Add
+ROM:00014264 0828 0007 0025                      btst    #7,$25(a0)      ; Test a Bit
+ROM:0001426A 6600 000A                           bne.w   loc_14276       ; Branch if Not Equal
+ROM:0001426E 986D 69B6                           sub.w   $69B6(a5),d4    ; Subtract
+ROM:00014272 9A6D 69B8                           sub.w   $69B8(a5),d5    ; Subtract
+ROM:00014276
+ROM:00014276                     loc_14276:                              ; CODE XREF: sub_14230+3A↑j
+ROM:00014276 4605                                not.b   d5              ; Logical Complement
+ROM:00014278 5245                                addq.w  #1,d5           ; Add Quick
+ROM:0001427A 3C19                                move.w  (a1)+,d6        ; Move Data from Source to Destination
+ROM:0001427C 5346                                subq.w  #1,d6           ; Subtract Quick
+ROM:0001427E 3619                                move.w  (a1)+,d3        ; Move Data from Source to Destination
+ROM:00014280 0803 000F                           btst    #$F,d3          ; Test a Bit
+ROM:00014284 6600 000A                           bne.w   loc_14290       ; Branch if Not Equal
+ROM:00014288 6100 0034                           bsr.w   sub_142BE       ; Branch to Subroutine
+ROM:0001428C 6000 0006                           bra.w   loc_14294       ; Branch Always
+ROM:00014290                     ; ---------------------------------------------------------------------------
+ROM:00014290
+ROM:00014290                     loc_14290:                              ; CODE XREF: sub_14230+54↑j
+ROM:00014290 6100 0202                           bsr.w   sub_14494       ; Branch to Subroutine
+ROM:00014294
+ROM:00014294                     loc_14294:                              ; CODE XREF: sub_14230+5C↑j
+ROM:00014294 2279 000F FFF4                      movea.l (off_FFFF4).l,a1 ; Move Address
+ROM:0001429A 3013                                move.w  (a3),d0         ; Move Data from Source to Destination
+ROM:0001429C 6B00 00AA                           bmi.w   locret_14348    ; Branch if Minus
+ROM:000142A0 3B7C FFFF 8ED8                      move.w  #$FFFF,-$7128(a5) ; Move Data from Source to Destination
+ROM:000142A6 2271 0000                           movea.l (a1,d0.w),a1    ; Move Address
+ROM:000142A6                     ; End of function sub_14230 
+
+
+ROM:000144AE 2479 000F FFFA                      movea.l (off_FFFFA).l,a2 ; Move Address
+ROM:000144B4 3419                                move.w  (a1)+,d2        ; Move Data from Source to Destination ;d6b2e
+ROM:000144B6 D442                                add.w   d2,d2           ; Add
+ROM:000144B8 D442                                add.w   d2,d2           ; Add
+ROM:000144BA 2472 2000                           movea.l (a2,d2.w),a2    ; Move Address
+
+ROM:000144CE                     loc_144CE:                              ; CODE XREF: sub_14494:loc_14510↓j
+ROM:000144CE 3419                                move.w  (a1)+,d2        ; Move Data from Source to Destination
+ROM:000144D0 3619                                move.w  (a1)+,d3        ; Move Data from Source to Destination
+ROM:000144D2 301A                                move.w  (a2)+,d0        ; Move Data from Source to Destination
+
+ROM:00014574                     loc_14574:                              ; CODE XREF: sub_14494:loc_145CC↓j
+ROM:00014574 3419                                move.w  (a1)+,d2        ; Move Data from Source to Destination ;d6b30
+ROM:00014576 3619                                move.w  (a1)+,d3        ; Move Data from Source to Destination
+copyright	zengfr	site:http://github.com/zengfr/romhack

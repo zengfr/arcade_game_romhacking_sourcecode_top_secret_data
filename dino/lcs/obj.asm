@@ -1,7 +1,6 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
 01407C	move.l  #$ff00, (A4)+		[obj]
-014086	beq     $14098		
 014342	addq.l  #8, A4		[obj]
 014394	addq.l  #8, A4		[obj]
 01443A	addq.l  #8, A4		[obj]

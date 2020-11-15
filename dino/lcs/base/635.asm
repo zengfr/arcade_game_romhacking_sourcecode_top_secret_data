@@ -1,31 +1,15 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
-00AE2E	clr.b   ($3,A6)		[base+4D1]
-00AE32	jsr     $49a8.l		
 00AE44	move.b  #$1, ($a,A6)		[base+635]
-00AE4A	move.b  #$a, ($11,A6)		[base+636]
-00AE50	move.b  #$a, ($1d,A6)		[base+63D]
 00AF1A	lsl.w   #2, D0		[base+635]
-00AF80	bne     $afa6		[base+636]
 00AF8A	subq.b  #1, ($9,A6)		[base+636]
 00AF8E	bpl     $afa6		[base+635]
-00AFAA	btst    #$0, ($4cd,A5)		[base+62C]
-00AFBA	beq     $afcc		[base+63D]
 00AFC0	move.b  #$a, ($9,A6)		[base+63D]
 00AFC6	move.b  #$1, ($a,A6)		[base+635]
-00AFCC	move.w  #$0, D5		[base+636]
-00AFE4	beq     $aff6		[base+649]
 00AFEA	move.b  #$a, ($9,A6)		[base+649]
 00AFF0	move.b  #$1, ($a,A6)		[base+635]
-00AFF6	move.w  #$8, D5		[base+636]
-00B00E	beq     $b020		[base+655]
 00B014	move.b  #$a, ($9,A6)		[base+655]
 00B01A	move.b  #$1, ($a,A6)		[base+635]
-00B020	move.w  #$10, D5		[base+636]
-00B1D6	move.b  #$1, ($0,A0)		[123p+ 20]
-00B1DC	btst    #$0, ($3,A0)		[123p+  0]
-00B1E2	bne     $b204		[123p+  3]
 00B1EA	bne     $b204		[base+635]
-00B20A	bra     $b248		[base+639, base+645, base+651]
 copyright	zengfr	site:http://github.com/zengfr/romhack
 

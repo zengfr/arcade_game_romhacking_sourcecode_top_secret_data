@@ -1,0 +1,45 @@
+ROM:0003398A                     ; ---------------------------------------------------------------------------
+ROM:0003398A 4EB9 0003 26F8                      jsr     sub_326F8       ; Jump to Subroutine
+ROM:00033990 302E 0026                           move.w  $26(a6),d0      ; Move Data from Source to Destination
+ROM:00033994 0240 00FF                           andi.w  #$FF,d0         ; AND Immediate
+ROM:00033998 303B 0012                           move.w  word_339AC(pc,d0.w),d0 ; Move Data from Source to Destination
+ROM:0003399C 4EBB 000E                           jsr     word_339AC(pc,d0.w) ; Jump to Subroutine
+ROM:000339A0 4EB9 0000 49CA                      jsr     (sub_49CA).l    ; Jump to Subroutine
+ROM:000339A6 4EF9 0000 4BEA                      jmp     (sub_4BEA).l    ; Jump
+ROM:000339A6                     ; ---------------------------------------------------------------------------
+ROM:000339AC 000C                word_339AC:     dc.w $C                 ; CODE XREF: ROM:0003399C↑p
+ROM:000339AC                                                             ; DATA XREF: ROM:00033998↑r
+ROM:000339AE 0096                                dc.w $96
+ROM:000339B0 0136                                dc.w $136
+ROM:000339B2 0286                                dc.w $286
+ROM:000339B4 035E                                dc.w $35E
+ROM:000339B6 049C                                dc.w $49C
+ROM:000339B8                     ; ---------------------------------------------------------------------------
+ROM:000339B8 7000                                moveq   #0,d0           ; Move Quick
+ROM:000339BA 102E 0006                           move.b  6(a6),d0        ; Move Data from Source to Destination
+ROM:000339BE 303B 0006                           move.w  word_339C6(pc,d0.w),d0 ; Move Data from Source to Destination
+ROM:000339C2 4EFB 0002                           jmp     word_339C6(pc,d0.w) ; Jump
+ROM:000339C2                     ; ---------------------------------------------------------------------------
+ROM:000339C6 0004                word_339C6:     dc.w 4                  ; CODE XREF: ROM:000339C2↑j
+ROM:000339C6                                                             ; DATA XREF: ROM:000339BE↑r
+ROM:000339C8 003A                                dc.w $3A
+ROM:000339CA                     ; ---------------------------------------------------------------------------
+ROM:000339CA 3D6E 0008 00B4                      move.w  8(a6),$B4(a6)   ; Move Data from Source to Destination
+ROM:000339D0 7001                                moveq   #1,d0           ; Move Quick
+ROM:000339D2 4EB9 0000 120E                      jsr     (sub_120E).l    ; Jump to Subroutine
+ROM:000339D8 6100 1E38                           bsr.w   sub_35812       ; Branch to Subroutine
+ROM:000339DC 7208                                moveq   #8,d1           ; Move Quick
+ROM:000339DE 7401                                moveq   #1,d2           ; Move Quick
+ROM:000339E0 302D 0744                           move.w  $744(a5),d0     ; Move Data from Source to Destination
+ROM:000339E4 0640 00C0                           addi.w  #$C0,d0         ; Add Immediate
+ROM:000339E8 906E 00B4                           sub.w   $B4(a6),d0      ; Subtract
+ROM:000339EC 6C04                                bge.s   loc_339F2       ; Branch if Greater or Equal
+ROM:000339EE 7218                                moveq   #$18,d1         ; Move Quick
+ROM:000339F0 7400                                moveq   #0,d2           ; Move Quick
+ROM:000339F2
+ROM:000339F2                     loc_339F2:                              ; CODE XREF: ROM:000339EC↑j
+ROM:000339F2 1D41 0022                           move.b  d1,$22(a6)      ; Move Data from Source to Destination
+ROM:000339F6 1D42 0024                           move.b  d2,$24(a6)      ; Move Data from Source to Destination
+ROM:000339FA 542E 0006                           addq.b  #2,6(a6)        ; Add Quick
+ROM:000339FE 4E75                                rts                     ; Return from Subroutine
+-----------------------------------------------------------------------------------------------------------------------------------------------------
