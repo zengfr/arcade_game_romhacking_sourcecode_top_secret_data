@@ -1,0 +1,11 @@
+F:               018706:bcc     $1872e
+T:               01870A:move.w  ($4,A6), D0
+T:               01870E:addq.w  #1, D0
+T:               018710:cmpi.w  #$1f, D0
+
+T:               018714:bls     $1871a
+T:               01871A:move.w  D0, ($4,A6)
+T:               01871E:move.w  ($a,A6), D0
+T:               018722:add.w   D0, D0
+T:               018724:lea     ($92,PC) ; ($187b8), A0
+T:               018728:move.w  (A0,D0.w), ($c,A6)

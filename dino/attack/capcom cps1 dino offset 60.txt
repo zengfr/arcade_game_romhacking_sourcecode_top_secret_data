@@ -1,0 +1,49 @@
+﻿
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+00144C	move.w  (A0)+, ($60,A6)		[123p+ 48, etc+48]
+001450	andi.b  #$7f, D2		[123p+ 60, etc+60]
+001492	move.w  (A0)+, ($60,A6)		[123p+ 48]
+001496	andi.b  #$7f, D2		[123p+ 60]
+
+024AAA	move.b  ($60,A0), D0		
+024AAE	blt     $24b30		[123p+ 60]
+024B16	move.b  ($60,A0), D0		
+024B1A	move.b  (A1,D0.w), D0		[123p+ 60]
+02B3D6	move.b  ($60,A0), D0		
+02B3DA	bpl     $2b432		[123p+ 60]
+----------------------------------------------------------------------------------------
+ROM:00024A9A 227C 0012 2230                      movea.l #off_122230,a1  ; Move Address
+ROM:00024AA0 3028 0020                           move.w  $20(a0),d0      ; Move Data from Source to Destination
+ROM:00024AA4 2271 0000                           movea.l (a1,d0.w),a1    ; Move Address
+ROM:00024AA8 7000                                moveq   #0,d0           ; Move Quick
+ROM:00024AAA 1028 0060                           move.b  $60(a0),d0      ; Move Data from Source to Destination 60持物高度偏移
+ROM:00024AAE 6D00 0080                           blt.w   loc_24B30 
+
+ROM:00024AFE 227C 0012 0A20                      movea.l #off_120A20,a1  ; Move Address
+ROM:00024B04 3028 0020                           move.w  $20(a0),d0      ; Move Data from Source to Destination
+ROM:00024B08 2271 0000                           movea.l (a1,d0.w),a1    ; Move Address
+ROM:00024B0C 302E 00A2                           move.w  $A2(a6),d0      ; Move Data from Source to Destination
+ROM:00024B10 2271 0000                           movea.l (a1,d0.w),a1    ; Move Address
+ROM:00024B14 7000                                moveq   #0,d0           ; Move Quick
+ROM:00024B16 1028 0060                           move.b  $60(a0),d0      ; Move Data from Source to Destination
+ROM:00024B1A 1031 0000                           move.b  (a1,d0.w),d0    ; Move Data from Source to Destination
+ROM:00024B1E 1D40 0022                           move.b  d0,$22(a6)      ; Move Data from Source to Destination
+ROM:00024B22 6B00 000C                           bmi.w   loc_24B30       ; Branch if Minus
+ROM:00024B26 4EB9 0000 120E                      jsr     (sub_120E).l    ; Jump to Subroutine
+ROM:00024B2C 8040                                or.w    d0,d0           ; Inclusive-OR Logical
+ROM:00024B2E 4E75                                rts                     ; Return from Subroutine
+
+ROM:0002B3BC 227C 0002 D0E0                      movea.l #off_2D0E0,a1   ; Move Address
+ROM:0002B3C2 3028 0020                           move.w  $20(a0),d0      ; Move Data from Source to Destination
+ROM:0002B3C6 2271 0000                           movea.l (a1,d0.w),a1    ; Move Address
+ROM:0002B3CA 302E 0084                           move.w  $84(a6),d0      ; Move Data from Source to Destination
+ROM:0002B3CE E248                                lsr.w   #1,d0           ; Logical Shift Right
+ROM:0002B3D0 3031 0000                           move.w  (a1,d0.w),d0    ; Move Data from Source to Destination
+ROM:0002B3D4 D2C0                                adda.w  d0,a1           ; Add Address
+ROM:0002B3D6 1028 0060                           move.b  $60(a0),d0      ; Move Data from Source to Destination
+ROM:0002B3DA 6A56                                bpl.s   locret_2B432    ; Branch if Plus
+ROM:0002B3DC 0240 003F                           andi.w  #$3F,d0 ; '?'   ; AND Immediate
+ROM:0002B3E0 E748                                lsl.w   #3,d0           ; Logical Shift Left
+ROM:0002B3E2 D2C0                                adda.w  d0,a1           ; Add Address

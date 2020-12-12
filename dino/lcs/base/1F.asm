@@ -1,5 +1,6 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+000738	move.b  ($1a,A5), ($1f,A5)		
 00073E	move.b  ($16,A5), ($1b,A5)		[base+ 1F]
 006FA6	move.b  ($1f,A5), D1		[base+ 1A]
 006FAA	eor.b   D1, D0		[base+ 1F]

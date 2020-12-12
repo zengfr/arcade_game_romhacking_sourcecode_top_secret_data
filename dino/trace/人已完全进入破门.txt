@@ -1,0 +1,20 @@
+ :               020C3C:tst.b   ($6d,A6)
+F:               020C40:beq     $20cb6
+
+T:               020C44:addq.b  #2, ($6,A6)
+T:               020C48:jsr     $a5ea.l
+T:               00A5EA:move.w  #$ff07, D0
+T:               00A5EE:move.l  #$4440000, D1
+T:               00A5F4:moveq   #$0, D2
+T:               00A5F6:bra     $a63c
+ :               00A664:movem.l (A7)+, D6/A0
+F:               00A668:rts
+T:               020C4E:move.w  #$2, ($44c,A5)
+T:               020C54:move.b  #$f, ($44a,A5)
+T:               020C5A:lea     $8840.l, A0
+T:               020C60:move.w  #$40, D0
+T:               020C64:jmp     $8ce.l
+ :               020BFA:move.w  ($6,PC,D0.w), D0
+F:               020BFE:jmp     ($2,PC,D0.w)
+T:               020C6A:tst.b   ($44a,A5)
+T:               020C6E:bne     $20cb6

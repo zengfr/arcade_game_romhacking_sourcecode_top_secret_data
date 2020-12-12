@@ -2,14 +2,19 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 
 004926	move.b  D0, ($63,A6)		
 00492A	move.b  D0, ($7d,A6)		
+01086C	tst.b   ($63,A3)		
 010870	bmi     $10896		[enemy+63]
+010924	tst.b   ($63,A3)		
 010928	bmi     $1095a		[enemy+63]
+01128E	cmpi.b  #$4, ($63,A3)		
 011294	beq     $1129a		[enemy+63]
 02A740	tst.b   ($63,A6)		[enemy+1C]
 02A744	bgt     $2a752		
 02A8CA	tst.b   ($63,A6)		[enemy+1C]
 02A8CE	bgt     $2a8dc		[enemy+63]
+02A980	tst.b   ($63,A6)		
 02A984	ble     $2a9c6		[enemy+63]
+02AACE	tst.b   ($63,A6)		
 02AAD2	bgt     $2aae0		
 033942	move.b  D0, ($63,A6)		
 033946	move.b  #$b4, ($72,A6)		

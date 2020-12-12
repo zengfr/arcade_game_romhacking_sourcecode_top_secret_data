@@ -1,0 +1,153 @@
+﻿capcom Arcade Core technology analysis project readme
+卡普空街机核心技术分析工程项目介绍v0.1 2020.12.12
+https://gitee.com/zengfr/arcade_game_romhacking_sourcecode_top_secret_data/tree/main/dino/attack
+任务:
+一、核心打击技术分析：
+打击框、打逻辑、被打逻辑、连击逻辑、帧命中、帧取消、外部取消、无敌取消
+1、汇编注释 		asm.txt
+2、1p内存偏移注释 	addr data.txt
+3、c源码注释		c source dir
+4、log日志分析  		log dir
+5、编写逻辑伪代码
+----------------------------------------------------------------
+capcom cps1 dino hit box addr data
+----------------------------------------------------------------------------------------------------------
+more data:
+https://github.com/zengfr/arcade_game_romhacking_sourcecode_top_secret_data
+https://gitee.com/zengfr/arcade_game_romhacking_sourcecode_top_secret_data
+
+other data:
+github:https://github.com/zengfr/romhack
+gitee:https://gitee.com/zengfr/romhack
+
+blog:https://my.oschina.net/zengfr
+video:https://space.bilibili.com/492484080/video
+----------------------------------------------------------------------------------------------------------
+enemy   :#$103000,#$103c00,#$106000,#$c0100000
+4players:0x100000,0x100C00,0x101800,0x102400
+----------------------------------------------------------------------------------------------------------
+000193ca(c), 00019c32(c), 0001a460(c), 0001a862(c)-->FUN_0001bd94-->FUN_00001426 ;see files 00001426.fcall 00001426.jcall
+
+        00001426 53 2e 00 2f     subq.b     #0x1,(0x2f,A6)	;->2f
+        0000142a 66 00 00 4a     bne.w      LAB_00001476
+        0000142e 20 6e 00 28     movea.l    (0x28,A6),A0	;->28
+        00001432 41 e8 00 0c     lea        (0xc,A0),A0
+        00001436 4a 28 ff fb     tst.b      (-0x5,A0)		;->2f
+        0000143a 6b 00 00 3e     bmi.w      LAB_0000147a
+
+        0000143e 2d 48 00 28     move.l     A0,(0x28,A6)
+        00001442 30 18           move.w     (A0)+,D0w		;->4c
+        00001444 32 18           move.w     (A0)+,D1w		;->4c
+        00001446 24 18           move.l     (A0)+,D2 		;->2c.l
+        00001448 3d 58 00 48     move.w     (A0)+,(0x48,A6)	;->48
+        0000144c 3d 58 00 60     move.w     (A0)+,(0x60,A6)	;->60
+        00001450 02 02 00 7f     andi.b     #0x7f,D2b
+        00001454 2d 42 00 2c     move.l     D2,(0x2c,A6)	;->2f 00 00 00 d2
+        00001458 4a 41           tst.w      D1w
+        0000145a 6b 00 00 04     bmi.w      LAB_00001460
+        0000145e 30 01           move.w     D1w,D0w
+        00001460 08 2e 00        btst.b     0x0,(0x25,A6)	;->25
+                 00 00 25
+        00001466 66 00 00 0e     bne.w      LAB_00001476
+        0000146a 22 7c 00        movea.l    #0x11d220,A1
+                 11 d2 20
+        00001470 2d 71 00        move.l     (0x0,A1,D0w*0x1)=>DAT_0011d220,(0x4c,A6)  
+                 00 00 4c
+        00001476 80 40           or.w       D0w,D0w
+        00001478 4e 75           rts
+
+----------------------------------------------------------------------------------------------------------
+A3 + 0x2 1P=0 2P=1 3P=2[0-2]
+A2 + 3   ；123p id[0, 1, 2, 3]
+A3 + 0x4  object status[0-4/2]
+A3[0x5    object type?[0, 2, 4, 6]
+A3[6      object status[0-1e/2]
+A3[7      object status[0-36/2]
+$8.w	x position
+$10.w	y position
+$C.w	z position
+$22(a2).b ?[0, 10, 14, 18, 1C, 4, 8, C, FF] ff跳00上08右10下18左
+$24(a2).b 面向左右 flip_x[0, 1]
+$25(a2).b ?影响3c 3e ;bp 24AD6;[0, 1, 10, 20, 30, 8]
+$28(a2)   当前动画图像current frame
+$2c(a2)   ?值大跑动速度快
+$2e(a3)   ?=8时打不破铁桶
+$2f(a3)   ?
+$44(a6).l box打击框基址  (n* 0xC)
+$48(a3).b box idx被打框索引 受
+$49(a2).b box idx攻击框索引 攻 attack
+$4A(a2)   ?[0]一直0
+$4c(a2)   ?11d220+d0/d1
+A2 + 0x20 obj id[0, 4, 8, C]
++50
++51			[0, 1]
+A2 + 0x58
+A3 + 0x59	;越小拳击越快[0-18]
+A2 + 0x5a	;被打3拳置1;[0, 1]
+A2 + 0x5e ;每次按打键计数+1,持物除外;($67be,A5)
++60       ;影响8 22 ;bp 24B1E;持物高度偏移
++63
+A3 + 0x68 ;打击obj基址
+A3 + 0x6c ;血量
+A3 + 0x6e ;血量2
+A2 + 0x70 ;打击0bj基址
+A2 + 0x73
+A3[0x75
+A3 + 0x78 ;被打有关
+A3 + 0x7a	[0]
+A3[0x7b  	;被打有关
++84.w
+A3 + 0x9a	[0]
+A2 + 0xa0   ;按键
+A3[0xb2		;连击次数计数[0-4]
+A3[0xb4     ;持物0bj基址
+A3 + 0xb6
+A3[0xc5		;被打[0, 1]
+A3[0xc7
+A3[0xc8     ;1跳
+A3[0xca		[0-9]
+A3[0xcb
+A3[0xcd		[0, 1, 2]
+A3[0xe9		;被打次数计数
+A2 + 0xf0   ;等于0才能抓人摔;[0-A] 
+A3 + 0xf6
+A2 + 0x115 [0-3]
+0x118 无敌
+----------------------------------------------------------------------------------------------------------
+A5 + 0x4dd	[0-7]
+A5 + 0x4f3	[0-10]
+----------------------------------------------------------------------------------------------------------
+3敌兵+123p基址队列堆栈
+A5 + 0x6718 计数每次-1
+A5 + 0x671a 1
+A5 + 0x671c 1
+A5 + 0x671e 1
+A5 + 0x6720 321p堆栈基址
+A5 + 0x6722 敌兵堆栈基址 对应 应该是打击效果或炮弹子弹obj 偏移+30大小
+A5 + 0x6724 敌兵堆栈基址 对应 常空
+A5 + 0x6726 敌兵堆栈基址 对应 敌兵基址
+A5 + 0x6728 321p实际基址
+A5 + 0x67be
+----------------------------------------------------------------------------------------------------------
+
+    box = {
+		radius_read = memory.readword,
+		val_x = 0x4, val_y = 0x8, rad_x = 0x6, rad_y = 0xA,
+		radscale = 2,
+	},
+	box_list = {
+		{id_ptr = 0x48, type = "vulnerability", special_offset = 0x2},
+		{id_ptr = 0x48, type = "vulnerability", special_offset = 0xE},
+		{id_ptr = 0x49, type = "attack", special_offset = 0x2},
+	},
+	box_address = function(obj, box, box_entry)
+		local address = memory.readdword(obj.base + 0x44)
+		if address == 0x106000 then --dinosaurs
+			address = address + memory.readword(address + box.id * 2)
+			if not box_entry.special_offset or (memory.readword(address) == 0 and box_entry.special_offset > 0x2) then
+				return nil
+			end
+			return address + box_entry.special_offset
+		end
+		return address + box.id * 0xC --everything else
+	end,

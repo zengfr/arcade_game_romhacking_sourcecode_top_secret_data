@@ -8,6 +8,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 053486	moveq   #$22, D0		
 05F752	move.b  #$1, ($c1,A1)		[enemy+76]
 05F758	or.w    D0, D0		[enemy+C1]
+05FAA8	clr.b   ($c1,A0)		
 05FAAC	jsr     $325e6.l		[enemy+C1]
 copyright	zengfr	site:http://github.com/zengfr/romhack
 

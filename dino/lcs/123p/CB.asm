@@ -12,6 +12,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 0125FC	addq.b  #1, ($ca,A3)		[123p+ CB]
 018DDC	move.b  ($cb,A6), D0		[123p+ 78]
 018DE0	beq     $18df0		[123p+ CB]
+018DE4	subq.b  #1, ($cb,A6)		
 018DE8	bne     $18df0		[123p+ CB]
 01CE16	move.b  D0, ($cb,A6)		
 01CE1A	move.b  #$21, ($c8,A6)		

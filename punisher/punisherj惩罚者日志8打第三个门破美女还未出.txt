@@ -1,0 +1,43 @@
+ :               017A54:movea.l ($4,PC,D0.w), A0
+F:               017A58:jmp     (A0)
+T:               017B3E:move.w  #$10, ($e,A6)
+T:               017B44:jsr     $20810.l
+ :               02081C:move.b  (-$243a,A5), ($52,A6)
+F:               020822:rts
+T:               017B4A:jsr     $568c.l
+ :               004EA4:move.b  (A1,D3.w), ($6,A0)
+F:               004EAA:rts
+T:               017B50:clr.w   ($5e,A6)
+T:               017B54:move.b  #$11, ($7d,A6)
+T:               017B5A:movea.l (-$2424,A5), A0
+T:               017B5E:move.l  #$40000000, (A0)
+T:               017B64:move.l  (A0), ($bc,A6)
+T:               017B68:move.w  #$91, D0
+T:               017B6C:cmpi.w  #$2, ($64,A6)
+T:               017B72:bne     $17b78
+T:               017B78:jmp     $20824.l
+
+ :               017A0E:movea.l ($4,PC,D0.w), A1
+F:               017A12:jmp     (A1)
+T:               017B7E:movea.l (-$2424,A5), A0
+T:               017B82:move.l  (A0), ($bc,A6)
+T:               017B86:cmpi.b  #$4, ($11,A6)
+T:               017B8C:blt     $1b1ac
+ :               017B86:cmpi.b  #$4, ($11,A6)
+F:               017B8C:blt     $1b1ac
+T:               017B90:bgt     $17b9a
+T:               017B92:tst.w   ($5e,A6)
+T:               017B96:beq     $1b1ac
+T:               017B9A:addq.w  #4, ($e,A6)
+T:               017B9E:movea.l (-$2424,A5), A0
+T:               017BA2:move.l  (A0), ($bc,A6)
+T:               017BA6:jsr     $20b72.l
+ :               020B7C:andi.b  #$20, D0
+F:               020B80:rts
+T:               017BAC:bne     $17efc
+T:               017BB0:jsr     $208b0.l
+ :               0208B0:tst.b   ($a4,A6)
+F:               0208B4:rts
+T:               017BB6:bne     $17bd8
+T:               017BB8:cmpi.b  #$7, ($11,A6)
+T:               017BBE:bne     $1b1ac

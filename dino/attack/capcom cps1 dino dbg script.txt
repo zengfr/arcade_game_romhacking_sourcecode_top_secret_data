@@ -1,0 +1,7 @@
+﻿bp 24aae,1,{printf "%8x",d0;d0=9f;g;}持物高度偏移
+wp ffb274+2e,1,r,1,{printf "%8x %8x %8x %8x",frame,pc,wpaddr,wpdata;pb@(ffb274+2e)=0;g;}
+wp ffb274+f0,1,r,wpdata>0,{printf "%8x %8x %8x %8x",frame,pc,wpaddr,wpdata;g;} 甩人有效
+
+wp ffb274+48,1,r,wpdata>0,{printf "%8x %8x %8x %8x",frame,pc,wpaddr,wpdata;g;}
+wp ffb274+6c,1,w,wpdata>0,{printf "%8x %8x %8x %8x",frame,pc,wpaddr,wpdata;g;}
+
