@@ -10,6 +10,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 01153E	move.b  (A4)+, D0		[item+59]
 011A60	move.b  (A4), ($59,A3)		
 011A64	move.b  (A4)+, ($59,A2)		[item+59]
+0121B6	move.b  D0, ($59,A3)		
 0121BA	move.b  D0, ($59,A2)		[item+59]
 0121BE	move.b  (A4)+, D0		[item+59]
 025086	move.b  D0, ($59,A6)		
@@ -32,7 +33,9 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 0258A8	move.b  ($67be,A5), ($5e,A6)		
 025988	clr.b   ($59,A6)		
 02598C	move.b  ($67be,A5), ($5e,A6)		
+0259B2	tst.b   ($59,A6)		
 0259B6	beq     $25a76		
+0259BA	clr.b   ($59,A6)		
 0259BE	addi.b  #$20, ($a6,A6)		
 025A4C	clr.b   ($59,A6)		
 025A50	move.b  ($67be,A5), ($5e,A6)		
@@ -56,10 +59,15 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 025DC0	move.b  #$1, ($51,A6)		
 025DD0	clr.b   ($59,A6)		
 025DD4	move.b  ($67be,A5), ($5e,A6)		
+025EBE	clr.b   ($59,A6)		
 025EC2	move.b  #$2, ($0,A6)		
+025F8C	clr.b   ($59,A6)		
 025F90	move.w  #$600, ($4,A6)		
+02606E	tst.b   ($59,A6)		
 026072	beq     $260a8		[item+59]
+026076	clr.b   ($59,A6)		
 02607A	move.b  #$2, ($0,A6)		[item+59]
+02618A	clr.b   ($59,A6)		
 02618E	bra     $26252		
 027EBE	clr.b   ($59,A6)		[item+ 4]
 027EC2	jsr     $121e.l		[item+59]
@@ -73,10 +81,13 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 028634	move.l  #$c0100000, ($44,A6)		
 028D58	move.b  D0, ($59,A6)		
 028D5C	move.b  D0, ($3,A6)		
+028DD8	clr.b   ($59,A6)		
 028DDC	addq.b  #2, ($4,A6)		
 028E20	move.b  ($59,A6), D0		
 028E24	beq     $28e52		
+028E30	move.b  D0, ($59,A6)		
 028E34	bne     $28e3e		[item+59]
+02901A	clr.b   ($59,A6)		
 02901E	move.b  #$2, ($b0,A6)		
 029D44	move.b  D0, ($59,A6)		[item+51]
 029D48	move.w  ($c,A6), ($a0,A6)		

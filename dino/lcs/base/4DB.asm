@@ -1,7 +1,10 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+006D7C	tst.b   ($4db,A5)		
 006D80	bne     $6e28		
+006DFC	tst.b   ($4db,A5)		
 006E00	bne     $6e28		
+006E2A	tst.b   ($4db,A5)		
 006E2E	bne     $6eae		
 00AD24	bne     $ad34		[base+4D9]
 00AD34	rts		[base+4DB]

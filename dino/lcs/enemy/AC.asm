@@ -1,16 +1,22 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+00042A	move.l  D1, (A0)+		
 00042C	dbra    D0, $42a		
 004D3E	move.l  D0, (A4)+		
 004D40	dbra    D1, $4d38		
 033960	move.b  #$5a, ($ac,A6)		[enemy+A9]
 033966	move.b  D0, ($ba,A6)		[enemy+AC]
+0356A2	subq.b  #1, ($ac,A6)		
 0356A6	bcc     $356f2		[enemy+AC]
+0356A8	move.b  #$1e, ($ac,A6)		
 0356AE	movea.w ($76,A6), A0		[enemy+AC]
 038E2C	clr.b   ($ac,A6)		[enemy+A0]
 038E30	move.b  #$9e, ($23,A6)		
+038F38	move.b  #$1, ($ac,A6)		
 038F3E	moveq   #$c, D0		[enemy+AC]
+038FA4	clr.b   ($ac,A6)		
 038FA8	moveq   #$e, D0		[enemy+AC]
+03C60E	move.w  ($ac,A6), D0		
 03C612	move.w  ($6,PC,D0.w), D0		
 03C626	move.w  #$0, ($ac,A6)		[enemy+ 4, enemy+ 6]
 03C62C	moveq   #$0, D0		
@@ -20,34 +26,54 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 03DEBC	move.b  D0, ($be,A6)		[enemy+AC]
 03E532	move.w  #$14, ($ac,A6)		[enemy+76]
 03E538	move.b  #$0, ($a1,A6)		[enemy+AC]
+03E576	subq.w  #1, ($ac,A6)		
 03E57A	beq     $4005c		[enemy+AC]
+03E602	subq.w  #1, ($ac,A6)		
 03E606	beq     $3f464		[enemy+AC]
+03E6B4	subq.w  #1, ($ac,A6)		
 03E6B8	bne     $3e6c0		[enemy+AC]
 03E790	subq.w  #1, ($ac,A6)		
 03E794	bne     $3e79c		[enemy+AC]
+03E79C	move.w  ($ac,A6), D0		
 03E7A0	andi.w  #$3, D0		[enemy+AC]
 03E82E	subq.w  #1, ($ac,A6)		
 03E832	bne     $3e83a		[enemy+AC]
+03E83A	move.w  ($ac,A6), D0		
 03E83E	andi.w  #$3, D0		[enemy+AC]
+03E8C6	subq.w  #1, ($ac,A6)		
 03E8CA	bne     $3e8d2		[enemy+AC]
+03E98A	subq.w  #1, ($ac,A6)		
 03E98E	bne     $3e996		[enemy+AC]
+03E996	cmpi.w  #$3c, ($ac,A6)		
 03E99C	bgt     $3e9a6		[enemy+AC]
+03EB30	subq.w  #1, ($ac,A6)		
 03EB34	bne     $3eb3c		[enemy+AC]
+03EB7E	subq.w  #1, ($ac,A6)		
 03EB82	beq     $3ee82		[enemy+AC]
+03EB8C	subq.w  #1, ($ac,A6)		
 03EB90	bne     $3eb9e		[enemy+AC]
+03EBA4	subq.w  #1, ($ac,A6)		
 03EBA8	bne     $3ebb0		[enemy+AC]
+03EC22	subq.w  #1, ($ac,A6)		
 03EC26	beq     $3ec42		[enemy+AC]
 03EC70	move.w  #$10, ($ac,A6)		[enemy+1A]
 03EC76	move.b  #$1e, ($6,A6)		[enemy+AC]
+03ECA8	subq.w  #1, ($ac,A6)		
 03ECAC	bne     $3ecd6		[enemy+AC]
+03ECBE	move.w  D0, ($ac,A6)		
 03ECC2	move.b  #$1, ($a1,A6)		[enemy+AC]
 03EEAE	move.w  #$3c, ($ac,A6)		[enemy+ 6]
 03EEB4	jsr     $32a58.l		[enemy+AC]
+03F038	subq.w  #1, ($ac,A6)		
 03F03C	bne     $3f044		[enemy+AC]
+03F0A4	subq.w  #1, ($ac,A6)		
 03F0A8	cmpi.w  #$24, ($ac,A6)		[enemy+AC]
 03F0AE	bgt     $3f0dc		[enemy+AC]
+03F0CA	tst.w   ($ac,A6)		
 03F0CE	bne     $3f0dc		[enemy+AC]
+03F134	move.w  (A0,D0.w), ($ac,A6)		
 03F13A	move.w  ($5ee,A5), D1		[enemy+AC]
+03F14A	add.w   D0, ($ac,A6)		
 03F14E	beq     $3f156		[enemy+AC]
 03F164	move.w  #$b4, ($ac,A6)		[enemy+ 6]
 03F16A	move.b  #$1e, ($a8,A6)		[enemy+AC]
@@ -65,6 +91,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 03F57C	move.b  #$8, ($6,A6)		[enemy+AC]
 03F5B4	move.w  #$1e, ($ac,A6)		[enemy+A1]
 03F5BA	move.b  #$14, ($6,A6)		[enemy+AC]
+03F616	move.w  D3, ($ac,A6)		
 03F61A	move.b  #$1, ($a1,A6)		[enemy+AC]
 03F676	move.w  #$1e, ($ac,A6)		[enemy+A1]
 03F67C	move.b  #$3c, ($6,A6)		[enemy+AC]
@@ -78,25 +105,35 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 03F9CC	jsr     $32a58.l		[enemy+AC]
 03FC44	move.w  #$4b0, ($ac,A6)		[enemy+A1]
 03FC4A	move.b  #$34, ($6,A6)		[enemy+AC]
+03FC70	move.w  ($12,PC,D0.w), ($ac,A6)		
 03FC76	move.b  #$46, ($6,A6)		[enemy+AC]
 03FE6C	move.w  #$3c, ($ac,A6)		[enemy+AF]
 03FE72	move.b  #$1, ($51,A6)		[enemy+AC]
 040022	move.w  #$24, ($ac,A6)		[enemy+ 6]
 040028	move.b  #$1e, ($a8,A6)		[enemy+AC]
+04061E	move.b  (A0,D1.w), ($ac,A6)		
 040624	move.b  #$0, ($ad,A6)		[enemy+AC]
 040A2C	tst.b   ($ac,A6)		[enemy+B4, enemy+B6]
 040A30	beq     $40a3a		[enemy+AC]
+040A34	subq.b  #1, ($ac,A6)		
 040A38	rts		[enemy+AC]
+040A82	tst.b   ($ac,A6)		
 040A86	bne     $40a98		[enemy+AC]
 040AD2	tst.b   ($ac,A6)		[enemy+B0, enemy+B2]
 040AD6	beq     $40ae0		[enemy+AC]
+040ADA	subq.b  #1, ($ac,A6)		
 040ADE	rts		[enemy+AC]
+040AFA	tst.b   ($ac,A6)		
 040AFE	bne     $40b2a		[enemy+AC]
 040B64	tst.b   ($ac,A6)		[enemy+B4, enemy+B6]
 040B68	beq     $40b72		[enemy+AC]
+040B6C	subq.b  #1, ($ac,A6)		
 040B70	rts		[enemy+AC]
+040B8C	tst.b   ($ac,A6)		
 040B90	bne     $40bbc		
+040EF4	tst.b   ($ac,A6)		
 040EF8	beq     $40f02		[enemy+AC]
+040EFC	subq.b  #1, ($ac,A6)		
 040F00	rts		[enemy+AC]
 040F5E	move.b  #$0, ($ac,A6)		[enemy+AD]
 040F64	rts		
@@ -105,12 +142,19 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 041F98	beq     $41fc0		
 041FEC	cmpi.b  #$0, ($ac,A6)		[enemy+10, enemy+12]
 041FF2	beq     $41ffc		
+0426D4	move.w  A0, ($ac,A6)		
 0426D8	move.b  #$1, ($0,A0)		[enemy+AC]
+0426F4	movea.w ($ac,A6), A0		
 0426F8	tst.b   ($0,A0)		[enemy+AC]
+046368	move.w  D0, ($ac,A6)		
 04636C	move.b  #$1, ($7d,A6)		[enemy+AC]
+0463D4	move.w  ($ac,A6), D0		
 0463D8	move.b  ($1c,PC,D0.w), D1		[enemy+AC]
+0463E0	addq.w  #1, ($ac,A6)		
 0463E4	move.w  ($68,PC,D1.w), D0		[enemy+AC]
+0464D0	move.w  ($ac,A6), D0		
 0464D4	lea     (-$e0,PC) ; ($463f6), A0		[enemy+AC]
+046516	move.w  ($ac,A6), D0		
 04651A	lea     (-$126,PC) ; ($463f6), A0		[enemy+AC]
 04841C	move.b  D0, ($ac,A6)		
 048420	move.b  D0, ($ad,A6)		
@@ -124,12 +168,15 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 04E5B0	move.w  D0, ($b4,A6)		
 0500EE	clr.w   ($ac,A6)		[enemy+AA]
 0500F2	bsr     $509c6		[enemy+AC]
+05592E	move.l  ($aa,A6), D0		
 055932	add.l   D0, ($8,A6)		[enemy+AA, enemy+AC]
 055992	move.l  #$60000, ($aa,A6)		[enemy+10]
 05599A	tst.b   ($24,A6)		[enemy+AA, enemy+AC]
 05599E	bne     $559a6		[enemy+24]
 0559A6	move.b  #$19, ($58,A6)		[enemy+AA, enemy+AC]
+05665E	move.w  D0, ($ac,A6)		
 056662	jsr     $119c.l		[enemy+AC]
+0566CA	subi.w  #$1, ($ac,A6)		
 0566D0	bne     $566d8		[enemy+AC]
 0569A6	move.w  #$0, ($ac,A6)		[enemy+ 5]
 0569AC	jsr     $119c.l		
@@ -145,6 +192,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 056D9E	move.l  #$0, ($a6,A6)		
 056DEA	move.l  #$fffb0000, ($aa,A6)		[enemy+AE, enemy+B0]
 056DF2	jsr     $119c.l		[enemy+AA, enemy+AC]
+056DFE	sub.l   D0, ($aa,A6)		
 056E02	move.l  #$100, ($a6,A6)		[enemy+AA, enemy+AC]
 056E5C	move.l  #$80000, ($aa,A6)		[enemy+AE, enemy+B0]
 056E64	move.l  #$0, ($a6,A6)		[enemy+AA, enemy+AC]
@@ -168,26 +216,34 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 057070	add.l   D0, ($8,A6)		[enemy+AA, enemy+AC]
 057920	move.w  ($34,PC,D0.w), ($ac,A6)		[enemy+AA]
 057926	jsr     $12cb4.l		[enemy+AC]
+057A98	move.w  ($ac,A6), D0		
 057A9C	add.w   D0, ($10,A6)		[enemy+AC]
 057EA6	tst.b   ($ac,A3)		[enemy+A2]
 057EAA	beq     $57f0c		[enemy+AC]
 058532	move.b  D0, ($ac,A6)		
 058536	move.b  D0, ($ba,A6)		
+058712	tst.b   ($ac,A6)		
 058716	bne     $58750		[enemy+AC]
 05873C	move.b  #$1, ($ac,A6)		[enemy+B6]
 058742	move.b  #$8, ($5,A1)		[enemy+AC]
+05874A	move.b  #$0, ($ac,A6)		
 058750	rts		
 05A6C0	move.l  #$80000, ($aa,A6)		[enemy+ C]
 05A6C8	tst.b   ($24,A6)		[enemy+AA, enemy+AC]
+05A6D0	neg.l   ($aa,A6)		
 05A6D4	jsr     $119c.l		[enemy+AA, enemy+AC]
 05A722	neg.l   ($aa,A6)		[enemy+B0]
 05A726	move.w  #$50, ($b6,A6)		[enemy+AA, enemy+AC]
+0AAACA	move.l  (A0), D2		
 0AAACC	move.w  D0, (A0)		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, enemy+DE, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
 0AAACE	move.w  D0, ($2,A0)		
 0AAAD2	cmp.l   (A0), D0		
 0AAAD4	bne     $aaafc		
+0AAAD8	move.l  D2, (A0)+		
 0AAADA	cmpa.l  A0, A1		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, enemy+DE, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
+0AAAE6	move.l  (A0), D2		
 0AAAE8	move.w  D0, (A0)		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, enemy+DE, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
+0AAAF4	move.l  D2, (A0)+		
 0AAAF6	cmpa.l  A0, A1		[123p+11A, 123p+11C, 123p+11E, 123p+120, 123p+122, 123p+124, 123p+126, 123p+128, 123p+12A, enemy+BC, enemy+C0, enemy+C2, enemy+C4, enemy+CC, enemy+CE, enemy+D0, enemy+D2, enemy+D4, enemy+D6, enemy+D8, enemy+DA, enemy+DE, item+86, item+88, item+8A, item+98, item+9A, item+9C, item+9E, item+A0, item+A2, item+A4, item+A6, scr1]
 copyright	zengfr	site:http://github.com/zengfr/romhack
 

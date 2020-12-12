@@ -1,6 +1,8 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+001262	btst    #$0, ($25,A6)		
 001268	bne     $1278		[enemy+25, etc+25, item+25]
+014226	btst    #$0, ($25,A0)		
 01422C	bne     $14136		[123p+ 25, enemy+25, etc+25, item+25]
 014234	btst    #$6, ($25,A0)		[123p+ 28, 123p+ 2A, enemy+28, enemy+2A, etc+28, etc+2A, item+28, item+2A]
 01423A	bne     $147fe		[123p+ 25, enemy+25, etc+25, item+25]
@@ -8,7 +10,9 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 01426A	bne     $14276		[123p+ 25, enemy+25, etc+25, item+25]
 014816	btst    #$7, ($25,A0)		[etc+10]
 01481C	bne     $14828		[etc+25]
+014ED6	btst    #$4, ($25,A0)		
 014EDC	bne     $14f92		[123p+ 25, enemy+25, etc+25, item+25]
+07524C	move.b  #$10, ($25,A6)		
 075252	move.b  #$1, ($1,A6)		[etc+25]
 07B57E	move.b  #$50, ($25,A6)		[etc+ 1]
 07B584	move.w  #$180, ($8,A6)		[etc+25]

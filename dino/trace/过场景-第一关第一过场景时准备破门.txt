@@ -1,0 +1,25 @@
+ :               01DF7A:cmp.w   D2, D0
+F:               01DF7C:bcc     $1df96
+
+T:               01DF7E:move.w  ($10,A6), D0
+T:               01DF82:sub.w   ($de,A6), D0
+T:               01DF86:add.w   D1, D0
+T:               01DF88:cmp.w   D2, D0
+T:               01DF8A:bcc     $1df96
+T:               01DF8C:bsr     $1df9a
+T:               01DF9A:moveq   #$0, D0
+T:               01DF9C:move.b  ($2,A6), D0
+T:               01DFA0:bset    D0, ($4df,A5)
+T:               01DFA4:moveq   #$0, D0
+T:               01DFA6:move.b  ($4dd,A5), D0
+T:               01DFAA:cmp.b   ($4df,A5), D0
+T:               01DFAE:bne     $1dfc0
+T:               01DFB0:moveq   #$1, D0
+T:               01DFB2:move.w  D0, ($334c,A5)
+T:               01DFB6:move.w  D0, ($34cc,A5)
+T:               01DFBA:move.w  D0, ($364c,A5)
+T:               01DFBE:nop
+T:               01DFC0:clr.b   ($a0,A6)
+T:               01DFC4:clr.b   ($a8,A6)
+T:               01DFC8:rts
+T:               01DF90:move.b  #$1, ($24,A6)

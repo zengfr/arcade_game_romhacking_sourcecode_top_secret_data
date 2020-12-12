@@ -1,0 +1,750 @@
+-------------------------------------------------------------------------------
+捡起手雷
+F:               079FD8:beq     $7a012
+T:               07A012:lea     (-$2436,A5), A0
+T:               07A016:move.b  ($2,A2), D1
+
+T:               07A01A:beq     $7a022
+T:               07A022:cmpi.b  #$9, (A0)
+T:               07A026:bge     $7a038
+T:               07A02A:addq.b  #1, (A0)
+T:               07A02C:jsr     $45fe.l
+F:               0045FC:rts
+T:               07A032:jmp     $ae1cc.l
+-------------------------------------------------------------------------------
+举起轮胎
+F:               001972:beq     $1a1c
+T:               001976:cmpi.w  #$5, ($64,A1)
+T:               00197C:beq     $198e
+T:               00198E:tst.b   ($7,A6)
+T:               001992:sne     D0
+T:               001994:move.w  ($20,A1), D1
+T:               001998:cmp.w   ($20,A6), D1
+T:               00199C:sge     D1
+T:               00199E:cmp.b   D0, D1
+T:               0019A0:bne     $1a1e
+T:               0019A4:move.w  ($66,A6), D0
+T:               0019A8:beq     $19e4
+T:               0019E4:move.w  A1, ($66,A6)
+T:               0019E8:move.w  A1, ($56,A6)
+T:               0019EC:st      (A1)
+T:               0019EE:move.w  #$c, ($a,A1)
+T:               0019F4:move.w  #$0, ($c,A1)
+T:               0019FA:move.w  #$0, ($e,A1)
+T:               001A00:st      ($55,A1)
+
+T:               001A04:move.w  A6, ($56,A1)
+T:               001A08:move.b  ($7,A6), ($b1,A1)
+T:               001A0E:move.b  #$0, ($d9,A6)
+T:               001A14:move.w  ($64,A1), D0
+T:               001A18:move.w  D0, ($64,A6)
+F:               001926:bne     $1938
+T:               001938:rts
+F:               0195C2:bne     $195d4
+T:               0195C4:movea.w ($56,A6), A0
+T:               0195C8:movea.l ($b8,A0), A1
+T:               0195CC:cmpi.w  #$2, ($2,A1)
+T:               0195D2:bge     $195ea
+F:               07B7A8:bne     $7b7b2
+T:               07B7AA:tst.b   (-$205f,A5)
+T:               07B7AE:bmi     $7bfcc
+F:               07B880:jsr     (A0)
+T:               07BC36:movea.w ($56,A6), A0
+T:               07BC3A:tst.w   ($66,A0)
+T:               07BC3E:beq     $7bd0a
+T:               07BC42:clr.b   ($68,A0)
+T:               07BC46:tst.w   ($c,A6)
+T:               07BC4A:bne     $7bc7c
+T:               07BC4E:tst.b   ($11,A0)
+T:               07BC52:bne     $7bc62
+T:               07BC56:jsr     $1668.l
+F:               001676:rts
+T:               07BC5C:jmp     $13e6.l
+F:               017472:beq     $1747e
+T:               017474:cmpi.w  #$2, ($64,A6)
+T:               01747A:bne     $17562
+F:               07BC52:bne     $7bc62
+T:               07BC62:move.w  A0, ($5e,A6)
+T:               07BC66:jsr     $ae1cc.l
+F:               0AE298:rts
+T:               07BC6C:move.b  #$1, (A6)
+T:               07BC70:addq.w  #2, ($c,A6)
+T:               07BC74:sf      ($4e,A6)
+T:               07BC78:movea.w ($56,A6), A0
+T:               07BC7C:movea.l ($12,A0), A1
+T:               07BC80:move.w  ($28,A0), ($28,A6)
+T:               07BC86:move.w  (-$e,A1), D1
+T:               07BC8A:move.w  (-$c,A1), D2
+T:               07BC8E:move.b  ($7,A0), D0
+T:               07BC92:cmp.b   ($b1,A6), D0
+T:               07BC96:beq     $7bcac
+T:               07BCAC:tst.b   D0
+T:               07BCAE:beq     $7bcb4
+T:               07BCB2:neg.w   D1
+T:               07BCB4:add.w   ($20,A0), D1
+T:               07BCB8:add.w   ($24,A0), D2
+T:               07BCBC:move.w  D1, ($20,A6)
+T:               07BCC0:move.w  D2, ($24,A6)
+T:               07BCC4:move.w  (-$a,A1), D0
+T:               07BCC8:beq     $7b6a8
+T:               07BCCC:lea     (A0), A4
+T:               07BCCE:movea.l ($bc,A6), A1
+T:               07BCD2:movea.l (A1)+, A0
+T:               07BCD4:tst.b   ($2,A4)
+T:               07BCD8:beq     $7bcde
+T:               07BCDE:move.b  D0, ($58,A6)
+T:               07BCE2:jsr     $116c.l
+F:               0011D8:rts
+T:               07BCE8:movea.w ($56,A6), A0
+T:               07BCEC:move.b  ($11,A6), ($68,A0)
+T:               07BCF2:jmp     $1668.l
+F:               09028C:jmp     (A0)
+T:               090CBE:move.w  (-$4a,A5), D7
+T:               090CC2:beq     $90ce2
+T:               090CE2:rts
+F:               09176E:bhi     $91776
+T:               091772:st      ($89,A6)
+F:               014DE0:beq     $14df2
+T:               014DE4:bmi     $14dfc
+T:               014DFC:bsr     $14fcc
+F:               015734:rts
+T:               014E00:movea.w ($66,A6), A6
+T:               014E04:bsr     $14fcc
+F:               0153F8:rts
+T:               014E08:dbra    D7, $14dd2
+T:               014E0C:rts
+F:               017682:bne     $176ac
+T:               017686:move.w  ($82,A0), D0
+T:               01768A:beq     $176ac
+F:               0916A2:jmp     (A0)
+T:               0916D2:tst.b   ($89,A6)
+T:               0916D6:bne     $916a4
+T:               0916D8:move.w  ($3e,A4), D1
+T:               0916DC:beq     $916a4
+T:               0916DE:bsr     $916ea
+F:               091758:rts
+T:               0916E2:bhi     $916a4
+-------------------------------------------------------------------------------
+举起轮胎后的扔出
+F:               02096C:bne     $208d8
+T:               020970:jsr     $208c6.l
+F:               0208D6:rts
+T:               020976:jsr     $21026.l
+F:               02103C:rts
+T:               02097C:cmp.b   ($7,A6), D1
+T:               020980:beq     $209b2
+T:               0209B2:cmpi.w  #$5, ($64,A6)
+T:               0209B8:beq     $20a10
+T:               020A10:move.w  ($f2,A6), D0
+T:               020A14:subi.w  #$40, D0
+T:               020A18:ble     $20b04
+T:               020B04:lea     ($4c,PC) ; ($20b52), A0
+T:               020B08:move.b  ($c0,A6), D0
+
+T:               020B0C:andi.b  #$f, D0
+T:               020B10:move.b  #$1, D1
+T:               020B14:tst.b   ($7,A6)
+T:               020B18:bne     $20b1e
+T:               020B1E:cmp.b   D1, D0
+T:               020B20:beq     $20a4a
+T:               020B24:lea     ($c,PC) ; ($20b32), A0
+T:               020B28:clr.b   ($a8,A6)
+T:               020B2C:jmp     $20a4a.l
+T:               020A4A:move.w  ($64,A6), D0
+T:               020A4E:add.w   D0, D0
+T:               020A50:add.w   D0, D0
+T:               020A52:movea.l (A0,D0.w), A0
+T:               020A56:jmp     (A0)
+T:               0190EC:move.w  #$3c, ($c,A6)
+T:               0190F2:move.w  #$4, ($e,A6)
+T:               0190F8:jsr     $20810.l
+T:               020810:addq.b  #1, (-$243a,A5)
+T:               020814:bne     $2081c
+T:               02081C:move.b  (-$243a,A5), ($52,A6)
+T:               020822:rts
+T:               0190FE:move.w  #$a, ($34,A6)
+T:               019104:jsr     $568c.l
+T:               00568C:move.w  #$4a, D0
+T:               005690:not.b   (-$22d7,A5)
+T:               005694:beq     $4e72
+T:               005698:move.w  #$106, D0
+T:               00569C:bra     $4e72
+F:               004EAA:rts
+T:               01910A:moveq   #$36, D0
+T:               01910C:jmp     $20824.l
+F:               0176C8:jsr     (A1)
+T:               0190B8:move.l  #$20000, ($bc,A6)
+T:               0190C0:jsr     $20f3e.l
+F:               020F46:rts
+T:               0190C6:bgt     $20f4e
+T:               0190CA:tst.b   ($c5,A6)
+T:               0190CE:bne     $188dc
+T:               0190D2:move.w  ($e,A6), D0
+T:               0190D6:movea.l ($4,PC,D0.w), A1
+T:               0190DA:jmp     (A1)
+T:               019112:jsr     $1174.l
+F:               0011AC:rts
+T:               019118:tst.b   ($11,A6)
+T:               01911C:bpl     $1917c
+T:               01917C:rts
+F:               01911C:bpl     $1917c
+T:               01911E:addq.w  #4, ($e,A6)
+T:               019122:jsr     $20810.l
+F:               020822:rts
+T:               019128:moveq   #$0, D0
+T:               01912A:move.b  D0, ($d9,A6)
+T:               01912E:move.w  D0, ($64,A6)
+T:               019132:move.w  D0, ($5e,A6)
+T:               019136:move.w  ($66,A6), D1
+T:               01913A:beq     $191c4
+T:               01913E:movea.w D1, A0
+T:               019140:tst.b   (A0)
+T:               019142:beq     $191c0
+T:               019146:move.w  #$8, ($a,A0)
+T:               01914C:move.w  D0, ($c,A0)
+T:               019150:move.b  ($52,A6), ($53,A0)
+T:               019156:move.b  D0, ($68,A6)
+T:               01915A:move.w  #$4, ($1a,A6)
+T:               019160:moveq   #$1d, D0
+T:               019162:add.b   ($3,A0), D0
+T:               019166:move.w  D0, ($1c,A6)
+T:               01916A:move.w  #$318, D0
+T:               01916E:tst.b   ($2,A6)
+T:               019172:beq     $19178
+T:               019178:move.w  D0, ($3c,A6)
+F:               07B880:jsr     (A0)
+T:               07BA00:move.w  ($c,A6), D0
+T:               07BA04:movea.l ($2c,PC,D0.w), A0
+T:               07BA08:jsr     (A0)
+T:               07BA42:move.b  #$1, (A6)
+T:               07BA46:clr.b   ($6b,A6)
+T:               07BA4A:clr.b   ($4c,A6)
+T:               07BA4E:jsr     $1d74.l
+T:               001D74:addq.b  #1, (-$243a,A5)
+T:               001D78:bne     $1d80
+T:               001D80:move.b  (-$243a,A5), ($52,A6)
+T:               001D86:rts
+T:               07BA54:moveq   #$0, D0
+T:               07BA56:move.b  ($3,A6), D0
+T:               07BA5A:lea     ($c96,PC) ; ($7c6f2), A0
+T:               07BA5E:move.b  (A0,D0.w), ($5b,A6)
+T:               07BA64:addq.w  #4, ($c,A6)
+T:               07BA68:sf      ($55,A6)
+T:               07BA6C:bsr     $7c592
+T:               07C592:moveq   #$0, D0
+T:               07C594:move.b  ($3,A6), D0
+T:               07C598:move.b  ($8,PC,D0.w), D0
+T:               07C59C:move.w  D0, ($86,A6)
+T:               07C5A0:rts
+T:               07BA70:move.w  #$fe00, ($44,A6)
+T:               07BA76:move.w  #$ff60, ($46,A6)
+T:               07BA7C:move.w  #$fd00, D0
+T:               07BA80:movea.w ($56,A6), A0
+T:               07BA84:move.w  A0, ($5e,A6)
+T:               07BA88:movea.l ($12,A0), A1
+T:               07BA8C:move.w  ($28,A0), ($28,A6)
+T:               07BA92:move.w  (-$e,A1), D1
+T:               07BA96:move.w  (-$c,A1), D2
+T:               07BA9A:move.b  ($7,A0), D0
+T:               07BA9E:cmp.b   ($b1,A6), D0
+T:               07BAA2:beq     $7bab8
+T:               07BAB8:tst.b   D0
+T:               07BABA:beq     $7bac2
+T:               07BABE:neg.w   D0
+T:               07BAC0:neg.w   D1
+T:               07BAC2:move.w  D0, ($40,A6)
+T:               07BAC6:add.w   ($20,A0), D1
+T:               07BACA:add.w   ($24,A0), D2
+T:               07BACE:move.w  D1, ($20,A6)
+T:               07BAD2:move.w  D2, ($24,A6)
+T:               07BAD6:moveq   #$1, D0
+T:               07BAD8:movea.l ($bc,A6), A0
+T:               07BADC:movea.l (A0), A0
+T:               07BADE:move.b  D0, ($58,A6)
+T:               07BAE2:jmp     $116c.l
+F:               0011AC:rts
+T:               07BA0A:jsr     $1668.l
+F:               001676:rts
+T:               07BA10:jsr     $13e6.l
+F:               00141A:rts
+T:               07BA16:tst.b   ($9a,A6)
+T:               07BA1A:beq     $7ba30
+T:               07BA30:rts
+F:               08FCA8:jmp     (A0)
+T:               08FDE8:tst.b   (A4)
+T:               08FDEA:ble     $8fc86
+F:               09028C:jmp     (A0)
+T:               090552:move.w  (-$4a,A5), D7
+T:               090556:beq     $90576
+T:               090576:rts
+F:               091126:jmp     (A0)
+T:               09130E:move.w  (-$36,A5), D7
+T:               091312:beq     $91332
+T:               091332:rts
+F:               091658:jmp     (A0)
+T:               09183C:move.w  (-$48,A5), D7
+T:               091840:beq     $91860
+T:               091844:lea     ($328,A5), A3
+T:               091848:subq.w  #1, D7
+T:               09184A:movea.w -(A3), A4
+T:               09184C:tst.b   (A4)
+T:               09184E:ble     $9185c
+T:               091852:move.w  ($1a,A4), D0
+T:               091856:movea.l ($a,PC,D0.w), A0
+T:               09185A:jmp     (A0)
+T:               091900:move.b  ($52,A6), D0
+T:               091904:cmp.b   ($53,A4), D0
+T:               091908:beq     $91980
+T:               091980:movea.l ($30,A4), A0
+T:               091984:adda.w  ($3c,A4), A0
+T:               091988:move.w  ($28,A6), D1
+T:               09198C:sub.w   ($28,A4), D1
+T:               091990:sub.w   (A0)+, D1
+T:               091992:cmp.w   (A0)+, D1
+T:               091994:bhi     $9185c
+T:               091998:move.w  (A0)+, D1
+T:               09199A:move.w  (A0)+, D2
+T:               09199C:tst.b   ($7,A4)
+T:               0919A0:beq     $919a8
+T:               0919A8:move.w  ($20,A6), D3
+T:               0919AC:sub.w   ($20,A4), D3
+T:               0919B0:sub.w   D1, D3
+T:               0919B2:cmp.w   D2, D3
+T:               0919B4:bhi     $9185c
+T:               09185C:dbra    D7, $9184a
+T:               091860:rts
+F:               091A9E:jmp     (A0)
+T:               0921FC:move.w  (-$3e,A5), D7
+T:               092200:beq     $92220
+T:               092220:rts
+F:               0190DA:jmp     (A1)
+T:               01917E:tst.w   ($5e,A6)
+T:               019182:beq     $191c0
+T:               0191C0:clr.w   ($66,A6)
+T:               0191C4:move.w  #$0, ($1a,A6)
+T:               0191CA:move.w  #$0, ($1c,A6)
+T:               0191D0:move.w  #$0, ($3c,A6)
+T:               0191D6:move.w  #$c, ($e,A6)
+T:               0191DC:tst.b   ($11,A6)
+T:               0191E0:bpl     $17e0e
+T:               0191E4:jmp     $1174.l
+F:               07BA08:jsr     (A0)
+T:               07BAE8:tst.b   ($6b,A6)
+T:               07BAEC:bne     $7bb0e
+T:               07BAF0:jsr     $1be2.l
+T:               001BE2:move.w  ($40,A6), D0
+T:               001BE6:ext.l   D0
+T:               001BE8:lsl.l   #8, D0
+T:               001BEA:add.l   D0, ($20,A6)
+T:               001BEE:move.w  ($44,A6), D0
+T:               001BF2:add.w   ($46,A6), D0
+T:               001BF6:cmpi.w  #-$700, D0
+T:               001BFA:ble     $1c02
+T:               001BFE:move.w  D0, ($44,A6)
+T:               001C02:ext.l   D0
+T:               001C04:lsl.l   #8, D0
+T:               001C06:add.l   D0, ($24,A6)
+T:               001C0A:rts
+T:               07BAF6:move.w  ($50,A6), D0
+T:               07BAFA:cmp.w   ($24,A6), D0
+T:               07BAFE:bgt     $7bbaa
+T:               07BB02:jsr     $16f0.l
+T:               0016F0:tst.b   ($1,A6)
+T:               0016F4:beq     $1706
+T:               0016F8:movea.w (-$14,A5), A0
+T:               0016FC:move.w  A6, -(A0)
+T:               0016FE:move.w  A0, (-$14,A5)
+T:               001702:addq.w  #1, (-$4c,A5)
+T:               001706:rts
+T:               07BB08:jmp     $1174.l
+F:               092D40:beq     $92d60
+T:               092D44:lea     ($128,A5), A2
+T:               092D48:subq.w  #1, D7
+T:               092D4A:movea.w -(A2), A6
+T:               092D4C:tst.b   (A6)
+T:               092D4E:beq     $92d5c
+T:               092D52:move.w  ($1a,A6), D0
+T:               092D56:movea.l ($a,PC,D0.w), A0
+T:               092D5A:jmp     (A0)
+T:               093346:move.w  (-$4a,A5), D6
+T:               09334A:beq     $9337a
+T:               09337A:bra     $92d5c
+T:               092D5C:dbra    D7, $92d4a
+F:               093C36:beq     $93c56
+T:               093C3A:lea     ($128,A5), A2
+T:               093C3E:subq.w  #1, D7
+T:               093C40:movea.w -(A2), A6
+T:               093C42:tst.b   (A6)
+T:               093C44:ble     $93c52
+T:               093C48:move.w  ($1a,A6), D0
+T:               093C4C:movea.l ($a,PC,D0.w), A0
+T:               093C50:jmp     (A0)
+T:               0940E8:move.w  (-$36,A5), D6
+T:               0940EC:beq     $9410c
+T:               09410C:bra     $93c52
+T:               093C52:dbra    D7, $93c40
+F:               094642:beq     $94662
+T:               094646:lea     ($128,A5), A2
+T:               09464A:subq.w  #1, D7
+T:               09464C:movea.w -(A2), A6
+T:               09464E:tst.b   (A6)
+T:               094650:ble     $9465e
+T:               094654:move.w  ($1a,A6), D0
+T:               094658:movea.l ($a,PC,D0.w), A0
+T:               09465C:jmp     (A0)
+T:               094A20:move.w  (-$48,A5), D6
+T:               094A24:beq     $94a44
+T:               094A28:lea     ($328,A5), A3
+T:               094A2C:subq.w  #1, D6
+T:               094A2E:movea.w -(A3), A4
+T:               094A30:tst.b   (A4)
+T:               094A32:ble     $94a40
+T:               094A36:move.w  ($1a,A4), D0
+T:               094A3A:movea.l ($c,PC,D0.w), A0
+T:               094A3E:jmp     (A0)
+T:               094A70:cmpa.w  A6, A4
+T:               094A72:beq     $94a40
+T:               094A40:dbra    D6, $94a2e
+T:               094A44:bra     $9465e
+T:               09465E:dbra    D7, $9464c
+F:               094BFA:beq     $94c1a
+T:               094BFE:lea     ($128,A5), A2
+T:               094C02:subq.w  #1, D7
+T:               094C04:movea.w -(A2), A6
+T:               094C06:tst.b   (A6)
+T:               094C08:beq     $94c16
+T:               094C0C:move.w  ($1a,A6), D0
+T:               094C10:movea.l ($a,PC,D0.w), A0
+T:               094C14:jmp     (A0)
+T:               094C16:dbra    D7, $94c04
+F:               0ABDDE:jmp     (A0,D3.w)
+T:               0ABEA0:move.w  D0, D2
+T:               0ABEA2:move.w  D1, D3
+T:               0ABEA4:andi.w  #$f, D2
+T:               0ABEA8:andi.w  #$f, D3
+T:               0ABEAC:cmp.w   D2, D3
+T:               0ABEAE:bgt     $abdf6
+F:               07BAEC:bne     $7bb0e
+T:               07BB0E:addq.w  #4, ($c,A6)
+T:               07BB12:move.w  #$14, (-$2062,A5)
+T:               07BB18:tst.b   ($4c,A6)
+T:               07BB1C:bne     $7bb54
+T:               07BB20:moveq   #$0, D0
+T:               07BB22:tst.w   ($40,A6)
+T:               07BB26:bpl     $7bb2c
+T:               07BB2C:move.b  D0, ($1f,A6)
+T:               07BB30:subi.w  #$a, ($36,A6)
+T:               07BB36:move.w  ($20,A6), ($22,A6)
+T:               07BB3C:move.w  ($24,A6), ($26,A6)
+T:               07BB42:move.w  ($28,A6), ($2a,A6)
+T:               07BB48:subq.w  #1, ($2a,A6)
+T:               07BB4C:addi.w  #$20, ($26,A6)
+T:               07BB52:rts
+F:               014CBA:beq     $14cc8
+T:               014CBE:move.w  ($4a,PC,D5.w), D0
+T:               014CC2:subq.w  #2, D5
+T:               014CC4:move.w  D5, (-$2062,A5)
+F:               07B7B6:bmi     $7bfd0
+T:               07BFD0:jsr     $9a0a8.l
+T:               09A0A8:move.w  ($5e,A6), D0
+T:               09A0AC:beq     $969e4
+T:               09A0B0:movea.w D0, A0
+T:               09A0B2:cmpi.w  #$2, ($5c,A0)
+T:               09A0B8:bge     $969e4
+T:               09A0BC:move.b  ($5b,A6), D1
+T:               09A0C0:tst.b   ($2,A0)
+T:               09A0C4:beq     $9a0cc
+T:               09A0CC:move.w  #$18, D0
+T:               09A0D0:jmp     $110e.l
+F:               001128:rts
+T:               07BFD6:bsr     $7c250
+T:               07C250:moveq   #$0, D0
+T:               07C252:move.b  ($3,A6), D0
+T:               07C256:lea     ($48c,PC) ; ($7c6e4), A0
+T:               07C25A:move.b  (A0,D0.w), ($5b,A6)
+T:               07C260:jmp     $9a0a8.l
+F:               001128:rts
+T:               07BFDA:cmpi.b  #$1, ($3,A6)
+T:               07BFE0:bne     $7bff4
+T:               07BFF4:tst.b   ($9a,A6)
+T:               07BFF8:beq     $7bffe
+T:               07BFFE:move.w  #$14, (-$2062,A5)
+T:               07C004:moveq   #$0, D0
+T:               07C006:cmpi.w  #$c, ($a,A6)
+T:               07C00C:bne     $7c034
+T:               07C034:move.w  #$8, ($8,A6)
+T:               07C03A:move.w  D0, ($c,A6)
+T:               07C03E:move.w  D0, ($e,A6)
+T:               07C042:jsr     $f84.l
+F:               000FBE:rts
+T:               07C048:move.w  ($c,A6), D0
+T:               07C04C:movea.l ($10,PC,D0.w), A0
+T:               07C050:jsr     (A0)
+T:               07C072:move.b  #$2, ($7c,A6)
+T:               07C078:jsr     $1c40.l
+T:               001C40:tst.b   ($7c,A6)
+T:               001C44:bmi     $1c7c
+T:               001C48:jsr     $17da.l
+F:               0017F6:rts
+T:               001C4E:beq     $1c7c
+T:               001C52:move.w  #$101, (A0)
+T:               001C56:move.b  ($7c,A6), ($4,A0)
+T:               001C5C:move.b  ($1f,A6), ($1f,A0)
+T:               001C62:move.w  ($22,A6), ($20,A0)
+T:               001C68:move.w  ($26,A6), ($24,A0)
+T:               001C6E:move.w  ($2a,A6), ($28,A0)
+T:               001C74:move.l  #$7fa0e, ($72,A0)
+T:               001C7C:rts
+T:               07C07E:movea.w ($5e,A6), A0
+T:               07C082:lea     ($e68,A5), A1
+T:               07C086:cmpa.w  A0, A1
+T:               07C088:beq     $7c096
+T:               07C096:jsr     $ae1cc.l
+F:               0AE298:rts
+T:               07C09C:tst.b   (-$205f,A5)
+T:               07C0A0:bne     $7c176
+T:               07C0A4:bsr     $7c27a
+T:               07C27A:move.b  ($3,A6), D5
+T:               07C27E:cmpi.b  #$b, D5
+T:               07C282:beq     $7c336
+T:               07C336:moveq   #$0, D0
+T:               07C338:move.b  ($3,A6), D0
+T:               07C33C:move.b  ($8,PC,D0.w), D0
+T:               07C340:movea.l ($12,PC,D0.w), A0
+T:               07C344:jmp     (A0)
+T:               0058D6:move.l  #$318, D1
+T:               0058DC:moveq   #$7, D4
+T:               0058DE:moveq   #$5, D5
+T:               0058E0:moveq   #$0, D3
+T:               0058E2:move.w  #$86, D0
+T:               0058E6:not.b   (-$22bc,A5)
+T:               0058EA:beq     $4eac
+T:               004EAC:bsr     $4e18
+F:               004E4C:rts
+T:               004EB0:tst.b   ($7,A6)
+T:               004EB4:beq     $4ebc
+T:               004EBC:move.w  D0, ($0,A0)
+T:               004EC0:move.w  D4, ($4,A0)
+T:               004EC4:move.b  D5, ($7,A0)
+T:               004EC8:move.l  D1, ($8,A0)
+T:               004ECC:add.w   ($20,A6), D3
+T:               004ED0:sub.w   (-$c8a,A5), D3
+T:               004ED4:bpl     $4ede
+T:               004EDE:cmpi.w  #$180, D3
+T:               004EE2:bls     $4eec
+T:               004EEC:lea     $1739cc.l, A1
+T:               004EF2:move.b  (A1,D3.w), ($6,A0)
+T:               004EF8:rts
+T:               07C0A8:moveq   #$0, D0
+T:               07C0AA:moveq   #$0, D1
+T:               07C0AC:moveq   #$0, D2
+T:               07C0AE:jsr     $2a0c.l
+T:               002A0C:move.w  D0, D4
+T:               002A0E:move.w  D1, D5
+T:               002A10:move.w  D2, D6
+T:               002A12:move.b  ($99,A6), D0
+T:               002A16:beq     $2af0
+T:               002AF0:rts
+T:               07C0B4:moveq   #$0, D0
+T:               07C0B6:move.b  ($3,A6), D0
+T:               07C0BA:move.b  ($44,PC,D0.w), D1
+T:               07C0BE:beq     $7c1c2
+T:               07C0C2:bmi     $7c176
+T:               07C176:move.w  #$c, ($c,A6)
+T:               07C17C:move.w  #$1e, ($78,A6)
+T:               07C182:move.w  #$300, ($44,A6)
+T:               07C188:move.w  #$ffd0, ($46,A6)
+T:               07C18E:move.w  #$100, D0
+T:               07C192:tst.b   ($1f,A6)
+T:               07C196:bne     $7c19c
+T:               07C19A:neg.w   D0
+T:               07C19C:move.w  D0, ($40,A6)
+T:               07C1A0:jsr     $1be2.l
+F:               001C0A:rts
+T:               07C1A6:move.w  ($50,A6), D0
+T:               07C1AA:cmp.w   ($24,A6), D0
+T:               07C1AE:ble     $7c1ba
+T:               07C1BA:subq.w  #1, ($78,A6)
+T:               07C1BE:bne     $7c1ca
+T:               07C1CA:tst.b   ($1,A6)
+T:               07C1CE:beq     $7c1de
+T:               07C1D2:move.w  ($78,A6), D0
+T:               07C1D6:andi.b  #$2, D0
+T:               07C1DA:move.b  D0, ($1,A6)
+T:               07C1DE:rts
+T:               07C052:jsr     $13e6.l
+F:               00141A:rts
+T:               07C058:jmp     $abd5c.l
+F:               07FA02:jsr     (A0)
+T:               07FA0E:move.w  ($8,A6), D0
+T:               07FA12:movea.l ($4,PC,D0.w), A0
+T:               07FA16:jmp     (A0)
+T:               07FA28:jsr     $f84.l
+F:               000FBE:rts
+T:               07FA2E:addq.w  #4, ($8,A6)
+T:               07FA32:jsr     $d58.l
+F:               000D70:rts
+T:               07FA38:move.b  D0, D1
+T:               07FA3A:andi.w  #$e, D1
+T:               07FA3E:subq.w  #7, D1
+T:               07FA40:add.w   D1, ($24,A6)
+T:               07FA44:lsr.w   #4, D0
+T:               07FA46:andi.w  #$1e, D0
+T:               07FA4A:subi.w  #$f, D0
+T:               07FA4E:add.w   D0, ($20,A6)
+T:               07FA52:movea.l #$15fb9a, A0
+T:               07FA58:jsr     $11da.l
+T:               0011DA:moveq   #$0, D0
+T:               0011DC:move.b  ($4,A6), D0
+F:               0011FC:bmi     $1212
+T:               001200:move.b  D1, ($10,A6)
+T:               001204:move.l  A0, ($16,A6)
+T:               001208:lea     (-$4,A0,D0.w), A0
+T:               00120C:move.l  A0, ($12,A6)
+F:               001210:rts
+T:               07FA5E:move.b  ($1f,A6), D1
+T:               07FA62:moveq   #$0, D0
+T:               07FA64:move.b  ($4,A6), D0
+T:               07FA68:add.w   D0, D0
+T:               07FA6A:add.w   D0, D0
+T:               07FA6C:lea     ($7c,PC,D0.w), A0
+T:               07FA70:move.b  (A0)+, D2
+T:               07FA72:beq     $7fa82
+T:               07FA82:tst.b   ($3,A6)
+T:               07FA86:beq     $7fa8a
+T:               07FA8A:moveq   #$0, D0
+T:               07FA8C:move.b  (A0)+, D0
+T:               07FA8E:bmi     $7fa98
+T:               07FA98:jmp     $13e6.l
+
+F:               07FA16:jmp     (A0)
+T:               07FA9E:jsr     $f84.l
+F:               000FBE:rts
+T:               07FAA4:jsr     $11e8.l
+F:               001210:rts
+T:               07FAAA:tst.b   ($11,A6)
+T:               07FAAE:beq     $7fa98
+F:               0011EC:bne     $1210
+T:               0011F0:movea.l ($16,A6), A0
+F:               07FAAE:beq     $7fa98
+T:               07FAB0:jmp     $18e4.l
+F:               07C1BE:bne     $7c1ca
+T:               07C1C2:sf      ($1,A6)
+T:               07C1C6:addq.w  #4, ($8,A6)
+F:               07B6A6:jmp     (A0)
+T:               07C1E0:jsr     $99e82.l
+T:               099E82:movea.l ($b8,A6), A0
+T:               099E86:jmp     $1844.l
+T:               001844:movea.l $91fe00.l, A1
+T:               00184A:move.l  A0, -(A1)
+T:               00184C:move.l  A1, $91fe00.l
+T:               001852:addq.w  #1, $91fe04.l
+T:               001858:moveq   #$0, D0
+T:               00185A:move.w  #$3f, D1
+T:               00185E:move.l  D0, (A0)+
+T:               001860:dbra    D1, $185e
+F:               001860:dbra    D1, $185e
+T:               001864:rts
+T:               07C1E6:cmpi.b  #$4, ($8c,A6)
+T:               07C1EC:bne     $7c1f6
+T:               07C1F0:jmp     $189c.l
+T:               00189C:movea.w ($e,A5), A0
+T:               0018A0:move.w  A6, -(A0)
+T:               0018A2:move.w  A0, ($e,A5)
+T:               0018A6:addq.w  #1, ($1e,A5)
+T:               0018AA:bra     $18f2
+-------------------------------------------------------------------------------
+捡起钱袋
+F:               001A2E:beq     $1a44
+T:               001A32:st      (A1)
+T:               001A34:move.w  #$8, ($8,A1)
+
+T:               001A3A:move.w  A6, ($56,A1)
+T:               001A3E:move.w  A1, ($56,A6)
+T:               001A42:moveq   #$3, D0
+F:               079A02:jmp     (A0)
+T:               079C1C:movea.w ($56,A6), A2
+T:               079C20:cmpi.w  #$4, ($8,A2)
+T:               079C26:bne     $79bd4
+T:               079C28:tst.b   ($0,A6)
+T:               079C2C:bmi     $79cbc
+T:               079CBC:jmp     $13e6.l
+F:               079C2C:bmi     $79cbc
+T:               079C30:addq.w  #4, ($8,A6)
+T:               079C34:cmpi.b  #$5, (-$2447,A5)
+T:               079C3A:bne     $79c4e
+T:               079C4E:move.w  #$18, D0
+T:               079C52:move.w  ($be,A6), D1
+T:               079C56:move.w  A2, ($5e,A6)
+T:               079C5A:tst.b   ($2,A2)
+T:               079C5E:beq     $79c66
+T:               079C66:jsr     $110e.l
+F:               001128:rts
+T:               079C6C:jsr     $17da.l
+F:               0017F6:rts
+T:               079C72:beq     $79cb6
+T:               079C76:move.w  #$101, (A0)
+T:               079C7A:move.b  #$3, ($2,A0)
+T:               079C80:move.b  ($bf,A6), ($3,A0)
+T:               079C86:move.w  ($20,A6), ($20,A0)
+T:               079C8C:move.w  ($24,A6), ($24,A0)
+T:               079C92:move.l  #$7febc, ($72,A0)
+T:               079C9A:move.w  ($28,A6), D0
+T:               079C9E:cmp.w   ($28,A2), D0
+T:               079CA2:ble     $79caa
+T:               079CA6:move.w  ($28,A2), D0
+T:               079CAA:subq.w  #1, D0
+T:               079CAC:move.w  D0, ($28,A0)
+T:               079CB0:jsr     $5514.l
+F:               004EAA:rts
+T:               079CB6:jsr     $ae1cc.l
+-------------------------------------------------------------------------------
+举起街机扔出
+F:               07BBDC:bne     $7bc18
+T:               07BBE0:moveq   #$1, D0
+
+T:               07BBE2:tst.w   ($40,A6)
+T:               07BBE6:bpl     $7bbec
+T:               07BBEC:move.b  D0, ($1f,A6)
+T:               07BBF0:subi.w  #$a, ($36,A6)
+T:               07BBF6:neg.w   ($40,A6)
+T:               07BBFA:move.w  ($20,A6), ($22,A6)
+T:               07BC00:move.w  ($24,A6), ($26,A6)
+T:               07BC06:move.w  ($28,A6), ($2a,A6)
+T:               07BC0C:subq.w  #1, ($2a,A6)
+T:               07BC10:addi.w  #$20, ($26,A6)
+T:               07BC16:rts
+-------------------------------------------------------------------------------
+举起木桶扔出
+F:               07BBCE:bpl     $7bbd4
+T:               07BBD2:neg.w   D0
+F:               07BBE6:bpl     $7bbec
+T:               07BBEA:moveq   #$0, D0
+
+F:               07C47A:jmp     ($2,PC,D1.w)
+T:               07C49A:tst.b   ($1f,A6)
+T:               07C49E:beq     $7c4ae
+T:               07C4AE:moveq   #$1, D0
+T:               07C4B0:tst.w   ($40,A6)
+T:               07C4B4:bmi     $7c4c4
+T:               07C4B8:move.w  ($40,A6), D1
+T:               07C4BC:asr.w   #1, D1
+T:               07C4BE:neg.w   D1
+T:               07C4C0:move.w  D1, ($40,A6)
+T:               07C4C4:tst.b   ($6a,A6)
+T:               07C4C8:beq     $7b6a8
+T:               07C4CC:move.b  D0, ($7,A6)
+T:               07C4D0:jmp     $5896.l
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------

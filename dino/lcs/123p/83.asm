@@ -1,6 +1,8 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+00606E	tst.b   ($83,A6)		
 006072	bne     $60e0		[123p+ 83, enemy+83]
+0060D4	move.b  #$1, ($83,A6)		
 0060DA	jmp     $9af4.l		[123p+ 83, enemy+83]
 01A63C	move.b  D0, ($83,A6)		
 01A640	move.b  D0, ($80,A6)		

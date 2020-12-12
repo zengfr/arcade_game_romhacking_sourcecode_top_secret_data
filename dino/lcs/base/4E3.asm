@@ -1,5 +1,6 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+00AB6E	tst.b   ($4e3,A5)		
 00AB72	bne     $ab76		[base+4E3]
 00CC60	tst.b   ($4e3,A5)		[base+6C8]
 00CC64	beq     $cc82		[base+4E3]

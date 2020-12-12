@@ -6,6 +6,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 0109DA	beq     $10a1e		[enemy+87]
 011030	tst.b   ($87,A3)		[enemy+ 2]
 011034	beq     $11072		[enemy+87]
+011B4C	move.b  ($87,A3), D0		
 011B50	beq     $11b8a		[enemy+87]
 03393E	move.b  D0, ($87,A6)		
 033942	move.b  D0, ($63,A6)		
@@ -13,7 +14,9 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 0359A4	move.b  #$e, ($3,A6)		
 03B88E	move.b  D0, ($87,A6)		
 03B892	move.b  D0, ($63,A6)		
+03DDFE	move.b  #$1, ($87,A6)		
 03DE04	move.b  #$0, ($bc,A6)		[enemy+87]
+0402E4	move.b  #$1, ($87,A6)		
 0402EA	move.b  #$0, ($ba,A6)		[enemy+87]
 04265C	move.b  D0, ($87,A6)		
 042660	move.w  #$384, ($be,A6)		

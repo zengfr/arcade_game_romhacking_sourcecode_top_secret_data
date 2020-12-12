@@ -1,0 +1,32 @@
+ :               00B14E:and.w   D1, D0
+
+F:               00B150:beq     $b248
+T:               00B154:move.b  D0, D1
+T:               00B156:moveq   #-$1, D2
+T:               00B158:andi.w  #$2, D1
+T:               00B15C:bne     $b20c
+T:               00B160:moveq   #$1, D2
+T:               00B162:move.w  D0, D1
+T:               00B164:andi.w  #$1, D1
+T:               00B168:bne     $b20c
+T:               00B20C:moveq   #$32, D0
+T:               00B20E:moveq   #$0, D1
+T:               00B210:move.b  ($2,A4), D1
+T:               00B214:lea     ($38,PC) ; ($b24e), A0
+T:               00B218:move.b  (A0,D1.w), D1
+T:               00B21C:movem.l D0-D2/A0, -(A7)
+T:               00B220:moveq   #$0, D2
+T:               00B222:jsr     $a63c.l
+ :               00A664:movem.l (A7)+, D6/A0
+F:               00A668:rts
+T:               00B228:movem.l (A7)+, D0-D2/A0
+T:               00B22C:move.b  ($2,A4), D0
+T:               00B230:bclr    D0, ($3,A6)
+T:               00B234:add.b   D2, D0
+T:               00B236:andi.b  #$3, D0
+T:               00B23A:btst    D0, ($3,A6)
+T:               00B23E:bne     $b234
+T:               00B240:bset    D0, ($3,A6)
+T:               00B244:move.b  D0, ($2,A4)
+
+

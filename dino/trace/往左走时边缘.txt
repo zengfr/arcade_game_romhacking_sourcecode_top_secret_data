@@ -1,0 +1,19 @@
+
+ :               020A34:cmpi.w  #$40, D0
+F:               020A38:bgt     $20a3c
+T:               020A3A:bra     $20a68
+
+ :               0144DE:cmpi.w  #$40, D0
+F:               0144E2:bgt     $14506
+T:               0144E6:move.w  D0, D1
+T:               0144E8:subi.w  #$40, D1
+T:               0144EC:neg.w   D1
+T:               0144EE:move.w  D3, D7
+T:               0144F0:lsr.w   #4, D7
+T:               0144F2:andi.w  #$f0, D7
+T:               0144F6:addi.w  #$10, D7
+T:               0144FA:cmp.w   D1, D7
+T:               0144FC:bcc     $14506
+ :               004FDE:subi.w  #$10, D0
+F:               004FE2:bmi     $4fea
+T:               004FEA:sub.w   D0, ($8,A6)

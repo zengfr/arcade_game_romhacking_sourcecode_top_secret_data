@@ -1,0 +1,261 @@
+﻿----------------------------------------------------------------------------------------------------------
+006890	move.b  #$c, ($2e,A6)
+0068D8	move.b  #$e, ($2e,A0)
+0108C8	move.b  #$c, ($2e,A2)
+048EB8	move.b  #$e, ($2e,A0)
+04EF9A	move.b  #$e, ($2e,A0)
+----------------------------------------------------------------------------------------------------------
+01291A	movea.l ($44,A2), A4		
+012928	movea.l ($44,A3), A6		
+0129AC	movea.l ($44,A2), A4		
+018C8C	move.l  ($36,PC,D0.w), ($44,A6)		[123p+ 20]
+----------------------------------------------------------------------------------------------------------
+
+001448	move.w  (A0)+, ($48,A6)		
+00148E	move.w  (A0)+, ($48,A6)			
+0106C0	move.b  ($48,A3), D1		
+0106C4	beq     $106d6		[123p+ 48]
+010E56	move.b  ($48,A3), D1		
+010E5A	beq     $10f94		[123p+ 48]
+011626	move.b  ($48,A3), D1		
+01162A	beq     $1163c		[123p+ 48]
+011D3E	move.b  ($48,A3), D1		
+011D42	beq     $11d54		[123p+ 48]
+011FBA	move.b  ($48,A2), D0		
+011FBE	beq     $1201a		[123p+ 48, enemy+48]
+----------------------------------------------------------------------------------------------------------
+0106B6	move.b  ($49,A2), D0		
+0106BA	beq     $106da		[123p+ 49]
+010876	move.b  ($49,A2), D0		
+01087A	beq     $1089a		[123p+ 49]
+0108FA	move.b  ($49,A2), D0		
+0108FE	beq     $1095e		[123p+ 49]
+01092E	move.b  ($49,A2), D0		
+010932	beq     $1095e		[123p+ 49]
+01098A	move.b  ($49,A2), D0		
+01098E	beq     $109ae		[123p+ 49]
+010D38	move.b  ($49,A2), D0		
+010D3C	beq     $10dca		[123p+ 49]
+0119D2	move.b  ($49,A2), D0		
+0119D6	beq     $119f2		[123p+ 49]
+011B00	move.b  ($49,A2), D0		
+011B04	beq     $11b24		[123p+ 49]
+----------------------------------------------------------------------------------------------------------
+打击相关 2e分析
+ROM:0000686E 1D7C 0002 0000                      move.b  #2,0(a6)        ; Move Data from Source to Destination
+ROM:00006874 1D7C 0001 00C1                      move.b  #1,$C1(a6)      ; Move Data from Source to Destination
+ROM:0000687A 2D7C 0200 001A 0004                 move.l  #$200001A,4(a6) ; Move Data from Source to Destination
+ROM:00006882 426E 0090                           clr.w   $90(a6)         ; Clear an Operand
+ROM:00006886 3D48 0070                           move.w  a0,$70(a6)      ; Move Data from Source to Destination
+ROM:0000688A 1D7C 0012 00C8                      move.b  #$12,$C8(a6)    ; Move Data from Source to Destination
+ROM:00006890 1D7C 000C 002E                      move.b  #$C,$2E(a6)     ; Move Data from Source to Destination
+
+ROM:000068C8 314E 0070                           move.w  a6,$70(a0)      ; Move Data from Source to Destination
+ROM:000068CC 117C 0012 00C8                      move.b  #$12,$C8(a0)    ; Move Data from Source to Destination
+ROM:000068D2 117C 0001 00C1                      move.b  #1,$C1(a0)      ; Move Data from Source to Destination
+ROM:000068D8 117C 000E 002E                      move.b  #$E,$2E(a0)     ; Move Data from Source to Destination
+
+ROM:000108B6 354B 0070                           move.w  a3,$70(a2)      ; Move Data from Source to Destination
+ROM:000108BA 156B 0072 0073                      move.b  $72(a3),$73(a2) ; Move Data from Source to Destination
+ROM:000108C0 257C 0204 0000 0004                 move.l  #$2040000,4(a2) ; Move Data from Source to Destination
+ROM:000108C8 157C 000C 002E                      move.b  #$C,$2E(a2)     ; Move Data from Source to Destination
+ROM:000108CE 422A 0115                           clr.b   $115(a2)        ; Clear an Operand
+ROM:000108D2 374A 0070                           move.w  a2,$70(a3)      ; Move Data from Source to Destination
+ROM:000108D6 277C 0206 0000 0004                 move.l  #$2060000,4(a3) ; Move Data from Source to Destination
+ROM:000108DE 177C 000E 002E                      move.b  #$E,$2E(a3)     ; Move Data from Source to Destination
+ROM:000108E4 176A 0002 0002                      move.b  2(a2),2(a3)     ; Move Data from Source to Destination
+ROM:000108EA 376B 006C 006E                      move.w  $6C(a3),$6E(a3) ; Move Data from Source to Destination
+ROM:000108F0 3E3C 0000                           move.w  #0,d7           ; Move Data from Source to Destination
+ROM:000108F4 4E75                                rts                     ; Return from Subroutine
+
+ROM:00048E9A 4A28 0051                           tst.b   $51(a0)         ; Test an Operand
+ROM:00048E9E 6600 00B6                           bne.w   loc_48F56       ; Branch if Not Equal
+ROM:00048EA2 3D48 0070                           move.w  a0,$70(a6)      ; Move Data from Source to Destination
+ROM:00048EA6 314E 0070                           move.w  a6,$70(a0)      ; Move Data from Source to Destination
+ROM:00048EAA 217C 0206 0000 0004                 move.l  #$2060000,4(a0) ; Move Data from Source to Destination
+ROM:00048EB2 117C 0040 00C8                      move.b  #$40,$C8(a0) ; '@' ; Move Data from Source to Destination
+ROM:00048EB8 117C 000E 002E                      move.b  #$E,$2E(a0)     ; Move Data from Source to Destination
+ROM:00048EBE 4228 00C7                           clr.b   $C7(a0)         ; Clear an Operand
+ROM:00048EC2 3168 006C 006E                      move.w  $6C(a0),$6E(a0) ; Move Data from Source to Destination
+ROM:00048EC8 701C                                moveq   #$1C,d0         ; Move Quick
+ROM:00048ECA 4EB9 0000 120E                      jsr     (sub_120E).l    ; Jump to Subroutine
+ROM:00048ED0 542E 0006                           addq.b  #2,6(a6)        ; Add Quick
+ROM:00048ED4 4E75                                rts                     ; Return from Subroutine
+
+ROM:00048F2A 306E 0076                           movea.w $76(a6),a0      ; Move Address
+ROM:00048F2E 0C28 0001 0000                      cmpi.b  #1,0(a0)        ; Compare Immediate
+ROM:00048F34 6600 001A                           bne.w   loc_48F50       ; Branch if Not Equal
+ROM:00048F38 0C68 0206 0004                      cmpi.w  #$206,4(a0)     ; Compare Immediate
+ROM:00048F3E 6600 0010                           bne.w   loc_48F50       ; Branch if Not Equal
+ROM:00048F42 0C28 000E 002E                      cmpi.b  #$E,$2E(a0)     ; Compare Immediate
+ROM:00048F48 6600 0006                           bne.w   loc_48F50       ; Branch if Not Equal
+ROM:00048F4C 8040                                or.w    d0,d0           ; Inclusive-OR Logical
+ROM:00048F4E 4E75                                rts                     ; Return from Subroutine
+----------------------------------------------------------------------------------------------------------
+打击相关 44分析 123p被打
+ROM:00011FCC 0C2B 0000 002E                      cmpi.b  #0,$2E(a3) 
+ROM:00011FE4 176A 0002 0002                      move.b  2(a2),2(a3) 
+ROM:00011FEA 422B 007A                           clr.b   $7A(a3)         ; Clear an Operand
+ROM:00011FEE 374A 0068                           move.w  a2,$68(a3) 	 ;a2打a3,a3减血(123p)
+
+      
+ROM:000128F8                     sub_128F8:                              ; CODE XREF: sub_11FB8+1E↑p  打击判定
+ROM:000128F8                                                             ; sub_122D8+32↑p ...
+ROM:000128F8 7400                                moveq   #0,d2           ; Move Quick
+ROM:000128FA 142A 004A                           move.b  $4A(a2),d2      ; Move Data from Source to Destination
+ROM:000128FE D442                                add.w   d2,d2           ; Add
+ROM:00012900 842B 004A                           or.b    $4A(a3),d2      ; Inclusive-OR Logical
+ROM:00012904 D442                                add.w   d2,d2           ; Add
+ROM:00012906 343B 2006                           move.w  word_1290E(pc,d2.w),d2 ; Move Data from Source to Destination
+ROM:0001290A 4EFB 2002                           jmp     word_1290E(pc,d2.w) ; Jump   打击程序查表 4个
+
+ROM:00012920 2B4C 8ED0                           move.l  a4,-$7130(a5)   ;a2打击框
+ROM:0001292E 2B4E 8ED4                           move.l  a6,-$712C(a5)   ;a3打击框
+ROM:00012954 4A2A 0024                           tst.b   $24(a2)         ; Test an Operand 面向左右
+----------------------------------------------------------------------------------------------------------
+打击相关 48分析
+ROM:000106A8 102A 005E                           move.b  $5E(a2),d0      ; Move Data from Source to Destination
+ROM:000106AC B02B 00E9                           cmp.b   $E9(a3),d0      ; Compare
+ROM:000106B6 102A 0049                           move.b  $49(a2),d0      ; Move Data from Source to Destination
+
+ROM:000106CA 142B 002E                           move.b  $2E(a3),d2      ; Move Data from Source to Destination
+ROM:000106CE 343B 2012                           move.w  word_106E2(pc,d2.w),d2 ; Move Data from Source to Destination
+ROM:000106D2 4EBB 200E                           jsr     word_106E2(pc,d2.w) ; Jump to Subroutine  程序查表 8个 实际2个
+
+
+ROM:00010E9E 1740 007A                           move.b  d0,$7A(a3)      ; Move Data from Source to Destination
+ROM:00010EA2 3740 00B6                           move.w  d0,$B6(a3)      ; Move Data from Source to Destination
+ROM:00010EA6 177C 0001 00C5                      move.b  #1,$C5(a3)      ; Move Data from Source to Destination
+ROM:00010EAC 374A 0068                           move.w  a2,$68(a3)      ; Move Data from Source to Destination
+ROM:00010EB0 177C 003C 00CB                      move.b  #$3C,$CB(a3) ; '<' ; Move Data from Source to Destination
+ROM:00010EB6 522B 00CA                           addq.b  #1,$CA(a3)      ; Add Quick
+ROM:00010EBA 1740 00CD                           move.b  d0,$CD(a3)      ; Move Data from Source to Destination
+ROM:00010EBE 176A 005E 00E9                      move.b  $5E(a2),$E9(a3) ; Move Data from Source to Destination
+
+ROM:00010ED6 287C 000A 26FC                      movea.l #off_A26FC,a4   ; Move Address  减血量查表 赋值影响6c 59 9a
+ROM:00010EE2 102A 0058                           move.b  $58(a2),d0      ; Move Data from Source to Destination
+ROM:00010F1C 377C 0078 00F6                      move.w  #$78,$F6(a3) ; 'x' ;
+ROM:00010F24 912B 0078                           sub.b   d0,$78(a3)      ; Subtract
+ROM:00010F30 176A 005A 005A                      move.b  $5A(a2),$5A(a3) ; 
+ROM:00010F38 0C2B 0022 00C8                      cmpi.b  #$22,$C8(a3) ; '"'
+ROM:00010F44 1740 007B                           move.b  d0,$7B(a3)      ; 
+ROM:00010F52 1740 0059                           move.b  d0,$59(a3)      ; Move Data from Source to Destination
+ROM:00010F56 1540 0059                           move.b  d0,$59(a2)      ; Move Data from Source to Destination
+ROM:00010F5A 0C6A 0202 00A0                      cmpi.w  #$202,$A0(a2)   ; Compare Immediate
+ROM:00010F64 0C6A 0203 00A0                      cmpi.w  #$203,$A0(a2)   ; Compare Immediate
+ROM:00010F6E 3C6A 0070                           movea.w $70(a2),a6      ; Move Address
+ROM:00010F88 175C 009A                           move.b  (a4)+,$9A(a3)   ; Move Data from Source to Destination
+
+ROM:00010F8C 6100 1792                           bsr.w   sub_12720       ; Branch to Subroutine 打击效果写生成内存obj
+
+ROM:00011612 4A2D 04DD                           tst.b   $4DD(a5)        ; Test an Operand
+
+ROM:0001176A 2C7C 0002 C9B6                      movea.l #unk_2C9B6,a6   ; Move Address
+ROM:00011770 1776 1000 00C6                      move.b  (a6,d1.w),$C6(a3) ; 暴击值更新
+
+
+ROM:000117C0 0C6B 0209 00B6                      cmpi.w  #$209,$B6(a3)   ; Compare Immediate
+ROM:000117D0 177C 0001 00C5                      move.b  #1,$C5(a3)      ; Move Data from Source to Destination
+
+ROM:00011854 6000 FEE2                           bra.w   sub_11738       ; Branch Always 暴击值更新
+
+ROM:00011D92 4A2B 00C7                           tst.b   $C7(a3)         ; Test an Operand
+ROM:00011E4C 6100 F92C                           bsr.w   sub_1177A       ; Branch to Subroutine 4主角的主角id=2特殊程序
+----------------------------------------------------------------------------------------------------------
+打击相关 49分析
+ROM:000108AE 6100 2048                           bsr.w   sub_128F8       ; Branch to Subroutine 打击判定
+
+ROM:000108B6 354B 0070                           move.w  a3,$70(a2)      ; Move Data from Source to Destination
+ROM:000108BA 156B 0072 0073                      move.b  $72(a3),$73(a2) ; Move Data from Source to Destination
+ROM:000108C0 257C 0204 0000 0004                 move.l  #$2040000,4(a2) ; Move Data from Source to Destination
+ROM:000108C8 157C 000C 002E                      move.b  #$C,$2E(a2)     ; Move Data from Source to Destination
+ROM:000108CE 422A 0115                           clr.b   $115(a2)        ; Clear an Operand
+ROM:000108D2 374A 0070                           move.w  a2,$70(a3)      ; Move Data from Source to Destination
+ROM:000108D6 277C 0206 0000 0004                 move.l  #$2060000,4(a3) ; Move Data from Source to Destination
+ROM:000108DE 177C 000E 002E                      move.b  #$E,$2E(a3)     ; Move Data from Source to Destination
+ROM:000108E4 176A 0002 0002                      move.b  2(a2),2(a3)     ; Move Data from Source to Destination
+
+ROM:00010902 3E2D 671E                           move.w  $671E(a5),d7    ; Move Data from Source to Destination 计数 倒计
+ROM:0001090C 326D 6726                           movea.w $6726(a5),a1    ; Move Address obj地址读取
+ROM:0001091C 4A2B 0051                           tst.b   $51(a3)         ; Test an Operand
+ROM:00010924 4A2B 0063                           tst.b   $63(a3)         ; Test an Operand
+ROM:00010940 0C2B 000A 002E                      cmpi.b  #$A,$2E(a3)     ; Compare Immediate
+ROM:0001094A 6100 1FAC                           bsr.w   sub_128F8       ; Branch to Subroutine 打击判定
+ROM:00010952 354B 0070                           move.w  a3,$70(a2)      ; Move Data from Source to Destination
+
+ROM:0001095E 6000 FEB8                           bra.w   loc_10818       ; Branch Always 循环根据2e
+
+ROM:00011A98 1741 0024                           move.b  d1,$24(a3)      ; Move Data from Source to Destination 转向
+
+ROM:00011AD8 3E2D 6B64                           move.w  $6B64(a5),d7    ; Move Data from Source to Destination 计数 倒计
+ROM:00011AE2 326D 6B66                           movea.w $6B66(a5),a1    ; Move Address
+
+ROM:00011B4C 102B 0087                           move.b  $87(a3),d0      ; Move Data from Source to Destination
+ROM:00011B54 0C2A 0006 002E                      cmpi.b  #6,$2E(a2)      ; Compare Immediate
+ROM:00011B5E 0C2A 0013 00C8                      cmpi.b  #$13,$C8(a2)    ; Compare Immediate
+ROM:00011B68 0C2A 0012 00C8                      cmpi.b  #$12,$C8(a2)    ; Compare Immediate
+
+ROM:00011B98 422B 007A                           clr.b   $7A(a3)         ; Clear an Operand
+ROM:00011C20 6100 0AFE                           bsr.w   sub_12720       ; Branch to Subroutine 打击效果
+ROM:00011C24 4A6D 04F4                           tst.w   $4F4(a5)        ; Test an Operand
+ROM:00011C2E 6100 0BCC                           bsr.w   sub_127FC       ; Branch to Subroutine 生成内存obj 啥未知?
+ROM:00011C34 4EB9 0000 FFC8                      jsr     sub_FFC8        ; Jump to Subroutine   有关$4DD(a5),$4DE(a5)
+ROM:00011C3A 0C6B 007C 0020                      cmpi.w  #$7C,$20(a3) ; '|' ; Compare Immediate 第三关BOSS 7C
+ROM:00011C78 4A2D 04DD                           tst.b   $4DD(a5)        ; Test an Operand  主角能不能动？控制？
+ROM:00011C82 0C6A 0014 00EE                      cmpi.w  #$14,$EE(a2)    ; Compare Immediate
+
+ROM:00011BD8 912B 0078                           sub.b   d0,$78(a3)      ; Subtract
+ROM:00011BE8 1740 007B                           move.b  d0,$7B(a3)      ; Move Data from Source to Destination
+
+----------------------------------------------------------------------------------------------------------
+ROM:00004BC0                     sub_4BC0:                               ; CODE XREF: sub_18952+F4↓p
+ROM:00004BC0 0C6D 0003 6718                      cmpi.w  #3,$6718(a5)    ; Compare Immediate
+ROM:00004BC6 6400 0010                           bcc.w   locret_4BD8     ; Branch if Carry CLear
+ROM:00004BCA 386D 6720                           movea.w $6720(a5),a4    ; Move Address
+ROM:00004BCE 390E                                move.w  a6,-(a4)        ; Move Data from Source to Destination
+ROM:00004BD0 3B4C 6720                           move.w  a4,$6720(a5)    ; Move Data from Source to Destination
+ROM:00004BD4 526D 6718                           addq.w  #1,$6718(a5)    ; Add Quick
+ROM:00004BD8
+ROM:00004BD8                     locret_4BD8:                            ; CODE XREF: sub_4BC0+6↑j
+ROM:00004BD8 4E75                                rts                     ; Return from Subroutine
+ROM:00004BD8                     ; End of function sub_4BC0
+ROM:00004BD8
+ROM:00004BDA
+ROM:00004BDA                     ; =============== S U B R O U T I N E =======================================
+ROM:00004BDA
+ROM:00004BDA
+ROM:00004BDA                     sub_4BDA:                               ; CODE XREF: ROM:00024A1E↓p
+ROM:00004BDA 386D 6722                           movea.w $6722(a5),a4    ; Move Address
+ROM:00004BDE 390E                                move.w  a6,-(a4)        ; Move Data from Source to Destination
+ROM:00004BE0 3B4C 6722                           move.w  a4,$6722(a5)    ; Move Data from Source to Destination
+ROM:00004BE4 526D 671A                           addq.w  #1,$671A(a5)    ; Add Quick
+ROM:00004BE8 4E75                                rts                     ; Return from Subroutine
+ROM:00004BE8                     ; End of function sub_4BDA
+ROM:00004BE8
+ROM:00004BEA
+ROM:00004BEA                     ; =============== S U B R O U T I N E =======================================
+ROM:00004BEA
+ROM:00004BEA
+ROM:00004BEA                     sub_4BEA:                               ; CODE XREF: ROM:0002A614↓p
+ROM:00004BEA                                                             ; ROM:0003342E↓p ...
+ROM:00004BEA 386D 6726                           movea.w $6726(a5),a4    ; Move Address
+ROM:00004BEE 390E                                move.w  a6,-(a4)        ; Move Data from Source to Destination
+ROM:00004BF0 3B4C 6726                           move.w  a4,$6726(a5)    ; Move Data from Source to Destination
+ROM:00004BF4 526D 671E                           addq.w  #1,$671E(a5)    ; Add Quick
+ROM:00004BF8 4E75                                rts                     ; Return from Subroutine
+ROM:00004BF8                     ; End of function sub_4BEA
+ROM:00004BF8
+ROM:00004BFA                     ; ---------------------------------------------------------------------------
+ROM:00004BFA 386D 6724                           movea.w $6724(a5),a4    ; Move Address
+ROM:00004BFE 390E                                move.w  a6,-(a4)        ; Move Data from Source to Destination
+ROM:00004C00 3B4C 6724                           move.w  a4,$6724(a5)    ; Move Data from Source to Destination
+ROM:00004C04 526D 671C                           addq.w  #1,$671C(a5)    ; Add Quick
+ROM:00004C08 4E75                                rts                     ; Return from Subroutine
+----------------------------------------------------------------------------------------------------------
+敌兵enemy 44分析
+0338A6	move.l  #$103000, ($44,A6)	
+0359C0	move.l  #$103c00, ($44,A6)	
+0483C0	move.l  #$106000, ($44,A6)	
+05B930	move.l  #$c0100000, ($44,A6)	
+
+4players:0x100000,0x100C00,0x101800,0x102400

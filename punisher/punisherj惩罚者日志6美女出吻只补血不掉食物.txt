@@ -1,0 +1,29 @@
+ :               0833E2:subq.w  #1, ($3a,A6)
+F:               0833E6:ble     $8342a
+T:               08342A:tst.b   ($b3,A6)
+T:               08342E:beq     $83442
+T:               083442:move.l  #$0, ($c,A6)
+T:               08344A:sf      ($be,A6)
+T:               08344E:rts
+
+ :               0ACF58:move.w  (A0,D2.w), D3
+F:               0ACF5C:jmp     (A0,D3.w)
+T:               0ACFDC:andi.w  #$f, D1
+T:               0ACFE0:cmpi.w  #$8, D1
+T:               0ACFE4:blt     $acff6
+
+ :               0ACFFC:sub.w   D0, D1
+F:               0ACFFE:ble     $acf60
+T:               0AD002:moveq   #$1, D0
+T:               0AD004:rts
+ :               0ACF58:move.w  (A0,D2.w), D3
+F:               0ACF5C:jmp     (A0,D3.w)
+T:               0ACF72:moveq   #$1, D0
+T:               0ACF74:rts
+
+ :               00106A:cmpi.w  #$1c0, D0
+F:               00106E:bhi     $107e
+T:               00107E:move.w  #$c, ($8,A6)
+ :               08315E:movea.l ($4,PC,D0.w), A1
+F:               083162:jmp     (A1)
+T:               083586:jmp     $18e4.l

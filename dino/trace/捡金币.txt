@@ -1,0 +1,58 @@
+F:               015A4A:blt     $15a52
+T:               015A4C:subq.b  #1, ($10a,A6)
+
+T:               015A50:bra     $15a2e
+F:               015988:bgt     $15a00
+T:               01598A:jsr     $11c4.l
+T:               0011C4:lea     ($2e,PC) ; ($11f4), A2
+T:               0011C8:moveq   #$c, D1
+T:               0011CA:moveq   #$0, D2
+T:               0011CC:moveq   #$0, D3
+T:               0011CE:btst    D1, D0
+T:               0011D0:beq     $11e6
+T:               0011E6:dbra    D1, $11ce
+F:               0011E6:dbra    D1, $11ce
+T:               0011D2:move.w  D1, D4
+T:               0011D4:add.w   D4, D4
+T:               0011D6:move    #$0, CCR
+T:               0011DA:move.b  (A2,D4.w), D5
+T:               0011DE:abcd    D5, D2
+T:               0011E0:move.b  ($1,A2,D4.w), D5
+T:               0011E4:abcd    D5, D3
+F:               0011E4:abcd    D5, D3
+T:               0011EA:lsl.w   #8, D3
+T:               0011EC:or.w    D3, D2
+T:               0011EE:moveq   #$0, D0
+T:               0011F0:move.w  D2, D0
+T:               0011F2:rts
+T:               015990:move.b  D0, D1
+T:               015992:move.b  D0, D2
+T:               015994:lsr.b   #4, D1
+T:               015996:andi.w  #$f, D1
+T:               01599A:bne     $159a0
+T:               0159A0:addi.w  #$0, D1
+T:               0159A4:move.w  D1, (A0)
+T:               0159A6:move.w  #$180, ($2,A0)
+T:               0159AC:adda.w  #$80, A0
+T:               0159B0:andi.w  #$f, D0
+T:               0159B4:addi.w  #$0, D0
+T:               0159B8:move.w  D0, (A0)
+T:               0159BA:move.w  #$180, ($2,A0)
+T:               0159C0:adda.w  #$80, A0
+T:               0159C4:subq.b  #1, D2
+T:               0159C6:cmpi.b  #$3, D2
+T:               0159CA:ble     $159ce
+T:               0159CC:moveq   #$3, D2
+T:               0159CE:lea     ($28,PC) ; ($159f8), A1
+T:               0159D2:add.w   D2, D2
+T:               0159D4:adda.w  D2, A1
+T:               0159D6:move.b  (A1)+, D0
+T:               0159D8:addi.w  #$0, D0
+T:               0159DC:move.w  D0, (A0)
+T:               0159DE:move.w  #$180, ($2,A0)
+T:               0159E4:adda.w  #$80, A0
+T:               0159E8:move.b  (A1)+, D0
+T:               0159EA:addi.w  #$0, D0
+T:               0159EE:move.w  D0, (A0)
+T:               0159F0:move.w  #$180, ($2,A0)
+T:               0159F6:rts

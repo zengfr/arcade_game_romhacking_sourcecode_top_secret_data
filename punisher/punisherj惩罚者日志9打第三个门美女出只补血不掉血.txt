@@ -1,0 +1,7 @@
+ :               017BB8:cmpi.b  #$7, ($11,A6)
+F:               017BBE:bne     $1b1ac
+T:               017BC2:bsr     $17b1c
+ :               017B2C:move.b  D0, ($9c,A6)
+F:               017B30:rts
+T:               017BC6:tst.w   ($5e,A6)
+T:               017BCA:bne     $17e0e

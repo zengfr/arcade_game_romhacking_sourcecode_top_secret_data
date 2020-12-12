@@ -1,5 +1,6 @@
 copyright	zengfr	site:http://github.com/zengfr/romhack
 
+010DA2	move.b  (A4), ($59,A3)		
 010DA6	move.b  (A4)+, ($59,A2)		[etc+59]
 01250A	move.b  (A4)+, ($59,A3)		
 01250E	move.b  (A4)+, D0		[etc+59]

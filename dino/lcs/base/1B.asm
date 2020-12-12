@@ -4,6 +4,7 @@ copyright	zengfr	site:http://github.com/zengfr/romhack
 000744	move.b  ($17,A5), ($1c,A5)		[base+ 1B]
 007040	move.b  ($1b,A5), D1		[base+ 16]
 007044	eor.b   D1, D0		[base+ 1B]
+00B14A	move.b  (A1), D1		
 00B14C	eor.w   D0, D1		[base+ 1B, base+ 1C, base+ 1D]
 00DFDE	cmp.b   ($1b,A5), D0		[base+ 16]
 00DFE2	beq     $dff0		[base+ 1B]

@@ -1,0 +1,6375 @@
+01162E: moveq   #$0, D2
+011630: move.b  ($2e,A3), D2
+011634: move.w  ($8,PC,D2.w), D2
+011638: jmp     ($4,PC,D2.w)
+011652: move.b  ($5e,A2), D2
+011656: cmp.b   ($e9,A3), D2
+01165A: bne     $11668
+011668: bsr     $128f8
+0128F8: moveq   #$0, D2
+0128FA: move.b  ($4a,A2), D2
+0128FE: add.w   D2, D2
+012900: or.b    ($4a,A3), D2
+012904: add.w   D2, D2
+012906: move.w  ($6,PC,D2.w), D2
+01290A: jmp     ($2,PC,D2.w)
+012916: mulu.w  #$c, D0
+01291A: movea.l ($44,A2), A4
+01291E: adda.w  D0, A4
+012920: move.l  A4, (-$7130,A5)
+012924: mulu.w  #$c, D1
+012928: movea.l ($44,A3), A6
+01292C: adda.w  D1, A6
+01292E: move.l  A6, (-$712c,A5)
+012932: move.w  ($10,A2), D0
+012936: add.w   (A4)+, D0
+012938: move.w  ($10,A3), D1
+01293C: add.w   (A6)+, D1
+01293E: sub.w   D1, D0
+012940: move.w  (A4)+, D1
+012942: add.w   D1, D0
+012944: add.w   (A6)+, D1
+012946: cmp.w   D1, D0
+012948: bhi     $129a4
+0129A4: or.w    D0, D0
+0129A6: rts
+01166C: bcc     $11778
+011778: rts
+0115F2: dbra    D7, $115d8
+0115F6: swap    D7
+0115F8: dbra    D7, $115be
+0115FC: rts
+0105E0: bsr     $11cec
+011CEC: move.w  ($6b64,A5), D7
+011CF0: beq     $11d30
+011D30: rts
+0105E4: bra     $1185a
+01185A: move.w  ($6b30,A5), D7
+01185E: beq     $1189a
+01189A: rts
+00AB08: jsr     $16bea.l
+016BEA: lea     ($6b98,A5), A3
+016BEE: lea     ($4cc,A5), A6
+016BF2: tst.b   ($3,A6)
+016BF6: bne     $16c38
+016BFA: lea     ($6ba8,A5), A6
+016BFE: bsr     $16c62
+016C62: moveq   #$0, D0
+016C64: cmpi.b  #$0, ($3274,A5)
+016C6A: bne     $16c70
+016C70: tst.w   D0
+016C72: rts
+016C02: bne     $16c0e
+016C06: bsr     $16ce6
+016CE6: jsr     $2389c.l
+02389C: tst.b   ($4dc,A5)
+0238A0: bne     $239ae
+0238A4: movem.l A2, -(A7)
+0238A8: moveq   #$0, D0
+0238AA: move.b  ($0,A6), D0
+0238AE: subq.w  #1, D0
+0238B0: beq     $2390a
+0238B4: bpl     $2395c
+0238B8: lea     ($3274,A5), A2
+0238BC: tst.w   ($b4,A2)
+0238C0: beq     $238ee
+0238EE: tst.w   (-$7096,A5)
+0238F2: beq     $239aa
+0239AA: movem.l (A7)+, A2
+0239AE: rts
+016CEC: bsr     $17188
+017188: tst.b   ($3,A6)
+01718C: bne     $1728e
+017190: tst.w   (-$70bc,A5)
+017194: beq     $1728e
+01728E: rts
+016CF0: moveq   #$0, D0
+016CF2: move.b  ($0,A6), D0
+016CF6: bsr     $16c98
+016C98: subq.w  #1, D0
+016C9A: beq     $16cb0
+016C9E: bpl     $16cbe
+016CA2: lea     ($6bde,A5), A0
+016CA6: moveq   #$0, D2
+016CA8: move.b  ($6bd9,A5), D2
+016CAC: bra     $16cc8
+016CC8: rts
+016CF8: move.w  (A0,D2.w), D0
+016CFC: bpl     $16dc0
+016D00: cmpi.b  #$1, ($4,A6)
+016D06: bne     $16d64
+016D64: tst.b   ($3,A6)
+016D68: bne     $16d7a
+016D6C: jsr     $2388e.l
+02388E: tst.b   ($4dc,A5)
+023892: bne     $239ae
+023896: move.w  #$0, (-$7098,A5)
+02389C: tst.b   ($4dc,A5)
+0238A0: bne     $239ae
+0238A4: movem.l A2, -(A7)
+0238A8: moveq   #$0, D0
+0238AA: move.b  ($0,A6), D0
+0238AE: subq.w  #1, D0
+0238B0: beq     $2390a
+0238B4: bpl     $2395c
+0238B8: lea     ($3274,A5), A2
+0238BC: tst.w   ($b4,A2)
+0238C0: beq     $238ee
+0238EE: tst.w   (-$7096,A5)
+0238F2: beq     $239aa
+0239AA: movem.l (A7)+, A2
+0239AE: rts
+016D72: bsr     $17190
+017190: tst.w   (-$70bc,A5)
+017194: beq     $1728e
+01728E: rts
+016D76: bra     $16f28
+016F28: rts
+016C0A: bsr     $173bc
+0173BC: tst.b   ($5,A6)
+0173C0: beq     $17424
+017424: rts
+016C0E: lea     ($6bb8,A5), A6
+016C12: bsr     $16c74
+016C74: moveq   #$0, D0
+016C76: cmpi.b  #$0, ($33f4,A5)
+016C7C: bne     $16c82
+016C80: moveq   #$1, D0
+016C82: tst.w   D0
+016C84: rts
+016C16: bne     $16c22
+016C22: lea     ($6bc8,A5), A6
+016C26: bsr     $16c86
+016C86: moveq   #$0, D0
+016C88: cmpi.b  #$0, ($3574,A5)
+016C8E: bne     $16c94
+016C92: moveq   #$1, D0
+016C94: tst.w   D0
+016C96: rts
+016C2A: bne     $16c36
+016C36: rts
+00AB0E: jsr     $13fa6.l
+013FA6: moveq   #$54, D0
+013FA8: moveq   #$0, D1
+013FAA: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+013FB0: clr.w   ($69b2,A5)
+013FB4: lea     $900000.l, A4
+013FBA: tst.w   ($69b4,A5)
+013FBE: bne     $13fc8
+013FC8: move.w  ($744,A5), D0
+013FCC: subi.w  #$40, D0
+013FD0: move.w  D0, ($69b6,A5)
+013FD4: move.w  ($748,A5), D0
+013FD8: tst.b   ($4dc,A5)
+013FDC: beq     $13fe2
+013FE2: move.w  D0, ($69b8,A5)
+013FE6: subq.w  #1, (-$7126,A5)
+013FEA: bne     $13ffe
+013FFE: bsr     $149b0
+0149B0: tst.b   ($4aa,A5)
+0149B4: beq     $14a52
+014A52: rts
+014002: move.w  ($67c0,A5), D7
+014006: beq     $1406a
+01400A: subq.w  #1, D7
+01400C: beq     $14040
+014010: subq.w  #1, D7
+014012: move.w  D7, D6
+014014: lea     ($69b0,A5), A0
+014018: lea     (-$4,A0), A1
+01401C: lea     (A0), A2
+01401E: lea     (A1), A3
+014020: move.l  -(A0), D0
+014022: move.l  -(A1), D1
+014024: cmp.l   D1, D0
+014026: bcs     $1402e
+01402E: move.l  D0, (A0)
+014030: move.l  D1, (A1)
+014032: dbra    D7, $14020
+014020: move.l  -(A0), D0
+014022: move.l  -(A1), D1
+014024: cmp.l   D1, D0
+014026: bcs     $1402e
+01402A: exg     D0, D1
+01402C: moveq   #$1, D2
+01402E: move.l  D0, (A0)
+014030: move.l  D1, (A1)
+014032: dbra    D7, $14020
+014036: lea     (A2), A0
+014038: lea     (A3), A1
+01403A: subq.w  #1, D6
+01403C: move.w  D6, D7
+01403E: bpl     $14020
+
+   (loops for 4 instructions)
+
+01402A: exg     D0, D1
+01402C: moveq   #$1, D2
+
+   (loops for 3 instructions)
+
+014036: lea     (A2), A0
+014038: lea     (A3), A1
+01403A: subq.w  #1, D6
+01403C: move.w  D6, D7
+01403E: bpl     $14020
+014040: moveq   #$54, D0
+014042: moveq   #$2, D1
+014044: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+01404A: move.w  ($67c0,A5), D7
+01404E: lea     ($69b0,A5), A6
+014052: subq.w  #1, D7
+014054: move.l  -(A6), D0
+014056: movea.w D0, A0
+014058: move.w  D7, -(A7)
+01405A: bsr     $141f8
+0141F8: cmpi.b  #$4, ($5,A0)
+0141FE: bne     $14226
+014226: btst    #$0, ($25,A0)
+01422C: bne     $14136
+014230: movea.l ($28,A0), A3
+014234: btst    #$6, ($25,A0)
+01423A: bne     $147fe
+01423E: move.w  (A3)+, D0
+014240: bmi     $14180
+014244: movea.l $ffff4.l, A1
+01424A: movea.l (A1,D0.w), A1
+01424E: move.w  (A3), (-$7128,A5)
+014252: move.w  (A1)+, D0
+014254: add.w   D0, ($69b2,A5)
+014258: move.w  ($8,A0), D4
+01425C: move.w  ($c,A0), D5
+014260: add.w   ($10,A0), D5
+014264: btst    #$7, ($25,A0)
+01426A: bne     $14276
+01426E: sub.w   ($69b6,A5), D4
+014272: sub.w   ($69b8,A5), D5
+014276: not.b   D5
+014278: addq.w  #1, D5
+01427A: move.w  (A1)+, D6
+01427C: subq.w  #1, D6
+01427E: move.w  (A1)+, D3
+014280: btst    #$f, D3
+014284: bne     $14290
+014290: bsr     $14494
+014494: tst.b   ($53,A0)
+014498: beq     $144ae
+0144AE: movea.l $ffffa.l, A2
+0144B4: move.w  (A1)+, D2
+0144B6: add.w   D2, D2
+0144B8: add.w   D2, D2
+0144BA: movea.l (A2,D2.w), A2
+0144BE: tst.b   ($24,A0)
+0144C2: bne     $1456c
+0144C6: move.b  ($23,A0), D0
+0144CA: bmi     $14516
+0144CE: move.w  (A1)+, D2
+0144D0: move.w  (A1)+, D3
+0144D2: move.w  (A2)+, D0
+0144D4: add.w   D4, D0
+0144D6: cmpi.w  #$1c0, D0
+0144DA: bgt     $14500
+0144DE: cmpi.w  #$40, D0
+0144E2: bgt     $14506
+014506: move.w  D5, D1
+014508: add.w   (A2)+, D1
+01450A: movem.w D0-D3, (A4)
+01450E: addq.l  #8, A4
+014510: dbra    D6, $144ce
+0144CE: move.w  (A1)+, D2
+0144D0: move.w  (A1)+, D3
+0144D2: move.w  (A2)+, D0
+0144D4: add.w   D4, D0
+0144D6: cmpi.w  #$1c0, D0
+0144DA: bgt     $14500
+0144DE: cmpi.w  #$40, D0
+0144E2: bgt     $14506
+014506: move.w  D5, D1
+014508: add.w   (A2)+, D1
+01450A: movem.w D0-D3, (A4)
+01450E: addq.l  #8, A4
+014510: dbra    D6, $144ce
+
+   (loops for 39 instructions)
+
+014514: rts
+014294: movea.l $ffff4.l, A1
+01429A: move.w  (A3), D0
+01429C: bmi     $14348
+014348: rts
+01405E: move.w  (A7)+, D7
+014060: dbra    D7, $14054
+014054: move.l  -(A6), D0
+014056: movea.w D0, A0
+014058: move.w  D7, -(A7)
+01405A: bsr     $141f8
+0141F8: cmpi.b  #$4, ($5,A0)
+0141FE: bne     $14226
+014226: btst    #$0, ($25,A0)
+01422C: bne     $14136
+014230: movea.l ($28,A0), A3
+014234: btst    #$6, ($25,A0)
+01423A: bne     $147fe
+01423E: move.w  (A3)+, D0
+014240: bmi     $14180
+014244: movea.l $ffff4.l, A1
+01424A: movea.l (A1,D0.w), A1
+01424E: move.w  (A3), (-$7128,A5)
+014252: move.w  (A1)+, D0
+014254: add.w   D0, ($69b2,A5)
+014258: move.w  ($8,A0), D4
+01425C: move.w  ($c,A0), D5
+014260: add.w   ($10,A0), D5
+014264: btst    #$7, ($25,A0)
+01426A: bne     $14276
+01426E: sub.w   ($69b6,A5), D4
+014272: sub.w   ($69b8,A5), D5
+014276: not.b   D5
+014278: addq.w  #1, D5
+01427A: move.w  (A1)+, D6
+01427C: subq.w  #1, D6
+01427E: move.w  (A1)+, D3
+014280: btst    #$f, D3
+014284: bne     $14290
+014290: bsr     $14494
+014494: tst.b   ($53,A0)
+014498: beq     $144ae
+0144AE: movea.l $ffffa.l, A2
+0144B4: move.w  (A1)+, D2
+0144B6: add.w   D2, D2
+0144B8: add.w   D2, D2
+0144BA: movea.l (A2,D2.w), A2
+0144BE: tst.b   ($24,A0)
+0144C2: bne     $1456c
+01456C: move.b  ($23,A0), D0
+014570: bmi     $145d2
+014574: move.w  (A1)+, D2
+014576: move.w  (A1)+, D3
+014578: bchg    #$5, D3
+01457C: move.w  D3, D1
+01457E: lsr.w   #4, D1
+014580: andi.w  #$f0, D1
+014584: addi.w  #$10, D1
+014588: neg.w   D1
+01458A: move.w  (A2)+, D0
+01458C: neg.w   D0
+01458E: add.w   D1, D0
+014590: add.w   D4, D0
+014592: cmpi.w  #$1c0, D0
+014596: bgt     $145bc
+01459A: cmpi.w  #$40, D0
+01459E: bgt     $145c2
+0145C2: move.w  D5, D1
+0145C4: add.w   (A2)+, D1
+0145C6: movem.w D0-D3, (A4)
+0145CA: addq.l  #8, A4
+0145CC: dbra    D6, $14574
+014574: move.w  (A1)+, D2
+014576: move.w  (A1)+, D3
+014578: bchg    #$5, D3
+01457C: move.w  D3, D1
+01457E: lsr.w   #4, D1
+014580: andi.w  #$f0, D1
+014584: addi.w  #$10, D1
+014588: neg.w   D1
+01458A: move.w  (A2)+, D0
+01458C: neg.w   D0
+01458E: add.w   D1, D0
+014590: add.w   D4, D0
+014592: cmpi.w  #$1c0, D0
+014596: bgt     $145bc
+01459A: cmpi.w  #$40, D0
+01459E: bgt     $145c2
+0145C2: move.w  D5, D1
+0145C4: add.w   (A2)+, D1
+0145C6: movem.w D0-D3, (A4)
+0145CA: addq.l  #8, A4
+0145CC: dbra    D6, $14574
+
+   (loops for 42 instructions)
+
+0145D0: rts
+014294: movea.l $ffff4.l, A1
+01429A: move.w  (A3), D0
+01429C: bmi     $14348
+014348: rts
+01405E: move.w  (A7)+, D7
+014060: dbra    D7, $14054
+014054: move.l  -(A6), D0
+014056: movea.w D0, A0
+014058: move.w  D7, -(A7)
+01405A: bsr     $141f8
+0141F8: cmpi.b  #$4, ($5,A0)
+0141FE: bne     $14226
+014226: btst    #$0, ($25,A0)
+01422C: bne     $14136
+014230: movea.l ($28,A0), A3
+014234: btst    #$6, ($25,A0)
+01423A: bne     $147fe
+01423E: move.w  (A3)+, D0
+014240: bmi     $14180
+014244: movea.l $ffff4.l, A1
+01424A: movea.l (A1,D0.w), A1
+01424E: move.w  (A3), (-$7128,A5)
+014252: move.w  (A1)+, D0
+014254: add.w   D0, ($69b2,A5)
+014258: move.w  ($8,A0), D4
+01425C: move.w  ($c,A0), D5
+014260: add.w   ($10,A0), D5
+014264: btst    #$7, ($25,A0)
+01426A: bne     $14276
+01426E: sub.w   ($69b6,A5), D4
+014272: sub.w   ($69b8,A5), D5
+014276: not.b   D5
+014278: addq.w  #1, D5
+01427A: move.w  (A1)+, D6
+01427C: subq.w  #1, D6
+01427E: move.w  (A1)+, D3
+014280: btst    #$f, D3
+014284: bne     $14290
+014290: bsr     $14494
+014494: tst.b   ($53,A0)
+014498: beq     $144ae
+0144AE: movea.l $ffffa.l, A2
+0144B4: move.w  (A1)+, D2
+0144B6: add.w   D2, D2
+0144B8: add.w   D2, D2
+0144BA: movea.l (A2,D2.w), A2
+0144BE: tst.b   ($24,A0)
+0144C2: bne     $1456c
+0144C6: move.b  ($23,A0), D0
+0144CA: bmi     $14516
+0144CE: move.w  (A1)+, D2
+0144D0: move.w  (A1)+, D3
+0144D2: move.w  (A2)+, D0
+0144D4: add.w   D4, D0
+0144D6: cmpi.w  #$1c0, D0
+0144DA: bgt     $14500
+0144DE: cmpi.w  #$40, D0
+0144E2: bgt     $14506
+014506: move.w  D5, D1
+014508: add.w   (A2)+, D1
+01450A: movem.w D0-D3, (A4)
+01450E: addq.l  #8, A4
+014510: dbra    D6, $144ce
+0144CE: move.w  (A1)+, D2
+0144D0: move.w  (A1)+, D3
+0144D2: move.w  (A2)+, D0
+0144D4: add.w   D4, D0
+0144D6: cmpi.w  #$1c0, D0
+0144DA: bgt     $14500
+0144DE: cmpi.w  #$40, D0
+0144E2: bgt     $14506
+014506: move.w  D5, D1
+014508: add.w   (A2)+, D1
+01450A: movem.w D0-D3, (A4)
+01450E: addq.l  #8, A4
+014510: dbra    D6, $144ce
+014514: rts
+014294: movea.l $ffff4.l, A1
+01429A: move.w  (A3), D0
+01429C: bmi     $14348
+014348: rts
+01405E: move.w  (A7)+, D7
+014060: dbra    D7, $14054
+014064: jsr     $14ec0.l
+014EC0: move.w  ($67c0,A5), D7
+014EC4: beq     $14f96
+014EC8: lea     ($69b0,A5), A6
+014ECC: subq.w  #1, D7
+014ECE: movea.w (-$2,A6), A0
+014ED2: lea     (-$4,A6), A6
+014ED6: btst    #$4, ($25,A0)
+014EDC: bne     $14f92
+014EE0: move.w  ($54,A0), D1
+014EE4: add.w   ($56,A0), D1
+014EE8: tst.b   ($53,A0)
+014EEC: beq     $14f06
+014F06: move.w  D1, D4
+014F08: sub.w   ($c,A0), D4
+014F0C: beq     $14f92
+014F10: add.w   ($10,A0), D1
+014F14: sub.w   ($69b8,A5), D1
+014F18: not.b   D1
+014F1A: addq.w  #1, D1
+014F1C: subi.w  #$10, D1
+014F20: move.w  ($8,A0), D4
+014F24: sub.w   ($69b6,A5), D4
+014F28: move.b  ($4e,A0), D0
+014F2C: bmi     $14f8e
+014F30: cmpi.b  #$70, D0
+014F34: bne     $14f3a
+014F3A: andi.w  #$f0, D0
+014F3E: lsr.w   #2, D0
+014F40: lea     ($56,PC) ; ($14f98), A2
+014F44: movea.l (A2,D0.w), A2
+014F48: move.w  (A2)+, D6
+014F4A: move.w  (A2)+, D0
+014F4C: sub.w   D0, ($69b2,A5)
+014F50: move.w  (A2)+, D3
+014F52: move.w  D4, D0
+014F54: add.w   (A2)+, D0
+014F56: cmpi.w  #$1c0, D0
+014F5A: bgt     $14f80
+014F5E: cmpi.w  #$40, D0
+014F62: bgt     $14f86
+014F86: move.w  (A2)+, D2
+014F88: movem.w D0-D3, (A4)
+014F8C: addq.l  #8, A4
+014F8E: dbra    D6, $14f50
+014F92: dbra    D7, $14ece
+014ECE: movea.w (-$2,A6), A0
+014ED2: lea     (-$4,A6), A6
+014ED6: btst    #$4, ($25,A0)
+014EDC: bne     $14f92
+014EE0: move.w  ($54,A0), D1
+014EE4: add.w   ($56,A0), D1
+014EE8: tst.b   ($53,A0)
+014EEC: beq     $14f06
+014F06: move.w  D1, D4
+014F08: sub.w   ($c,A0), D4
+014F0C: beq     $14f92
+014F92: dbra    D7, $14ece
+
+   (loops for 5 instructions)
+
+014F96: rts
+01406A: lea     ($69b0,A5), A0
+01406E: move.w  A0, ($67c2,A5)
+014072: clr.w   ($67c0,A5)
+014076: move.l  #$100, (A4)+
+01407C: move.l  #$ff00, (A4)+
+014082: tst.b   ($4aa,A5)
+014086: beq     $14098
+014098: not.w   ($69b4,A5)
+01409C: rts
+00AB14: jsr     $105e8.l
+0105E8: moveq   #$0, D0
+0105EA: move.w  D0, ($6718,A5)
+0105EE: lea     ($672e,A5), A0
+0105F2: move.w  A0, ($6720,A5)
+0105F6: move.w  D0, ($671a,A5)
+0105FA: lea     ($675e,A5), A0
+0105FE: move.w  A0, ($6722,A5)
+010602: move.w  ($671e,A5), ($69ba,A5)
+010608: move.w  ($6726,A5), ($69bc,A5)
+01060E: move.w  D0, ($671e,A5)
+010612: lea     ($67be,A5), A0
+010616: cmpa.w  ($6726,A5), A0
+01061A: bcc     $10622
+010622: move.w  A0, ($6726,A5)
+010626: move.w  D0, ($671c,A5)
+01062A: lea     ($678e,A5), A0
+01062E: move.w  A0, ($6724,A5)
+010632: move.w  D0, ($6b64,A5)
+010636: lea     ($6b98,A5), A0
+01063A: move.w  A0, ($6b66,A5)
+01063E: move.w  D0, ($6ac2,A5)
+010642: lea     ($6afc,A5), A0
+010646: move.w  A0, ($6ac4,A5)
+01064A: move.w  D0, ($6afc,A5)
+01064E: lea     ($6b30,A5), A0
+010652: move.w  A0, ($6afe,A5)
+010656: move.w  D0, ($6b30,A5)
+01065A: lea     ($6b64,A5), A0
+01065E: move.w  A0, ($6b32,A5)
+010662: rts
+00AB1A: jsr     $103fe.l
+0103FE: tst.b   ($4d5,A5)
+010402: bne     $10468
+010406: tst.b   ($4dd,A5)
+01040A: bne     $10468
+01040E: tst.b   ($4eb,A5)
+010412: bne     $10468
+010416: tst.w   ($4e8,A5)
+01041A: bne     $10468
+010468: rts
+00AB20: jsr     $1037e.l
+01037E: tst.w   ($4aa,A5)
+010382: beq     $1039a
+01039A: tst.b   ($4d5,A5)
+01039E: bne     $103f8
+0103A2: tst.b   ($4dd,A5)
+0103A6: bne     $103f8
+0103AA: tst.b   ($518,A5)
+0103AE: bne     $103f8
+0103B2: tst.b   ($4ea,A5)
+0103B6: beq     $103c0
+0103BA: subq.b  #1, ($4ea,A5)
+0103BE: rts
+00AB26: jsr     $fbf4.l
+00FBF4: lea     ($66c,A5), A4
+00FBF8: tst.b   ($4,A4)
+00FBFC: bne     $fc6e
+00FC6E: tst.b   ($0,A4)
+00FC72: beq     $fc7a
+00FC7A: movea.l ($8,A4), A2
+00FC7E: tst.b   ($4dc,A5)
+00FC82: beq     $fc96
+00FC96: move.w  (A2), D0
+00FC98: move.w  ($744,A5), D1
+00FC9C: cmp.w   D1, D0
+00FC9E: bhi     $fd02
+00FD02: movea.l ($c,A4), A2
+00FD06: tst.b   ($4dc,A5)
+00FD0A: beq     $fd1e
+00FD1E: move.w  (A2), D0
+00FD20: move.w  ($744,A5), D1
+00FD24: cmp.w   D1, D0
+00FD26: bhi     $fd44
+00FD44: rts
+00AB2C: moveq   #$0, D0
+00AB2E: move.b  ($4d1,A5), D0
+00AB32: move.w  ($6,PC,D0.w), D0
+00AB36: jmp     ($2,PC,D0.w)
+00AB42: rts
+00A956: bra     $a914
+00A914: tst.b   (-$7eae,A5)
+00A918: beq     $a92a
+00A92A: move.b  ($4d6,A5), D0
+00A92E: andi.w  #$f, D0
+00A932: jsr     $95a.l
+00095A: movem.l D0-D7/A0-A6, -(A7)
+00095E: move.w  D0, -(A7)
+000960: moveq   #$20, D0
+000962: moveq   #$0, D1
+000964: jsr     $a48.l
+000A48: movem.l D0-D2/A0, -(A7)
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00096A: move.w  (A7)+, D0
+00096C: trap    #$3
+000974: tst.b   ($4aa,A5)
+000978: beq     $98c
+00098C: movea.l (-$7ea8,A5), A0
+000990: move.w  #$100, D1
+000994: tst.b   D0
+000996: bne     $99e
+00099E: or.w    D1, D0
+0009A0: move.w  D0, ($0,A0)
+0009A4: move    USP, A1
+0009A6: move.l  A1, ($8,A0)
+0009AA: move.w  (A7)+, ($2,A0)
+0009AE: move.l  (A7)+, ($4,A0)
+0009B2: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 99 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 126 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+
+   (loops for 3 instructions)
+
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+
+   (loops for 141 instructions)
+
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+0009BC: movem.l (A7)+, D0-D7/A0-A6
+0009C0: rts
+09E418: bra     $9e38c
+09E38C: tst.b   ($4aa,A5)
+09E390: beq     $9e39e
+09E39E: tst.b   ($4cc,A5)
+09E3A2: beq     $9e414
+09E3A6: btst    #$0, ($4d8,A5)
+09E3AC: beq     $9e414
+09E414: jsr     $9b6.w
+0009B6: movem.l D0-D7/A0-A6, -(A7)
+0009BA: trap    #$4
+0009C2: movea.l (-$7ea8,A5), A0
+0009C6: move.b  #$4, ($0,A0)
+0009CC: move    USP, A1
+0009CE: move.l  A1, ($8,A0)
+0009D2: move.w  (A7)+, ($2,A0)
+0009D6: move.l  (A7)+, ($4,A0)
+0009DA: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000872: bra     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+
+   (loops for 109 instructions)
+
+000542: movem.l D0-D7/A0-A6, -(A7)
+000546: lea     $8000.w, A5
+00054A: moveq   #$10, D0
+00054C: moveq   #$0, D1
+00054E: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+000554: move.w  #$9000, D0
+000558: tst.w   ($69b4,A5)
+00055C: beq     $564
+000564: move.w  D0, $800100.l
+00056A: move.w  ($2a,A5), $800102.l
+000572: move.w  ($2c,A5), $800104.l
+00057A: move.w  ($2e,A5), $800106.l
+000582: move.w  ($777e,A5), $800120.l
+00058A: bsr     $814
+000814: move.w  #$3f, $800144.l
+00081C: move.w  #$9140, $80010a.l
+000824: rts
+00058E: move.w  #$9080, ($2a,A5)
+000594: tst.b   ($4aa,A5)
+000598: beq     $5b4
+0005B4: tst.b   ($4cc,A5)
+0005B8: bmi     $5c8
+0005BC: move.b  $80001e.l, D0
+0005C2: andi.b  #$8, D0
+0005C6: beq     $5b4
+0005C8: st      (-$7eae,A5)
+0005CC: bsr     $610
+000610: move.w  ($36,A5), D0
+000614: cmp.w   ($34,A5), D0
+000618: beq     $69c
+00069C: rts
+0005D0: bsr     $6c0
+0006C0: move.w  #$ffc0, D1
+0006C4: move.w  ($85c,A5), D0
+0006C8: add.w   D1, D0
+0006CA: move.w  D0, $80010c.l
+0006D0: move.l  ($6c4,A5), ($85c,A5)
+0006D6: move.w  ($864,A5), D0
+0006DA: add.w   D1, D0
+0006DC: move.w  D0, $800110.l
+0006E2: move.l  ($744,A5), ($864,A5)
+0006E8: move.w  ($86c,A5), D0
+0006EC: add.w   D1, D0
+0006EE: move.w  D0, $800114.l
+0006F4: move.l  ($7e4,A5), ($86c,A5)
+0006FA: move.w  #$100, D0
+0006FE: sub.w   ($860,A5), D0
+000702: move.w  D0, $80010e.l
+000708: move.l  ($6c8,A5), ($860,A5)
+00070E: move.w  #$300, D0
+000712: sub.w   ($868,A5), D0
+000716: move.w  D0, $800112.l
+00071C: move.l  ($748,A5), ($868,A5)
+000722: move.w  #$700, D0
+000726: sub.w   ($870,A5), D0
+00072A: move.w  D0, $800116.l
+000730: move.l  ($7e8,A5), ($870,A5)
+000736: rts
+0005D4: bsr     $738
+000738: move.b  ($1a,A5), ($1f,A5)
+00073E: move.b  ($16,A5), ($1b,A5)
+000744: move.b  ($17,A5), ($1c,A5)
+00074A: move.b  ($18,A5), ($1d,A5)
+000750: move.b  $800018.l, D0
+000756: not.b   D0
+000758: move.b  D0, D2
+00075A: andi.b  #$30, D0
+00075E: move.b  $f1c001.l, D1
+000764: not.b   D1
+000766: andi.b  #$80, D1
+00076A: lsr.w   #1, D1
+00076C: or.b    D1, D0
+00076E: lsr.b   #4, D0
+000770: move.b  D2, D1
+000772: andi.b  #$40, D1
+000776: or.b    D1, D0
+000778: andi.b  #$4, D2
+00077C: ror.b   #3, D2
+00077E: or.b    D2, D0
+000780: move.b  D0, ($1a,A5)
+000784: move.b  $800018.l, D0
+00078A: not.b   D0
+00078C: andi.b  #$3, D0
+000790: move.b  $f1c001.l, D1
+000796: not.b   D1
+000798: andi.b  #$40, D1
+00079C: lsr.b   #4, D1
+00079E: or.b    D1, D0
+0007A0: move.b  D0, ($20,A5)
+0007A4: move.b  $800001.l, ($16,A5)
+0007AC: move.b  $800000.l, ($17,A5)
+0007B4: move.b  $f1c001.l, ($18,A5)
+0007BC: not.b   ($16,A5)
+0007C0: not.b   ($17,A5)
+0007C4: not.b   ($18,A5)
+0007C8: move.b  $80001a.l, ($22,A5)
+0007D0: move.b  $80001c.l, ($23,A5)
+0007D8: move.b  $80001e.l, ($24,A5)
+0007E0: not.b   ($22,A5)
+0007E4: not.b   ($23,A5)
+0007E8: not.b   ($24,A5)
+0007EC: move.b  ($21,A5), D0
+0007F0: move.b  D0, D1
+0007F2: andi.b  #$f, D1
+0007F6: move.b  D1, $800030.l
+0007FC: move.b  D0, D1
+0007FE: andi.b  #$30, D1
+000802: lsr.b   #4, D1
+000804: move.w  D1, $f1c004.l
+00080A: move.w  ($28,A5), $80014a.l
+000812: rts
+0005D8: bsr     $826
+000826: move.b  ($777c,A5), D0
+00082A: ror.w   #5, D0
+00082C: andi.w  #$8000, D0
+000830: or.w    ($26,A5), D0
+000834: move.w  D0, $800122.l
+00083A: rts
+0005DC: jsr     $9d4be.l
+09D4BE: movem.l D0-D1/A0, -(A7)
+09D4C2: lea     ($47a,A5), A0
+09D4C6: move.b  ($2,A0), D1
+09D4CA: lsl.b   #1, D1
+09D4CC: move.b  ($20,A5), D0
+09D4D0: andi.b  #$1, D0
+09D4D4: bsr     $9d50a
+09D50A: bne     $9d516
+09D50E: bclr    #$0, D1
+09D512: bra     $9d51a
+09D51A: andi.b  #$f, D1
+09D51E: move.b  D1, ($2,A0)
+09D522: tst.b   ($0,A0)
+09D526: bne     $9d53a
+09D52A: cmpi.b  #$3, D1
+09D52E: bne     $9d5a2
+09D5A2: rts
+09D4D8: lea     ($48a,A5), A0
+09D4DC: move.b  ($2,A0), D1
+09D4E0: lsl.b   #1, D1
+09D4E2: move.b  ($20,A5), D0
+09D4E6: andi.b  #$2, D0
+09D4EA: bsr     $9d50a
+09D50A: bne     $9d516
+09D50E: bclr    #$0, D1
+09D512: bra     $9d51a
+09D51A: andi.b  #$f, D1
+09D51E: move.b  D1, ($2,A0)
+09D522: tst.b   ($0,A0)
+09D526: bne     $9d53a
+09D52A: cmpi.b  #$3, D1
+09D52E: bne     $9d5a2
+09D5A2: rts
+09D4EE: lea     ($49a,A5), A0
+09D4F2: move.b  ($2,A0), D1
+09D4F6: lsl.b   #1, D1
+09D4F8: move.b  ($20,A5), D0
+09D4FC: andi.b  #$4, D0
+09D500: bsr     $9d50a
+
+   (loops for 10 instructions)
+
+09D504: movem.l (A7)+, D0-D1/A0
+09D508: rts
+0005E2: lea     (-$7fae,A5), A0
+0005E6: move.w  #$f, D0
+0005EA: cmpi.b  #$1, ($0,A0)
+0005F0: bne     $602
+0005F4: subq.b  #1, ($1,A0)
+0005F8: bne     $602
+0005FC: move.b  #$4, ($0,A0)
+000602: lea     ($10,A0), A0
+000606: dbra    D0, $5ea
+0005EA: cmpi.b  #$1, ($0,A0)
+0005F0: bne     $602
+0005F4: subq.b  #1, ($1,A0)
+0005F8: bne     $602
+0005FC: move.b  #$4, ($0,A0)
+000602: lea     ($10,A0), A0
+000606: dbra    D0, $5ea
+
+   (loops for 59 instructions)
+
+00060A: movem.l (A7)+, D0-D7/A0-A6
+00060E: rte
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+000844: clr.b   (-$7eae,A5)
+000848: lea     (-$7fae,A5), A0
+00084C: move.w  #$f, D0
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+00096E: movem.l (A7)+, D0-D7/A0-A6
+000972: rts
+000A98: rts
+09D072: bra     $9d04c
+09D04C: bsr     $9d326
+09D326: move.b  ($1a,A5), D0
+09D32A: move.b  ($1f,A5), D1
+09D32E: eor.b   D0, D1
+09D330: and.b   D1, D0
+09D332: andi.b  #$80, D0
+09D336: beq     $9d386
+09D386: tst.b   ($472,A5)
+09D38A: bne     $9d3a6
+09D38E: lea     ($47a,A5), A0
+09D392: bsr     $9d3da
+09D3DA: move.b  ($1,A0), D0
+09D3DE: cmp.b   ($470,A5), D0
+09D3E2: bcs     $9d40c
+09D40C: rts
+09D396: lea     ($48a,A5), A0
+09D39A: bsr     $9d3da
+09D3DA: move.b  ($1,A0), D0
+09D3DE: cmp.b   ($470,A5), D0
+09D3E2: bcs     $9d40c
+09D40C: rts
+09D39E: lea     ($49a,A5), A0
+09D3A2: bra     $9d3da
+
+   (loops for 4 instructions)
+
+09D050: bsr     $9d40e
+09D40E: move.b  #$2c, D0
+09D412: tst.b   ($46b,A5)
+09D416: bne     $9d470
+09D41A: tst.b   ($472,A5)
+09D41E: beq     $9d43a
+09D43A: lea     ($47a,A5), A0
+09D43E: move.b  #$4, D0
+09D442: bsr     $9d45a
+09D45A: move.b  ($3,A0), D1
+09D45E: add.b   ($471,A5), D1
+09D462: cmpi.b  #$a, D1
+09D466: bcc     $9d470
+09D46A: or.b    D0, ($21,A5)
+09D46E: rts
+09D446: lea     ($48a,A5), A0
+09D44A: move.b  #$8, D0
+09D44E: bsr     $9d45a
+09D45A: move.b  ($3,A0), D1
+09D45E: add.b   ($471,A5), D1
+09D462: cmpi.b  #$a, D1
+09D466: bcc     $9d470
+09D46A: or.b    D0, ($21,A5)
+09D46E: rts
+09D452: lea     ($49a,A5), A0
+09D456: move.b  #$20, D0
+
+   (loops for 6 instructions)
+
+09D054: bsr     $9d478
+09D478: move.b  ($46f,A5), D0
+09D47C: beq     $9d496
+09D496: tst.b   ($46e,A5)
+09D49A: beq     $9d4aa
+09D4AA: rts
+09D058: bsr     $9d074
+09D074: tst.b   ($4cc,A5)
+09D078: bne     $9d194
+09D194: rts
+09D05C: jsr     $1827a.l
+01827A: tst.b   ($4cc,A5)
+01827E: beq     $18288
+018282: clr.w   ($4f6,A5)
+018286: rts
+09D062: bra     $9d5a4
+09D5A4: move.b  ($1a,A5), D0
+09D5A8: move.b  ($1f,A5), D1
+09D5AC: eor.b   D1, D0
+09D5AE: andi.b  #$40, D0
+09D5B2: beq     $9d066
+09D066: jsr     $a6b8a.l
+0A6B8A: subq.b  #1, ($75c2,A5)
+0A6B8E: beq     $a6b94
+0A6B92: rts
+09D06C: jsr     $a76.l
+000A76: moveq   #$1, D0
+000A78: bra     $a92
+000A92: jsr     $95a.l
+00095A: movem.l D0-D7/A0-A6, -(A7)
+00095E: move.w  D0, -(A7)
+000960: moveq   #$20, D0
+000962: moveq   #$0, D1
+000964: jsr     $a48.l
+000A48: movem.l D0-D2/A0, -(A7)
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00096A: move.w  (A7)+, D0
+00096C: trap    #$3
+000974: tst.b   ($4aa,A5)
+000978: beq     $98c
+00098C: movea.l (-$7ea8,A5), A0
+000990: move.w  #$100, D1
+000994: tst.b   D0
+000996: bne     $99e
+00099E: or.w    D1, D0
+0009A0: move.w  D0, ($0,A0)
+0009A4: move    USP, A1
+0009A6: move.l  A1, ($8,A0)
+0009AA: move.w  (A7)+, ($2,A0)
+0009AE: move.l  (A7)+, ($4,A0)
+0009B2: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+00096E: movem.l (A7)+, D0-D7/A0-A6
+000972: rts
+000A98: rts
+006D5C: bra     $6c5e
+006C5E: lea     ($3274,A5), A6
+006C62: lea     ($47a,A5), A4
+006C66: bsr     $6d60
+006D60: moveq   #$0, D0
+006D62: move.b  ($a2,A6), D0
+006D66: move.w  ($6,PC,D0.w), D0
+006D6A: jmp     ($2,PC,D0.w)
+0072EE: tst.b   ($0,A6)
+0072F2: bne     $732c
+00732C: rts
+006C6A: lea     ($33f4,A5), A6
+006C6E: lea     ($48a,A5), A4
+006C72: bsr     $6d60
+006D60: moveq   #$0, D0
+006D62: move.b  ($a2,A6), D0
+006D66: move.w  ($6,PC,D0.w), D0
+006D6A: jmp     ($2,PC,D0.w)
+006D7C: tst.b   ($4db,A5)
+006D80: bne     $6e28
+006D84: tst.b   ($0,A6)
+006D88: bne     $6dcc
+006D8C: tst.b   ($46b,A5)
+006D90: bne     $6dcc
+006D94: tst.b   ($472,A5)
+006D98: bne     $6db0
+006D9C: move.b  ($1,A4), D0
+006DA0: bne     $6dcc
+006DA4: move.b  ($3,A4), D0
+006DA8: bne     $6dcc
+006DAC: bra     $6dfc
+006DFC: tst.b   ($4db,A5)
+006E00: bne     $6e28
+006E04: move.b  ($4da,A5), D0
+006E08: andi.b  #$7f, D0
+006E0C: beq     $8050
+006E10: cmpi.b  #$30, D0
+006E14: beq     $80a2
+006E18: cmpi.b  #$3f, D0
+006E1C: beq     $8104
+006E20: cmpi.b  #$70, D0
+006E24: beq     $80a2
+006E28: rts
+006C76: tst.b   ($4cf,A5)
+006C7A: bne     $6c8a
+006C7E: lea     ($3574,A5), A6
+006C82: lea     ($49a,A5), A4
+006C86: bsr     $6d60
+
+   (loops for 4 instructions)
+
+006D7C: tst.b   ($4db,A5)
+006D80: bne     $6e28
+006D84: tst.b   ($0,A6)
+006D88: bne     $6dcc
+006D8C: tst.b   ($46b,A5)
+006D90: bne     $6dcc
+006D94: tst.b   ($472,A5)
+006D98: bne     $6db0
+006D9C: move.b  ($1,A4), D0
+006DA0: bne     $6dcc
+006DA4: move.b  ($3,A4), D0
+006DA8: bne     $6dcc
+006DAC: bra     $6dfc
+006DFC: tst.b   ($4db,A5)
+006E00: bne     $6e28
+006E04: move.b  ($4da,A5), D0
+006E08: andi.b  #$7f, D0
+006E0C: beq     $8050
+006E10: cmpi.b  #$30, D0
+006E14: beq     $80a2
+006E18: cmpi.b  #$3f, D0
+006E1C: beq     $8104
+006E20: cmpi.b  #$70, D0
+006E24: beq     $80a2
+006E28: rts
+006C8A: tst.b   ($4cd,A5)
+006C8E: bne     $6cb0
+006CB0: tst.b   ($4d7,A5)
+006CB4: bne     $6d4a
+006CB8: cmpi.b  #$4, ($3316,A5)
+006CBE: beq     $6d4a
+006CC2: cmpi.b  #$4, ($3496,A5)
+006CC8: beq     $6d4a
+006CCC: cmpi.b  #$6, ($3316,A5)
+006CD2: beq     $6d4a
+006D4A: tst.b   ($477,A5)
+006D4E: beq     $6d56
+006D56: jsr     $a76.l
+000A76: moveq   #$1, D0
+000A78: bra     $a92
+000A92: jsr     $95a.l
+00095A: movem.l D0-D7/A0-A6, -(A7)
+00095E: move.w  D0, -(A7)
+000960: moveq   #$20, D0
+000962: moveq   #$0, D1
+000964: jsr     $a48.l
+000A48: movem.l D0-D2/A0, -(A7)
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00096A: move.w  (A7)+, D0
+00096C: trap    #$3
+000974: tst.b   ($4aa,A5)
+000978: beq     $98c
+00098C: movea.l (-$7ea8,A5), A0
+000990: move.w  #$100, D1
+000994: tst.b   D0
+000996: bne     $99e
+00099E: or.w    D1, D0
+0009A0: move.w  D0, ($0,A0)
+0009A4: move    USP, A1
+0009A6: move.l  A1, ($8,A0)
+0009AA: move.w  (A7)+, ($2,A0)
+0009AE: move.l  (A7)+, ($4,A0)
+0009B2: bra     $898
+000898: movea.l (-$7eac,A5), A7
+00089C: movea.l (A7)+, A0
+00089E: move.w  (A7)+, D0
+0008A0: rts
+000866: move    #$2000, SR
+00086A: lea     ($10,A0), A0
+00086E: dbra    D0, $850
+000850: move    #$2600, SR
+000854: tst.b   (-$7eae,A5)
+000858: bne     $844
+00085A: move.b  ($0,A0), D1
+00085E: cmpi.b  #$4, D1
+000862: bcc     $874
+000874: pea     (-$10,PC) ; ($866)
+000878: move.w  D0, -(A7)
+00087A: move.l  A0, -(A7)
+00087C: move.l  A7, (-$7eac,A5)
+000880: move.l  A0, (-$7ea8,A5)
+000884: ext.w   D1
+000886: movea.l (PC,D1.w), A1
+00088A: jmp     (A1)
+0008A2: move.b  #$8, ($0,A0)
+0008A8: move.l  ($4,A0), -(A7)
+0008AC: move.w  ($2,A0), -(A7)
+0008B0: movea.l ($8,A0), A1
+0008B4: move    A1, USP
+0008B6: rte
+00096E: movem.l (A7)+, D0-D7/A0-A6
+000972: rts
+00A938: moveq   #$4d, D0
+00A93A: moveq   #$0, D1
+00A93C: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00A942: addq.w  #1, ($0,A5)
+00A946: addq.b  #1, ($4da,A5)
+00A94A: moveq   #$0, D0
+00A94C: move.b  ($4d0,A5), D0
+00A950: movea.l ($6,PC,D0.w), A0
+00A954: jsr     (A0)
+00AAF6: jsr     $186cc.l
+0186CC: tst.w   ($602,A5)
+0186D0: bne     $187b6
+0186D4: tst.b   ($4dd,A5)
+0186D8: bne     $187b6
+0186DC: tst.b   ($4d5,A5)
+0186E0: bne     $187b6
+0186E4: lea     ($5ec,A5), A6
+0186E8: move.w  ($744,A5), D0
+0186EC: cmp.w   ($6,A6), D0
+0186F0: bcc     $186fe
+0186FE: clr.w   ($6,A6)
+018702: subq.w  #1, ($c,A6)
+018706: bcc     $1872e
+01872E: tst.w   ($e,A6)
+018732: beq     $1875c
+01875C: tst.w   ($10,A6)
+018760: beq     $18782
+018782: tst.w   ($18,A6)
+018786: beq     $1878e
+01878E: tst.w   ($1a,A6)
+018792: beq     $1879a
+01879A: bsr     $18592
+018592: move.w  ($5f0,A5), D0
+018596: move.b  ($4ef,A5), D1
+01859A: bne     $185ac
+01859E: cmpi.w  #$18, D0
+0185A2: bls     $185d8
+0185D8: move.w  D0, ($5f0,A5)
+0185DC: move.w  ($5f0,A5), D0
+0185E0: move.w  D0, ($5ee,A5)
+0185E4: move.w  D0, D1
+0185E6: add.w   D0, D0
+0185E8: add.w   D1, D0
+0185EA: add.w   D0, D0
+0185EC: moveq   #$0, D1
+0185EE: move.b  ($4ef,A5), D2
+0185F2: beq     $18600
+018600: add.w   D1, D0
+018602: move.w  ($8,PC,D0.w), D1
+018606: move.w  D1, ($5ee,A5)
+01860A: rts
+01879E: tst.w   ($1c,A6)
+0187A2: beq     $187b6
+0187B6: rts
+00AAFC: jsr     $e90e.l
+00E90E: clr.w   ($77a0,A5)
+00E912: jsr     $3242e.l
+03242E: move.l  ($3358,A5), ($3354,A5)
+032434: move.l  ($34d8,A5), ($34d4,A5)
+03243A: move.l  ($3658,A5), ($3654,A5)
+032440: move.b  ($4fb,A5), ($4f3,A5)
+032446: moveq   #$0, D0
+032448: move.l  D0, ($3358,A5)
+03244C: move.l  D0, ($34d8,A5)
+032450: move.l  D0, ($3658,A5)
+032454: move.b  D0, ($4fb,A5)
+032458: moveq   #$17, D6
+03245A: lea     ($48f4,A5), A0
+03245E: lea     (A0), A1
+032460: lea     ($e0,A0), A0
+032464: tst.b   ($0,A1)
+032468: beq     $324ce
+0324CE: dbra    D6, $3245e
+03245E: lea     (A0), A1
+032460: lea     ($e0,A0), A0
+032464: tst.b   ($0,A1)
+032468: beq     $324ce
+0324CE: dbra    D6, $3245e
+
+   (loops for 99 instructions)
+
+03246C: move.b  ($7d,A1), D0
+032470: bmi     $324ce
+032474: cmpi.b  #$4, ($4,A1)
+03247A: bcc     $324ce
+
+   (loops for 5 instructions)
+
+03246C: move.b  ($7d,A1), D0
+032470: bmi     $324ce
+032474: cmpi.b  #$4, ($4,A1)
+03247A: bcc     $324ce
+03247E: addq.b  #1, ($4fb,A5)
+032482: tst.b   ($4,A1)
+032486: beq     $324ce
+03248A: movea.w ($76,A1), A2
+03248E: lea     ($3574,A5), A3
+032492: cmpa.l  A3, A2
+032494: beq     $324a6
+032498: lea     ($33f4,A5), A3
+03249C: cmpa.l  A3, A2
+03249E: beq     $324a6
+0324A2: lea     ($3274,A5), A2
+0324A6: addq.b  #1, ($e4,A2)
+0324AA: tst.b   D0
+0324AC: beq     $324b4
+0324B0: addq.b  #1, ($e5,A2)
+0324B4: move.w  ($8,A2), D1
+0324B8: cmp.w   ($8,A1), D1
+0324BC: bcs     $324ca
+0324CA: addq.b  #1, ($e7,A2)
+
+   (loops for 6 instructions)
+
+0324D2: rts
+00E918: moveq   #$50, D0
+00E91A: moveq   #$0, D1
+00E91C: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00E922: jsr     $18834.l
+018834: moveq   #$1, D0
+018836: jsr     $a2a.l
+000A2A: trap    #$c
+000A2E: tst.b   D0
+000A30: beq     $a3a
+000A34: ori.w   #$600, (A7)
+000A38: rte
+000A2C: rts
+01883C: move.b  ($16,A5), ($77a4,A5)
+018842: move.b  ($17,A5), ($77a5,A5)
+018848: move.b  ($18,A5), ($77a6,A5)
+01884E: tst.b   ($4cc,A5)
+018852: bne     $1887c
+01887C: moveq   #$0, D0
+01887E: jsr     $a2a.l
+000A2A: trap    #$c
+000A2E: tst.b   D0
+000A30: beq     $a3a
+000A3A: andi.w  #$f8ff, (A7)
+000A3E: rte
+000A2C: rts
+018884: jsr     $a502.l
+00A502: moveq   #$0, D0
+00A504: tst.b   ($3274,A5)
+00A508: beq     $a510
+00A50C: ori.b   #$4, D0
+00A510: tst.b   ($33f4,A5)
+00A514: beq     $a51c
+00A51C: tst.b   ($3574,A5)
+00A520: beq     $a528
+00A528: lea     ($10,PC,D0.w), A0
+00A52C: move.b  (A0)+, ($338c,A5)
+00A530: move.b  (A0)+, ($350c,A5)
+00A534: move.b  (A0)+, ($368c,A5)
+00A538: rts
+01888A: lea     ($3274,A5), A6
+01888E: tst.b   ($0,A6)
+018892: beq     $188a4
+018896: cmpi.b  #$e, ($2e,A6)
+01889C: beq     $188a4
+0188A0: bsr     $18952
+018952: tst.b   ($4aa,A5)
+018956: beq     $18968
+018968: move.b  ($a0,A6), ($a1,A6)
+01896E: moveq   #$0, D0
+018970: move.b  ($2,A6), D0
+018974: add.w   D0, D0
+018976: add.w   D0, D0
+018978: lea     (-$34,PC) ; ($18946), A0
+01897C: movea.l (A0,D0.w), A0
+018980: move.b  (A0), D0
+018982: move.b  D0, ($a0,A6)
+018986: move.b  ($a1,A6), D1
+01898A: eor.w   D0, D1
+01898C: and.w   D1, D0
+01898E: move.b  D0, ($a8,A6)
+018992: tst.b   ($4aa,A5)
+018996: beq     $189ce
+0189CE: move.b  ($4dd,A5), D0
+0189D2: beq     $189ee
+0189EE: tst.b   ($11a,A6)
+0189F2: beq     $18a02
+018A02: tst.b   ($518,A5)
+018A06: beq     $18a28
+018A28: tst.b   ($516,A5)
+018A2C: bne     $18a70
+018A30: moveq   #$0, D0
+018A32: move.b  ($4,A6), D0
+018A36: add.w   D0, D0
+018A38: movea.l ($38,PC,D0.w), A0
+018A3C: jsr     (A0)
+018CD4: move.w  ($ec,A6), D0
+018CD8: beq     $18d00
+018D00: move.b  ($f9,A6), D0
+018D04: beq     $18d22
+018D22: move.b  ($a0,A6), D0
+018D26: andi.w  #$10, D0
+018D2A: beq     $18d38
+018D38: move.b  D0, ($aa,A6)
+018D3C: move.b  ($ae,A6), D0
+018D40: beq     $18d4a
+018D4A: move.b  ($24,A6), D0
+018D4E: cmp.b   ($a7,A6), D0
+018D52: beq     $18d5e
+018D5E: addq.b  #1, ($ab,A6)
+018D62: bpl     $18d6c
+018D6C: move.b  ($bc,A6), D0
+018D70: beq     $18d7a
+018D74: subq.b  #1, D0
+018D76: move.b  D0, ($bc,A6)
+018D7A: move.b  ($b3,A6), D0
+018D7E: beq     $18d88
+018D88: tst.w   ($6c,A6)
+018D8C: bgt     $18dc6
+018DC6: move.w  ($f6,A6), D0
+018DCA: beq     $18ddc
+018DDC: move.b  ($cb,A6), D0
+018DE0: beq     $18df0
+018DF0: move.w  ($ce,A6), D0
+018DF4: beq     $18dfc
+018DFC: tst.b   ($c9,A6)
+018E00: beq     $18e08
+018E08: tst.b   ($f0,A6)
+018E0C: beq     $18e14
+018E14: tst.b   ($f8,A6)
+018E18: beq     $18e20
+018E20: tst.w   ($fa,A6)
+018E24: beq     $18e2c
+018E2C: cmpi.w  #$200, ($4,A6)
+018E32: bne     $18e40
+018E36: cmpi.b  #$2, ($6,A6)
+018E3C: beq     $18e4c
+018E40: tst.w   ($fc,A6)
+018E44: beq     $18e4c
+018E4C: clr.b   ($f1,A6)
+018E50: jsr     $6ac8.l
+006AC8: moveq   #$0, D0
+006ACA: move.b  ($f4,A6), D0
+006ACE: move.w  ($6,PC,D0.w), D0
+006AD2: jmp     ($2,PC,D0.w)
+006ADC: move.b  ($a1,A6), D0
+006AE0: cmp.b   ($a0,A6), D0
+006AE4: beq     $6af4
+006AE8: andi.w  #$f, D0
+006AEC: cmpi.b  #$4, D0
+006AF0: beq     $6af6
+006AF6: moveq   #$0, D1
+006AF8: move.b  ($3,A6), D1
+006AFC: lea     ($7e,PC) ; ($6b7c), A0
+006B00: move.b  (A0,D1.w), ($f5,A6)
+006B06: addq.b  #2, ($f4,A6)
+006B0A: rts
+018E56: tst.b   ($11c,A6)
+018E5A: beq     $18e6a
+018E6A: moveq   #$0, D0
+018E6C: move.b  ($5,A6), D0
+018E70: add.b   D0, D0
+018E72: movea.l ($2c,PC,D0.w), A0
+018E76: jsr     (A0)
+019090: tst.b   ($4dd,A5)
+019094: beq     $190b6
+0190B6: moveq   #$0, D0
+0190B8: move.b  ($6,A6), D0
+0190BC: move.w  ($6,PC,D0.w), D1
+0190C0: jmp     ($2,PC,D1.w)
+0190CA: cmpi.b  #$22, ($7,A6)
+0190D0: beq     $190e6
+0190D4: cmpi.b  #$e, ($7,A6)
+0190DA: beq     $190e6
+0190DE: tst.b   ($51,A6)
+0190E2: bne     $1a848
+0190E6: moveq   #$0, D0
+0190E8: move.b  ($7,A6), D0
+0190EC: move.w  ($6,PC,D0.w), D1
+0190F0: jmp     ($2,PC,D1.w)
+0192DE: tst.b   ($53,A6)
+0192E2: beq     $1931e
+01931E: jsr     $63aa.l
+0063AA: cmpi.w  #$1, ($6c,A6)
+0063B0: bls     $63dc
+0063B4: btst    #$4, ($a0,A6)
+0063BA: beq     $63c8
+0063C8: btst    #$5, ($a0,A6)
+0063CE: beq     $63dc
+0063DC: rts
+019324: cmpi.w  #$20a, ($b6,A6)
+01932A: beq     $19340
+01932E: tst.b   ($ad,A6)
+019332: bne     $19340
+019336: cmpi.b  #$2, ($f1,A6)
+01933C: beq     $1b6ec
+019340: move.b  ($a8,A6), D0
+019344: move.w  D0, D1
+019346: andi.w  #$10, D0
+01934A: beq     $19382
+019382: andi.w  #$20, D1
+019386: beq     $193a2
+0193A2: move.b  ($a0,A6), D0
+0193A6: andi.w  #$f, D0
+0193AA: beq     $19122
+019122: move.l  #$2000000, ($4,A6)
+01912A: moveq   #$0, D0
+01912C: move.w  D0, ($14,A6)
+019130: move.w  D0, ($16,A6)
+019134: move.w  D0, ($18,A6)
+019138: move.w  D0, ($1a,A6)
+01913C: move.w  D0, ($1c,A6)
+019140: move.w  D0, ($1e,A6)
+019144: move.b  D0, ($25,A6)
+019148: move.b  D0, ($c4,A6)
+01914C: move.b  D0, ($c1,A6)
+019150: move.b  #$0, ($c8,A6)
+019156: move.b  #$3c, ($72,A6)
+01915C: move.b  D0, ($23,A6)
+019160: moveq   #$0, D0
+019162: jsr     $5036.l
+005036: cmpi.w  #$20a, ($b6,A6)
+00503C: beq     $5052
+005040: ext.w   D0
+005042: add.w   D0, D0
+005044: add.w   D0, D0
+005046: add.w   ($20,A6), D0
+00504A: move.l  ($18,PC,D0.w), ($64,A6)
+005050: rts
+019168: jsr     $5bdc.l
+005BDC: move.w  ($b6,A6), D0
+005BE0: beq     $5c08
+005C08: clr.w   ($b4,A6)
+005C0C: clr.w   ($b6,A6)
+005C10: moveq   #$0, D0
+005C12: jmp     $13a0.l
+0013A0: lea     ($29c,PC) ; ($163e), A0
+0013A4: bra     $13d0
+0013D0: moveq   #$0, D1
+0013D2: move.b  ($3,A6), D1
+0013D6: add.w   D1, D1
+0013D8: add.w   D1, D1
+0013DA: movea.l (A0,D1.w), A0
+0013DE: add.w   D0, D0
+0013E0: move.w  (A0,D0.w), D0
+0013E4: adda.w  D0, A0
+0013E6: bra     $143e
+00143E: move.l  A0, ($28,A6)
+001442: move.w  (A0)+, D0
+001444: move.w  (A0)+, D1
+001446: move.l  (A0)+, D2
+001448: move.w  (A0)+, ($48,A6)
+00144C: move.w  (A0)+, ($60,A6)
+001450: andi.b  #$7f, D2
+001454: move.l  D2, ($2c,A6)
+001458: tst.w   D1
+00145A: bmi     $1460
+001460: btst    #$0, ($25,A6)
+001466: bne     $1476
+00146A: movea.l #$11d220, A1
+001470: move.l  (A1,D0.w), ($4c,A6)
+001476: or.w    D0, D0
+001478: rts
+01916E: tst.b   ($4dd,A5)
+019172: bne     $19190
+019176: tst.b   ($10e,A6)
+01917A: beq     $19190
+019190: tst.b   ($c9,A6)
+019194: bne     $1968e
+019198: jsr     $63aa.l
+0063AA: cmpi.w  #$1, ($6c,A6)
+0063B0: bls     $63dc
+0063B4: btst    #$4, ($a0,A6)
+0063BA: beq     $63c8
+0063C8: btst    #$5, ($a0,A6)
+0063CE: beq     $63dc
+0063DC: rts
+01919E: move.b  ($a8,A6), D0
+0191A2: move.w  D0, D1
+0191A4: tst.b   ($ad,A6)
+0191A8: bne     $194d4
+0191AC: andi.w  #$10, D0
+0191B0: beq     $191f0
+0191F0: andi.w  #$20, D1
+0191F4: beq     $19210
+019210: tst.b   ($b3,A6)
+019214: bne     $19222
+019218: cmpi.b  #$24, ($ae,A6)
+01921E: bcs     $1922a
+01922A: move.b  ($a0,A6), D0
+01922E: andi.w  #$f, D0
+019232: beq     $1927a
+01927A: tst.w   ($b6,A6)
+01927E: bne     $19290
+019282: tst.b   ($4dd,A5)
+019286: bne     $19290
+01928A: jmp     $1426.l
+001426: subq.b  #1, ($2f,A6)
+00142A: bne     $1476
+001476: or.w    D0, D0
+001478: rts
+018E78: tst.b   ($4f0,A5)
+018E7C: bne     $18e8a
+018E80: jsr     $12cac.l
+012CAC: bsr     $12cb4
+012CB4: moveq   #$0, D0
+012CB6: move.b  D0, ($50,A6)
+012CBA: move.b  D0, ($6b2,A5)
+012CBE: move.b  #$5, ($6b4,A5)
+012CC4: subq.b  #1, ($6b4,A5)
+012CC8: bmi     $12cd6
+012CCC: bsr     $12fe4
+012FE4: tst.b   ($4dc,A5)
+012FE8: bne     $13046
+012FEC: movea.l ($6ac,A5), A0
+012FF0: move.w  ($8,A6), D2
+012FF4: move.w  ($4,A0), D0
+012FF8: cmp.w   D2, D0
+012FFA: bge     $1302c
+01302C: move.b  ($a,A0), ($53,A6)
+013032: tst.w   (A0)
+013034: bne     $13056
+013038: move.b  ($7,A0), ($52,A6)
+01303E: move.w  ($8,A0), ($54,A6)
+013044: rts
+012CD0: bsr     $1309c
+01309C: move.w  ($8,A6), D0
+0130A0: move.w  ($10,A6), D1
+0130A4: add.w   ($54,A6), D1
+0130A8: clr.w   ($56,A6)
+0130AC: tst.b   ($4dc,A5)
+0130B0: beq     $130c0
+0130C0: move.w  D0, D2
+0130C2: andi.w  #$3f0, D2
+0130C6: lsl.w   #2, D2
+0130C8: move.w  D1, D3
+0130CA: move.w  #$3f0, D4
+0130CE: and.w   D4, D3
+0130D0: sub.w   D3, D4
+0130D2: move.w  D4, D3
+0130D4: andi.w  #$300, D3
+0130D8: lsl.w   #4, D3
+0130DA: andi.w  #$f0, D4
+0130DE: lsr.w   #2, D4
+0130E0: add.w   D4, D3
+0130E2: add.w   D3, D2
+0130E4: lea     $90c000.l, A0
+0130EA: move.w  ($2,A0,D2.w), D2
+0130EE: andi.w  #$fc00, D2
+0130F2: beq     $13134
+013134: or.w    D0, D0
+013136: rts
+012CD4: bcs     $12cc4
+012CD6: cmpi.b  #$c, ($82,A6)
+012CDC: beq     $12cf6
+012CE0: cmpi.w  #$202, ($4,A6)
+012CE6: beq     $12cf6
+012CEA: tst.b   ($4d5,A5)
+012CEE: bne     $12cf6
+012CF2: bsr     $12e9a
+012E9A: move.w  ($6a26,A5), D6
+012E9E: beq     $12fb6
+012FB6: rts
+012CF6: move.b  ($6b2,A5), D0
+012CFA: or.b    D0, ($50,A6)
+012CFE: tst.b   ($51,A6)
+012D02: bne     $12d2e
+012D06: move.w  ($54,A6), D0
+012D0A: add.w   ($56,A6), D0
+012D0E: move.w  ($c,A6), D1
+012D12: cmp.w   D1, D0
+012D14: beq     $12d4c
+012D4C: rts
+012CB0: bra     $1361e
+01361E: moveq   #$0, D0
+013620: move.b  ($3,A6), D0
+013624: add.w   D0, D0
+013626: move.w  ($7e,PC,D0.w), D1
+01362A: add.w   ($c,A6), D1
+01362E: add.w   ($10,A6), D1
+013632: move.w  ($8,A6), D0
+013636: tst.b   ($4dc,A5)
+01363A: beq     $13646
+013646: move.w  D0, D2
+013648: andi.w  #$3f0, D2
+01364C: lsl.w   #2, D2
+01364E: move.w  D1, D3
+013650: move.w  #$3f0, D4
+013654: and.w   D4, D3
+013656: sub.w   D3, D4
+013658: move.w  D4, D3
+01365A: andi.w  #$300, D3
+01365E: lsl.w   #4, D3
+013660: andi.w  #$f0, D4
+013664: lsr.w   #2, D4
+013666: add.w   D4, D3
+013668: add.w   D3, D2
+01366A: lea     $90c000.l, A0
+013670: move.w  ($2,A0,D2.w), D2
+013674: rol.w   #6, D2
+013676: andi.w  #$3f, D2
+01367A: lsl.w   #4, D2
+01367C: lea     ($8e,PC) ; ($1370c), A0
+013680: adda.w  D2, A0
+013682: cmpi.w  #$20, (A0)
+013686: bne     $136a4
+0136A4: rts
+018E86: bra     $18e90
+018E90: tst.b   ($506,A5)
+018E94: bne     $18e9e
+018E98: jmp     $4fce.l
+004FCE: tst.b   ($4dc,A5)
+004FD2: bne     $500c
+004FD6: move.w  ($8,A6), D0
+004FDA: sub.w   ($744,A5), D0
+004FDE: subi.w  #$10, D0
+004FE2: bmi     $4fea
+004FE4: subi.w  #$160, D0
+004FE8: bmi     $4fee
+004FEE: move.w  ($10,A6), D0
+004FF2: add.w   ($54,A6), D0
+004FF6: sub.w   ($748,A5), D0
+004FFA: subi.w  #$10, D0
+004FFE: bmi     $5006
+005000: subi.w  #$90, D0
+005004: bmi     $500a
+00500A: rts
+018A3E: tst.b   ($518,A5)
+018A42: bne     $18a70
+018A46: jsr     $4bc0.l
+004BC0: cmpi.w  #$3, ($6718,A5)
+004BC6: bcc     $4bd8
+004BCA: movea.w ($6720,A5), A4
+004BCE: move.w  A6, -(A4)
+004BD0: move.w  A4, ($6720,A5)
+004BD4: addq.w  #1, ($6718,A5)
+004BD8: rts
+018A4C: cmpi.b  #$12, ($c8,A6)
+018A52: beq     $18a60
+018A56: cmpi.b  #$e, ($2e,A6)
+018A5C: beq     $18a70
+018A60: btst    #$3, ($25,A6)
+018A66: bne     $18a70
+018A6A: jmp     $49ca.l
+0049CA: jsr     $16fa.l
+0016FA: move.w  ($8,A6), D0
+0016FE: move.w  ($c,A6), D1
+001702: add.w   ($10,A6), D1
+001706: tst.b   ($4dc,A5)
+00170A: bne     $1716
+00170E: sub.w   ($744,A5), D0
+001712: sub.w   ($748,A5), D1
+001716: addi.w  #$100, D0
+00171A: cmpi.w  #$380, D0
+00171E: bhi     $1736
+001722: addi.w  #$40, D1
+001726: cmpi.w  #$1c0, D1
+00172A: bhi     $1736
+00172E: move.b  #$1, ($1,A6)
+001734: rts
+0049D0: beq     $49e6
+0049D4: movea.w ($67c2,A5), A4
+0049D8: move.w  A6, -(A4)
+0049DA: move.w  ($10,A6), -(A4)
+0049DE: move.w  A4, ($67c2,A5)
+0049E2: addq.w  #1, ($67c0,A5)
+0049E6: rts
+0188A4: lea     ($33f4,A5), A6
+0188A8: tst.b   ($0,A6)
+0188AC: beq     $188be
+0188BE: lea     ($3574,A5), A6
+0188C2: tst.b   ($0,A6)
+0188C6: beq     $188d8
+0188D8: rts
+00E928: clr.w   ($69ee,A5)
+00E92C: lea     ($6a22,A5), A0
+00E930: move.w  A0, ($69f0,A5)
+00E934: clr.b   ($4fa,A5)
+00E938: moveq   #$49, D0
+00E93A: moveq   #$0, D1
+00E93C: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00E942: jsr     $233c6.l
+0233C6: lea     ($874,A5), A6
+0233CA: move.w  #$17, D7
+0233CE: tst.b   ($0,A6)
+0233D2: beq     $233d8
+0233D8: lea     ($c0,A6), A6
+0233DC: dbra    D7, $233ce
+0233CE: tst.b   ($0,A6)
+0233D2: beq     $233d8
+0233D8: lea     ($c0,A6), A6
+0233DC: dbra    D7, $233ce
+
+   (loops for 82 instructions)
+
+0233D4: bsr     $233e2
+0233E2: moveq   #$0, D0
+0233E4: move.w  ($20,A6), D0
+0233E8: movea.l ($6,PC,D0.l), A1
+0233EC: moveq   #$0, D0
+0233EE: jmp     (A1)
+02A028: move.b  ($4,A6), D0
+02A02C: move.w  ($6,PC,D0.w), D1
+02A030: jmp     ($2,PC,D1.w)
+02A0F4: move.b  ($5,A6), D0
+02A0F8: movea.l ($4,PC,D0.w), A0
+02A0FC: jmp     (A0)
+0249DC: tst.w   ($a4,A6)
+0249E0: beq     $249f4
+0249F4: jsr     $121e.l
+00121E: subq.b  #1, ($2f,A6)
+001222: bne     $1278
+001278: or.w    D0, D0
+00127A: rts
+0249FA: move.l  ($28,A6), ($30,A6)
+024A00: clr.b   ($23,A6)
+024A04: tst.b   ($2c,A6)
+024A08: beq     $24a12
+024A12: jsr     $4ac2.l
+004AC2: cmpi.b  #$1, ($0,A6)
+004AC8: bne     $4ada
+004ACC: movea.w ($69f0,A5), A4
+004AD0: move.w  A6, -(A4)
+004AD2: move.w  A4, ($69f0,A5)
+004AD6: addq.w  #1, ($69ee,A5)
+004ADA: rts
+024A18: jsr     $49ca.l
+0049CA: jsr     $16fa.l
+0016FA: move.w  ($8,A6), D0
+0016FE: move.w  ($c,A6), D1
+001702: add.w   ($10,A6), D1
+001706: tst.b   ($4dc,A5)
+00170A: bne     $1716
+00170E: sub.w   ($744,A5), D0
+001712: sub.w   ($748,A5), D1
+001716: addi.w  #$100, D0
+00171A: cmpi.w  #$380, D0
+00171E: bhi     $1736
+001722: addi.w  #$40, D1
+001726: cmpi.w  #$1c0, D1
+00172A: bhi     $1736
+00172E: move.b  #$1, ($1,A6)
+001734: rts
+0049D0: beq     $49e6
+0049D4: movea.w ($67c2,A5), A4
+0049D8: move.w  A6, -(A4)
+0049DA: move.w  ($10,A6), -(A4)
+0049DE: move.w  A4, ($67c2,A5)
+0049E2: addq.w  #1, ($67c0,A5)
+0049E6: rts
+024A1E: jsr     $4bda.l
+004BDA: movea.w ($6722,A5), A4
+004BDE: move.w  A6, -(A4)
+004BE0: move.w  A4, ($6722,A5)
+004BE4: addq.w  #1, ($671a,A5)
+004BE8: rts
+024A24: jmp     $173c.l
+00173C: tst.b   ($4dc,A5)
+001740: bne     $1782
+001744: move.w  ($8,A6), D0
+001748: sub.w   ($744,A5), D0
+00174C: addi.w  #$c0, D0
+001750: cmpi.w  #$300, D0
+001754: bcs     $175e
+00175E: rts
+0233D8: lea     ($c0,A6), A6
+0233DC: dbra    D7, $233ce
+0233CE: tst.b   ($0,A6)
+0233D2: beq     $233d8
+0233D8: lea     ($c0,A6), A6
+0233DC: dbra    D7, $233ce
+0233E0: rts
+00E948: clr.w   ($6a5a,A5)
+00E94C: lea     ($6a8e,A5), A0
+00E950: move.w  A0, ($6a5c,A5)
+00E954: clr.w   ($6a8e,A5)
+00E958: lea     ($6ac2,A5), A0
+00E95C: move.w  A0, ($6a90,A5)
+00E960: moveq   #$45, D0
+00E962: moveq   #$0, D1
+00E964: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00E96A: move.b  ($4f8,A5), ($4f9,A5)
+00E970: clr.b   ($4f8,A5)
+00E974: jsr     $23420.l
+023420: lea     ($48f4,A5), A6
+023424: move.w  #$17, D7
+023428: tst.b   ($0,A6)
+02342C: beq     $23436
+023436: lea     ($e0,A6), A6
+02343A: dbra    D7, $23428
+023428: tst.b   ($0,A6)
+02342C: beq     $23436
+023436: lea     ($e0,A6), A6
+02343A: dbra    D7, $23428
+
+   (loops for 78 instructions)
+
+02342E: bsr     $23440
+023440: rts
+023432: bsr     $2345e
+02345E: moveq   #$0, D0
+023460: move.w  ($20,A6), D0
+023464: movea.l ($6,PC,D0.l), A1
+023468: moveq   #$0, D0
+02346A: jmp     (A1)
+03383A: move.b  ($4,A6), D0
+03383E: move.w  ($6,PC,D0.w), D1
+033842: jmp     ($2,PC,D1.w)
+03484E: move.b  ($5,A6), D0
+034852: move.w  ($6,PC,D0.w), D1
+034856: jmp     ($2,PC,D1.w)
+03486E: move.w  ($80,A6), D0
+034872: subq.w  #1, D0
+034874: bcs     $34886
+034876: move.w  D0, ($80,A6)
+03487A: andi.w  #$1, D0
+03487E: beq     $3488a
+034880: jmp     $49ca.l
+0049CA: jsr     $16fa.l
+0016FA: move.w  ($8,A6), D0
+0016FE: move.w  ($c,A6), D1
+001702: add.w   ($10,A6), D1
+001706: tst.b   ($4dc,A5)
+00170A: bne     $1716
+00170E: sub.w   ($744,A5), D0
+001712: sub.w   ($748,A5), D1
+001716: addi.w  #$100, D0
+00171A: cmpi.w  #$380, D0
+00171E: bhi     $1736
+001722: addi.w  #$40, D1
+001726: cmpi.w  #$1c0, D1
+00172A: bhi     $1736
+00172E: move.b  #$1, ($1,A6)
+001734: rts
+0049D0: beq     $49e6
+0049D4: movea.w ($67c2,A5), A4
+0049D8: move.w  A6, -(A4)
+0049DA: move.w  ($10,A6), -(A4)
+0049DE: move.w  A4, ($67c2,A5)
+0049E2: addq.w  #1, ($67c0,A5)
+0049E6: rts
+
+   (loops for 4 instructions)
+
+02342E: bsr     $23440
+023440: rts
+023432: bsr     $2345e
+02345E: moveq   #$0, D0
+023460: move.w  ($20,A6), D0
+023464: movea.l ($6,PC,D0.l), A1
+023468: moveq   #$0, D0
+02346A: jmp     (A1)
+0457B0: move.b  ($4,A6), D0
+0457B4: move.w  ($6,PC,D0.w), D1
+0457B8: jmp     ($2,PC,D1.w)
+045CC4: jsr     $326f8.l
+0326F8: tst.b   ($50e,A5)
+0326FC: bne     $32702
+032700: rts
+045CCA: move.b  ($5,A6), D0
+045CCE: add.w   D0, D0
+045CD0: movea.l ($10,PC,D0.w), A0
+045CD4: jsr     (A0)
+045CF2: move.b  ($79,A6), D1
+045CF6: beq     $45d04
+045D04: moveq   #$0, D0
+045D06: move.b  ($6,A6), D0
+045D0A: move.w  ($30,PC,D0.w), D1
+045D0E: jsr     ($2c,PC,D1.w)
+046372: move.b  ($59,A6), D0
+046376: beq     $4638e
+04638E: moveq   #$0, D0
+046390: move.b  ($7,A6), D0
+046394: move.w  ($6,PC,D0.w), D0
+046398: jmp     ($2,PC,D0.w)
+046536: move.w  ($ae,A6), D0
+04653A: move.w  ($6,PC,D0.w), D0
+04653E: jmp     ($2,PC,D0.w)
+0466E2: tst.b   ($b0,A6)
+0466E6: beq     $466f8
+0466F8: tst.b   ($51,A6)
+0466FC: beq     $4670a
+0466FE: jsr     $189c.l
+00189C: moveq   #$0, D0
+00189E: move.w  ($14,A6), D0
+0018A2: add.w   ($1a,A6), D0
+0018A6: move.w  D0, ($14,A6)
+0018AA: swap    D0
+0018AC: asr.l   #8, D0
+0018AE: add.l   D0, ($8,A6)
+0018B2: moveq   #$0, D0
+0018B4: move.w  ($16,A6), D0
+0018B8: add.w   ($1c,A6), D0
+0018BC: move.w  D0, ($16,A6)
+0018C0: swap    D0
+0018C2: asr.l   #8, D0
+0018C4: add.l   D0, ($c,A6)
+0018C8: moveq   #$0, D0
+0018CA: move.w  ($18,A6), D0
+0018CE: add.w   ($1e,A6), D0
+0018D2: move.w  D0, ($18,A6)
+0018D6: swap    D0
+0018D8: asr.l   #8, D0
+0018DA: add.l   D0, ($10,A6)
+0018DE: rts
+046704: jmp     $121e.l
+00121E: subq.b  #1, ($2f,A6)
+001222: bne     $1278
+001278: or.w    D0, D0
+00127A: rts
+045D12: jsr     $12cb4.l
+012CB4: moveq   #$0, D0
+012CB6: move.b  D0, ($50,A6)
+012CBA: move.b  D0, ($6b2,A5)
+012CBE: move.b  #$5, ($6b4,A5)
+012CC4: subq.b  #1, ($6b4,A5)
+012CC8: bmi     $12cd6
+012CCC: bsr     $12fe4
+012FE4: tst.b   ($4dc,A5)
+012FE8: bne     $13046
+012FEC: movea.l ($6ac,A5), A0
+012FF0: move.w  ($8,A6), D2
+012FF4: move.w  ($4,A0), D0
+012FF8: cmp.w   D2, D0
+012FFA: bge     $1302c
+01302C: move.b  ($a,A0), ($53,A6)
+013032: tst.w   (A0)
+013034: bne     $13056
+013038: move.b  ($7,A0), ($52,A6)
+01303E: move.w  ($8,A0), ($54,A6)
+013044: rts
+012CD0: bsr     $1309c
+01309C: move.w  ($8,A6), D0
+0130A0: move.w  ($10,A6), D1
+0130A4: add.w   ($54,A6), D1
+0130A8: clr.w   ($56,A6)
+0130AC: tst.b   ($4dc,A5)
+0130B0: beq     $130c0
+0130C0: move.w  D0, D2
+0130C2: andi.w  #$3f0, D2
+0130C6: lsl.w   #2, D2
+0130C8: move.w  D1, D3
+0130CA: move.w  #$3f0, D4
+0130CE: and.w   D4, D3
+0130D0: sub.w   D3, D4
+0130D2: move.w  D4, D3
+0130D4: andi.w  #$300, D3
+0130D8: lsl.w   #4, D3
+0130DA: andi.w  #$f0, D4
+0130DE: lsr.w   #2, D4
+0130E0: add.w   D4, D3
+0130E2: add.w   D3, D2
+0130E4: lea     $90c000.l, A0
+0130EA: move.w  ($2,A0,D2.w), D2
+0130EE: andi.w  #$fc00, D2
+0130F2: beq     $13134
+013134: or.w    D0, D0
+013136: rts
+012CD4: bcs     $12cc4
+012CD6: cmpi.b  #$c, ($82,A6)
+012CDC: beq     $12cf6
+012CE0: cmpi.w  #$202, ($4,A6)
+012CE6: beq     $12cf6
+012CEA: tst.b   ($4d5,A5)
+012CEE: bne     $12cf6
+012CF2: bsr     $12e9a
+012E9A: move.w  ($6a26,A5), D6
+012E9E: beq     $12fb6
+012FB6: rts
+012CF6: move.b  ($6b2,A5), D0
+012CFA: or.b    D0, ($50,A6)
+012CFE: tst.b   ($51,A6)
+012D02: bne     $12d2e
+012D2E: move.w  ($54,A6), D0
+012D32: add.w   ($56,A6), D0
+012D36: cmp.w   ($c,A6), D0
+012D3A: ble     $12d4c
+012D4C: rts
+045D18: subq.b  #1, ($b8,A6)
+045D1C: bne     $45d30
+045D30: jsr     $49ca.l
+0049CA: jsr     $16fa.l
+0016FA: move.w  ($8,A6), D0
+0016FE: move.w  ($c,A6), D1
+001702: add.w   ($10,A6), D1
+001706: tst.b   ($4dc,A5)
+00170A: bne     $1716
+00170E: sub.w   ($744,A5), D0
+001712: sub.w   ($748,A5), D1
+001716: addi.w  #$100, D0
+00171A: cmpi.w  #$380, D0
+00171E: bhi     $1736
+001722: addi.w  #$40, D1
+001726: cmpi.w  #$1c0, D1
+00172A: bhi     $1736
+00172E: move.b  #$1, ($1,A6)
+001734: rts
+0049D0: beq     $49e6
+0049D4: movea.w ($67c2,A5), A4
+0049D8: move.w  A6, -(A4)
+0049DA: move.w  ($10,A6), -(A4)
+0049DE: move.w  A4, ($67c2,A5)
+0049E2: addq.w  #1, ($67c0,A5)
+0049E6: rts
+045D36: jmp     $4bea.l
+004BEA: movea.w ($6726,A5), A4
+004BEE: move.w  A6, -(A4)
+004BF0: move.w  A4, ($6726,A5)
+004BF4: addq.w  #1, ($671e,A5)
+004BF8: rts
+045CD6: jmp     $193e.l
+00193E: tst.b   ($518,A5)
+001942: bne     $173c
+001946: tst.b   ($4dc,A5)
+00194A: bne     $198c
+00194E: move.w  ($8,A6), D0
+001952: sub.w   ($744,A5), D0
+001956: addi.w  #$50, D0
+00195A: bmi     $1966
+00195E: subi.w  #$220, D0
+001962: bmi     $196a
+00196A: move.w  ($10,A6), D0
+00196E: add.w   ($56,A6), D0
+001972: add.w   ($54,A6), D0
+001976: sub.w   ($748,A5), D0
+00197A: bmi     $1986
+00197E: subi.w  #$100, D0
+001982: bmi     $198a
+00198A: rts
+023436: lea     ($e0,A6), A6
+02343A: dbra    D7, $23428
+023428: tst.b   ($0,A6)
+02342C: beq     $23436
+023436: lea     ($e0,A6), A6
+02343A: dbra    D7, $23428
+02343E: rts
+00E97A: jsr     $222d6.l
+0222D6: lea     ($755a,A5), A6
+0222DA: moveq   #$0, D0
+0222DC: move.b  ($0,A6), D0
+0222E0: move.w  ($6,PC,D0.w), D0
+0222E4: jmp     ($2,PC,D0.w)
+0222EE: move.b  ($2,A6), ($3,A6)
+0222F4: beq     $22388
+022388: move.w  ($860,A5), ($7b8,A5)
+02238E: clr.w   ($0,A6)
+022392: clr.b   ($3,A6)
+022396: rts
+00E980: moveq   #$53, D0
+00E982: moveq   #$0, D1
+00E984: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00E98A: jsr     $23604.l
+023604: lea     ($36f4,A5), A6
+023608: move.w  #$17, D7
+02360C: tst.b   ($0,A6)
+023610: beq     $23616
+023616: lea     ($c0,A6), A6
+02361A: dbra    D7, $2360c
+02360C: tst.b   ($0,A6)
+023610: beq     $23616
+023616: lea     ($c0,A6), A6
+02361A: dbra    D7, $2360c
+
+   (loops for 78 instructions)
+
+023612: bsr     $23620
+023620: moveq   #$0, D0
+023622: move.w  ($20,A6), D0
+023626: movea.l ($6,PC,D0.l), A1
+02362A: moveq   #$0, D0
+02362C: jmp     (A1)
+07BB68: tst.w   ($26,A6)
+07BB6C: bne     $7bd40
+07BB70: move.b  ($4,A6), D0
+07BB74: move.w  ($6,PC,D0.w), D0
+07BB78: jmp     ($2,PC,D0.w)
+07BB9A: move.w  ($4fe,A5), D0
+07BB9E: beq     $7bbec
+07BBA2: subq.w  #1, D0
+07BBA4: move.w  D0, ($4fe,A5)
+07BBA8: bne     $7bbec
+07BBEC: tst.b   ($5,A6)
+07BBF0: bne     $7bc1e
+07BBF4: tst.b   ($7b4,A5)
+07BBF8: bne     $7bc0e
+07BBFC: tst.b   ($4dd,A5)
+07BC00: bne     $7bc0e
+07BC04: tst.b   ($4d5,A5)
+07BC08: bne     $7bc0e
+07BC0C: rts
+
+   (loops for 4 instructions)
+
+023612: bsr     $23620
+023620: moveq   #$0, D0
+023622: move.w  ($20,A6), D0
+023626: movea.l ($6,PC,D0.l), A1
+02362A: moveq   #$0, D0
+02362C: jmp     (A1)
+081046: move.b  ($4,A6), D0
+08104A: move.w  ($6,PC,D0.w), D1
+08104E: jmp     ($2,PC,D1.w)
+0810BA: cmpi.w  #$300, ($4e8,A5)
+0810C0: bgt     $8114c
+0810C4: move.w  ($4e8,A5), D0
+0810C8: cmp.w   ($a0,A6), D0
+0810CC: beq     $8111e
+08111E: tst.b   ($4dd,A5)
+081122: bne     $8114c
+081126: tst.w   ($a2,A6)
+08112A: beq     $8114c
+08114C: rts
+
+   (loops for 6 instructions)
+
+02361E: rts
+00E990: moveq   #$66, D0
+00E992: moveq   #$0, D1
+00E994: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00E99A: jsr     $237b2.l
+0237B2: cmpi.w  #$30, ($65fa,A5)
+0237B8: beq     $237d6
+0237D6: rts
+00E9A0: moveq   #$6f, D0
+00E9A2: moveq   #$0, D1
+00E9A4: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+00E9AA: jsr     $188da.l
+0188DA: lea     ($3274,A5), A6
+0188DE: tst.b   ($0,A6)
+0188E2: beq     $18916
+0188E6: cmpi.b  #$e, ($2e,A6)
+0188EC: bne     $18916
+018916: lea     ($33f4,A5), A6
+01891A: tst.b   ($0,A6)
+01891E: beq     $18930
+018930: lea     ($3574,A5), A6
+018934: tst.b   ($0,A6)
+018938: beq     $188d8
+0188D8: rts
+00E9B0: move.w  ($6a22,A5), ($6a26,A5)
+00E9B6: move.w  ($6a24,A5), ($6a28,A5)
+00E9BC: clr.w   ($6a22,A5)
+00E9C0: lea     ($6a5a,A5), A0
+00E9C4: move.w  A0, ($6a24,A5)
+00E9C8: jsr     $670c.l
+00670C: tst.b   ($4dd,A5)
+006710: bne     $6900
+006714: lea     ($3274,A5), A6
+006718: bsr     $6728
+006728: tst.b   ($c1,A6)
+00672C: bne     $6900
+006730: btst    #$0, ($0,A6)
+006736: beq     $6900
+00673A: cmpi.w  #$20a, ($b6,A6)
+006740: beq     $6900
+006744: tst.b   ($11a,A6)
+006748: bne     $6900
+00674C: move.b  ($a0,A6), D0
+006750: beq     $6762
+006762: moveq   #$0, D0
+006764: move.b  ($2,A6), D0
+006768: lsl.w   #3, D0
+00676A: lea     (-$78,PC,D0.w), A1
+00676E: movea.l (A1)+, A0
+006770: btst    #$0, ($0,A0)
+006776: beq     $67e8
+0067E8: move.b  #$5a, ($c2,A6)
+0067EE: movea.l (A1)+, A0
+0067F0: btst    #$0, ($0,A0)
+0067F6: beq     $6866
+006866: move.b  #$5a, ($c3,A6)
+00686C: rts
+00671C: lea     ($33f4,A5), A6
+006720: bsr     $6728
+006728: tst.b   ($c1,A6)
+00672C: bne     $6900
+006730: btst    #$0, ($0,A6)
+006736: beq     $6900
+006900: rts
+006724: lea     ($3574,A5), A6
+
+   (loops for 4 instructions)
+
+006900: rts
+00E9CE: jsr     $100da.l
+0100DA: tst.b   ($4d5,A5)
+0100DE: bne     $10162
+0100E2: tst.b   (-$7134,A5)
+0100E6: beq     $10166
+010166: rts
+00E9D4: jsr     $1667e.l
+01667E: bsr     $166de
+0166DE: subq.b  #1, ($50b,A5)
+0166E2: bcc     $16702
+0166E4: tst.b   ($50a,A5)
+0166E8: bne     $166f2
+0166F2: move.b  #$5, ($50b,A5)
+0166F8: addq.b  #1, ($50a,A5)
+0166FC: andi.b  #$1, ($50a,A5)
+016702: rts
+016682: lea     ($3274,A5), A6
+016686: bsr     $166ae
+0166AE: tst.b   ($0,A6)
+0166B2: beq     $166c8
+0166B4: cmpi.w  #$f, ($6c,A6)
+0166BA: bgt     $166c8
+0166C8: tst.b   ($114,A6)
+0166CC: beq     $166d6
+0166D6: clr.b   ($114,A6)
+0166DA: or.w    D0, D0
+0166DC: rts
+01668A: bcc     $16690
+016690: lea     ($33f4,A5), A6
+016694: bsr     $166ae
+0166AE: tst.b   ($0,A6)
+0166B2: beq     $166c8
+0166C8: tst.b   ($114,A6)
+0166CC: beq     $166d6
+0166D6: clr.b   ($114,A6)
+0166DA: or.w    D0, D0
+0166DC: rts
+016698: bcc     $1669e
+01669E: lea     ($3574,A5), A6
+0166A2: bsr     $166ae
+
+   (loops for 7 instructions)
+
+0166A6: bcc     $166ac
+0166AC: rts
+00E9DA: jsr     $2042e.l
+02042E: cmpi.b  #$2, ($4d9,A5)
+020434: bne     $20448
+020448: jsr     $206d4.l
+0206D4: lea     ($73c,A5), A6
+0206D8: moveq   #$0, D0
+0206DA: move.b  ($4,A6), D0
+0206DE: move.w  ($6,PC,D0.w), D1
+0206E2: jmp     ($2,PC,D1.w)
+020898: cmpi.b  #$4, ($4d9,A5)
+02089E: bne     $208a4
+0208A4: cmpi.b  #$7, ($4d9,A5)
+0208AA: bne     $208b0
+0208B0: cmpi.b  #$e, ($5,A6)
+0208B6: beq     $20918
+0208BA: cmpi.b  #$f, ($5,A6)
+0208C0: beq     $20918
+0208C4: cmpi.b  #$1, ($5,A6)
+0208CA: beq     $20918
+0208CC: cmpi.b  #$12, ($5,A6)
+0208D2: beq     $20918
+0208D4: cmpi.b  #$9, ($5,A6)
+0208DA: beq     $20918
+0208DC: movea.l ($56,A6), A4
+0208E0: tst.b   ($79,A6)
+0208E4: bne     $20902
+0208E6: cmpi.b  #$6, ($4d9,A5)
+0208EC: bne     $208f6
+0208F6: move.w  ($0,A4), D0
+0208FA: cmp.w   ($8,A6), D0
+0208FE: bhi     $20918
+020918: bsr     $20a8c
+020A8C: move.w  #$0, D0
+020A90: move.w  #$ffff, D1
+020A94: move.w  #$0, D2
+020A98: move.w  #$ffff, D3
+020A9C: lea     $ffb274.l, A0
+020AA2: bsr     $20af2
+020AF2: tst.b   ($0,A0)
+020AF6: beq     $20b26
+020AF8: tst.b   ($4,A0)
+020AFC: beq     $20b26
+020AFE: move.w  ($54,A0), D4
+020B02: add.w   ($10,A0), D4
+020B06: cmp.w   D4, D2
+020B08: bcc     $20b0c
+020B0A: move.w  D4, D2
+020B0C: cmp.w   D4, D3
+020B0E: bls     $20b12
+020B10: move.w  D4, D3
+020B12: cmp.w   ($8,A0), D0
+020B16: bcc     $20b1c
+020B18: move.w  ($8,A0), D0
+020B1C: cmp.w   ($8,A0), D1
+020B20: bls     $20b26
+020B22: move.w  ($8,A0), D1
+020B26: rts
+020AA6: lea     $ffb3f4.l, A0
+020AAC: bsr     $20af2
+020AF2: tst.b   ($0,A0)
+020AF6: beq     $20b26
+020B26: rts
+020AB0: lea     $ffb574.l, A0
+020AB6: bsr     $20af2
+
+   (loops for 3 instructions)
+
+020ABA: cmp.w   ($8,A6), D1
+020ABE: bge     $20aca
+020ACA: move.b  ($3274,A5), D4
+020ACE: or.b    ($33f4,A5), D4
+020AD2: or.b    ($3574,A5), D4
+020AD6: beq     $20af0
+020AD8: move.w  D0, ($60,A6)
+020ADC: move.w  D2, ($62,A6)
+020AE0: move.w  D3, ($66,A6)
+020AE4: tst.w   D1
+020AE6: bpl     $20aec
+020AEC: move.w  D1, ($64,A6)
+020AF0: rts
+02091C: moveq   #$0, D0
+02091E: move.b  ($5,A6), D0
+020922: add.w   D0, D0
+020924: move.w  ($8,PC,D0.w), D0
+020928: jsr     ($4,PC,D0.w)
+020A18: bsr     $20a22
+020A22: bsr     $20b4c
+020B4C: tst.b   ($70,A6)
+020B50: bne     $20b60
+020B52: moveq   #$0, D0
+020B54: move.b  ($4ef,A5), D0
+020B58: add.w   D0, D0
+020B5A: move.w  ($6,PC,D0.w), ($50,A6)
+020B60: rts
+020A26: move.w  ($8,A6), ($14,A6)
+020A2C: move.w  ($60,A6), D0
+020A30: sub.w   ($8,A6), D0
+020A34: cmpi.w  #$40, D0
+020A38: bgt     $20a3c
+020A3C: cmp.w   ($50,A6), D0
+020A40: bcs     $20a68
+020A68: rts
+020A1A: bsr     $20b68
+020B68: tst.b   ($4b,A6)
+020B6C: beq     $20bf2
+020BF2: rts
+020A1E: bra     $2126e
+02126E: move.w  ($8,A6), D0
+021272: move.w  ($46,A6), D1
+021276: cmp.w   D0, D1
+021278: bcc     $21280
+021280: bsr     $21326
+021326: sub.w   D0, D1
+021328: cmpi.w  #$20, D1
+02132C: bmi     $21354
+021354: rts
+021284: move.w  ($c,A6), D0
+021288: move.w  ($48,A6), D1
+02128C: cmp.w   D0, D1
+02128E: bcc     $21298
+021298: bsr     $21386
+021386: sub.w   D0, D1
+021388: cmpi.w  #$20, D1
+02138C: bmi     $213b6
+0213B6: rts
+02129C: move.w  ($8,A6), D0
+0212A0: sub.w   ($46,A6), D0
+0212A4: bsr     $212ee
+0212EE: btst    #$f, D0
+0212F2: beq     $212f8
+0212F8: rts
+0212A8: cmpi.w  #$20, D0
+0212AC: bmi     $212c4
+0212C4: move.w  ($c,A6), D0
+0212C8: sub.w   ($48,A6), D0
+0212CC: bsr     $212ee
+0212EE: btst    #$f, D0
+0212F2: beq     $212f8
+0212F8: rts
+0212D0: cmpi.w  #$20, D0
+0212D4: bmi     $212ec
+0212EC: rts
+02092C: rts
+02044E: jmp     $22caa.l
+022CAA: lea     ($7dc,A5), A6
+022CAE: moveq   #$0, D0
+022CB0: move.b  ($4,A6), D0
+022CB4: move.w  ($6,PC,D0.w), D1
+022CB8: jmp     ($2,PC,D1.w)
+022D70: tst.w   ($8,A6)
+022D74: bpl     $22d7a
+022D7A: tst.w   ($c,A6)
+022D7E: bpl     $22d84
+022D84: moveq   #$0, D0
+022D86: move.b  ($741,A5), D0
+022D8A: add.w   D0, D0
+022D8C: move.w  ($6,PC,D0.w), D0
+022D90: jmp     ($2,PC,D0.w)
+022E0A: tst.b   ($7b5,A5)
+022E0E: bne     $22e50
+022E10: moveq   #$0, D1
+022E12: move.b  ($5f,A6), D1
+022E16: move.w  ($744,A5), D0
+022E1A: lsr.w   D1, D0
+022E1C: move.w  D0, ($8,A6)
+022E20: moveq   #$0, D0
+022E22: moveq   #$0, D2
+022E24: move.b  ($4d9,A5), D0
+022E28: add.w   D0, D0
+022E2A: add.w   D0, D0
+022E2C: move.b  ($786,A5), D2
+022E30: add.w   D2, D0
+022E32: move.b  ($20,PC,D0.w), D0
+022E36: beq     $22e50
+022E50: bra     $22ed2
+022ED2: move.w  ($8,A6), D0
+022ED6: move.w  ($46,A6), D1
+022EDA: cmp.w   D0, D1
+022EDC: bcc     $22ee4
+022EE4: bsr     $22f8e
+022F8E: sub.w   D0, D1
+022F90: cmpi.w  #$20, D1
+022F94: bmi     $22fc0
+022FC0: rts
+022EE8: move.w  ($c,A6), D0
+022EEC: move.w  ($48,A6), D1
+022EF0: cmp.w   D0, D1
+022EF2: bcc     $22efc
+022EFC: bsr     $22ff6
+022FF6: sub.w   D0, D1
+022FF8: cmpi.w  #$20, D1
+022FFC: bmi     $23026
+023026: rts
+022F00: move.w  ($8,A6), D0
+022F04: sub.w   ($46,A6), D0
+022F08: bsr     $22f52
+022F52: btst    #$f, D0
+022F56: beq     $22f5c
+022F5C: rts
+022F0C: cmpi.w  #$20, D0
+022F10: bmi     $22f28
+022F28: move.w  ($c,A6), D0
+022F2C: sub.w   ($48,A6), D0
+022F30: bsr     $22f52
+022F52: btst    #$f, D0
+022F56: beq     $22f5c
+022F5C: rts
+022F34: cmpi.w  #$20, D0
+022F38: bmi     $22f50
+022F50: rts
+00E9E0: jmp     $12c90.l
+012C90: movea.l ($6ac,A5), A0
+012C94: move.w  ($e,A0), D0
+012C98: cmp.w   ($744,A5), D0
+012C9C: blt     $12ca2
+012CA0: rts
+00AB02: jsr     $10546.l
+010546: moveq   #$43, D0
+010548: moveq   #$0, D1
+01054A: jsr     $a40.l
+000A40: movem.l D0-D2/A0, -(A7)
+000A44: bra     $a4c
+000A4C: tst.b   ($4aa,A5)
+000A50: beq     $a70
+000A70: movem.l (A7)+, D0-D2/A0
+000A74: rts
+010550: bsr     $10664
+010664: tst.b   ($4dd,A5)
+010668: bne     $106e0
+01066C: move.w  ($6718,A5), D7
+010670: beq     $106e0
+010674: movea.w ($6720,A5), A0
+010678: subq.w  #1, D7
+01067A: beq     $106e0
+0106E0: rts
+010554: tst.b   ($4dd,A5)
+010558: bne     $10572
+01055C: tst.b   ($4aa,A5)
+010560: beq     $1056e
+01056E: bsr     $10dcc
+010DCC: move.w  ($671a,A5), D7
+010DD0: beq     $10e32
+010DD4: movea.w ($6722,A5), A0
+010DD8: subq.w  #1, D7
+010DDA: swap    D7
+010DDC: movea.w (A0)+, A2
+010DDE: cmpi.b  #$4, ($2e,A2)
+010DE4: bne     $10e2c
+010E2C: swap    D7
+010E2E: dbra    D7, $10dda
+010E32: rts
+010572: bsr     $10f96
+010F96: move.w  ($671a,A5), D7
+010F9A: beq     $10ff0
+010F9E: movea.w ($6722,A5), A0
+010FA2: subq.w  #1, D7
+010FA4: swap    D7
+010FA6: movea.w (A0)+, A2
+010FA8: cmpi.b  #$4, ($2e,A2)
+010FAE: bne     $10fea
+010FEA: swap    D7
+010FEC: dbra    D7, $10fa4
+010FF0: rts
+010576: bsr     $1132a
+01132A: move.w  ($671a,A5), D7
+01132E: beq     $11384
+011332: movea.w ($6722,A5), A0
+011336: subq.w  #1, D7
+011338: swap    D7
+01133A: movea.w (A0)+, A2
+01133C: cmpi.b  #$4, ($2e,A2)
+011342: bne     $1137e
+01137E: swap    D7
+011380: dbra    D7, $11338
+011384: rts
+01057A: bsr     $107f8
+0107F8: move.w  ($6718,A5), D7
+0107FC: beq     $1081e
+010800: movea.w ($6720,A5), A0
+010804: subq.w  #1, D7
+010806: swap    D7
+010808: movea.w (A0)+, A2
+01080A: moveq   #$0, D0
+01080C: move.b  ($2e,A2), D0
+010810: move.w  ($e,PC,D0.w), D0
+010814: jmp     ($a,PC,D0.w)
+010830: bra     $108fa
+0108FA: move.b  ($49,A2), D0
+0108FE: beq     $1095e
+01095E: bra     $10818
+010818: swap    D7
+01081A: dbra    D7, $10806
+01081E: rts
+01057E: bsr     $10cd0
+010CD0: move.w  ($6718,A5), D7
+010CD4: beq     $10d14
+010CD8: movea.w ($6720,A5), A0
+010CDC: subq.w  #1, D7
+010CDE: swap    D7
+010CE0: movea.w (A0)+, A2
+010CE2: move.w  ($671c,A5), D7
+010CE6: beq     $10d0a
+010D0A: dbra    D7, $10cf0
+010D0E: swap    D7
+010D10: dbra    D7, $10cde
+010D14: rts
+010582: bsr     $11962
+011962: move.w  ($6718,A5), D7
+011966: beq     $119a6
+01196A: movea.w ($6720,A5), A0
+01196E: subq.w  #1, D7
+011970: swap    D7
+011972: movea.w (A0)+, A2
+011974: move.w  ($671a,A5), D7
+011978: beq     $1199c
+01197C: subq.w  #1, D7
+01197E: movea.w ($6722,A5), A1
+011982: movea.w (A1)+, A3
+011984: btst    #$0, ($0,A3)
+01198A: beq     $1199c
+01198E: moveq   #$0, D0
+011990: move.b  ($2e,A2), D0
+011994: move.w  ($12,PC,D0.w), D0
+011998: jsr     ($e,PC,D0.w)
+0119B8: rts
+01199C: dbra    D7, $11982
+0119A0: swap    D7
+0119A2: dbra    D7, $11970
+0119A6: rts
+010586: bsr     $11a9e
+011A9E: move.w  ($6718,A5), D7
+011AA2: beq     $11ac4
+011AA6: movea.w ($6720,A5), A0
+011AAA: subq.w  #1, D7
+011AAC: swap    D7
+011AAE: movea.w (A0)+, A2
+011AB0: moveq   #$0, D0
+011AB2: move.b  ($2e,A2), D0
+011AB6: move.w  ($e,PC,D0.w), D0
+011ABA: jmp     ($a,PC,D0.w)
+011AD6: bra     $11abe
+011ABE: swap    D7
+011AC0: dbra    D7, $11aac
+011AC4: rts
+01058A: bsr     $11f86
+011F86: move.w  ($6ac2,A5), D7
+011F8A: beq     $11fb6
+011FB6: rts
+01058E: bsr     $1201c
+01201C: move.w  ($671e,A5), D7
+012020: beq     $12068
+012024: movea.w ($6726,A5), A0
+012028: subq.w  #1, D7
+01202A: swap    D7
+01202C: movea.w (A0)+, A2
+01202E: tst.b   ($59,A2)
+012032: bne     $12062
+012036: move.w  ($6afc,A5), D7
+01203A: beq     $1205e
+01205E: dbra    D7, $12044
+012062: swap    D7
+012064: dbra    D7, $1202a
+012068: rts
+010592: bsr     $120d2
+0120D2: move.w  ($671a,A5), D7
+0120D6: beq     $1213c
+0120DA: movea.w ($6722,A5), A0
+0120DE: subq.w  #1, D7
+0120E0: swap    D7
+0120E2: movea.w (A0)+, A2
+0120E4: cmpi.b  #$4, ($2e,A2)
+0120EA: bne     $12136
+012136: swap    D7
+012138: dbra    D7, $120e0
+01213C: rts
+010596: bsr     $11e56
+011E56: move.w  ($6b64,A5), D7
+011E5A: beq     $11e9a
+011E9A: rts
+01059A: tst.b   ($518,A5)
+01059E: beq     $105c2
+0105C2: tst.b   ($4dd,A5)
+0105C6: bne     $105e4
+0105CA: tst.b   ($4aa,A5)
+0105CE: beq     $105dc
+0105DC: bsr     $115b0
+0115B0: move.w  ($671e,A5), D7
+0115B4: beq     $115fc
+0115B8: movea.w ($6726,A5), A0
+0115BC: subq.w  #1, D7
+0115BE: swap    D7
+0115C0: movea.w (A0)+, A2
+0115C2: tst.b   ($59,A2)
+0115C6: bne     $115f6
+0115CA: move.w  ($6718,A5), D7
+0115CE: beq     $115f2
+0115D2: subq.w  #1, D7
+0115D4: movea.w ($6720,A5), A1
+0115D8: movea.w (A1)+, A3
+0115DA: btst    #$1, ($0,A3)
+0115E0: bne     $115f2
+0115E4: moveq   #$0, D0
+0115E6: move.b  ($2e,A2), D0
+0115EA: move.w  ($12,PC,D0.w), D0
+0115EE: jsr     ($e,PC,D0.w)
+011612: tst.b   ($4dd,A5)
+011616: bne     $1163c
+01161A: moveq   #$0, D0
+01161C: move.b  ($49,A2), D0
+011620: beq     $1163c
+011624: moveq   #$0, D1
+011626: move.b  ($48,A3), D1
+01162A: beq     $1163c

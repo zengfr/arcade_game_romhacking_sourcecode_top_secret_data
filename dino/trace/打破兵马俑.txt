@@ -1,0 +1,58 @@
+F:               011A0A:bcc     $119f2
+T:               011A0C:move.b  ($5e,A2), ($5e,A3)
+
+T:               011A12:move.b  ($2,A2), ($2,A3)
+T:               011A18:clr.b   ($7a,A3)
+T:               011A1C:move.w  A2, ($68,A3)
+T:               011A20:move.w  ($20,A2), D0
+T:               011A24:movea.l #$a26fc, A4
+T:               011A2A:movea.l (A4,D0.w), A4
+T:               011A2E:moveq   #$0, D0
+T:               011A30:move.b  ($58,A2), D0
+T:               011A34:add.w   D0, D0
+T:               011A36:add.w   D0, D0
+T:               011A38:adda.w  D0, A4
+T:               011A3A:move.w  ($6c,A3), ($6e,A3)
+T:               011A40:move.b  (A4)+, D1
+T:               011A42:ext.w   D1
+T:               011A44:sub.w   D1, ($6c,A3)
+T:               011A48:bgt     $11a50
+T:               011A4C:clr.w   ($6c,A3)
+T:               011A50:move.b  (A4)+, D0
+T:               011A52:move.b  (A4)+, D0
+T:               011A54:move.b  D0, ($7b,A3)
+T:               011A58:move.b  D0, ($6,A3)
+T:               011A5C:clr.b   ($7,A3)
+T:               011A60:move.b  (A4), ($59,A3)
+T:               011A64:move.b  (A4)+, ($59,A2)
+T:               011A68:move.b  (A4)+, D0
+T:               011A6A:beq     $11a74
+T:               011A6E:jsr     $962a.l
+F:               0096A8:rts
+T:               011A74:move.b  (A4)+, D0
+T:               011A76:jsr     $ffc8.l
+F:               010034:rts
+T:               011A7C:move.b  (A4)+, D5
+T:               011A7E:move.b  (A4)+, ($9a,A3)
+T:               011A82:moveq   #$1, D5
+T:               011A84:bsr     $12720
+F:               0127FA:rts
+T:               011A88:moveq   #$0, D1
+T:               011A8A:move.w  ($8,A2), D0
+T:               011A8E:cmp.w   ($8,A3), D0
+T:               011A92:ble     $11a98
+T:               011A98:move.b  D1, ($24,A3)
+T:               011A9C:rts
+F:               024B7A:beq     $24c3a
+T:               024C3A:lea     ($874,A5), A0
+T:               024C3E:moveq   #$17, D0
+T:               024C40:tst.b   ($0,A0)
+T:               024C44:beq     $24cb0
+T:               024CB0:lea     ($c0,A0), A0
+T:               024CB4:dbra    D0, $24c40
+F:               024CB4:dbra    D0, $24c40
+T:               024C48:tst.w   ($20,A0)
+T:               024C4C:bne     $24cb0
+T:               024CB8:moveq   #$0, D0
+T:               024CBA:movea.l #$b64d2, A1
+T:               024CC0:bra     $24b56
